@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import Hero from './components/Hero'
 import About from './components/About'
 import Experience from './components/Experience'
@@ -10,6 +11,21 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
 function App() {
+    const [theme, setTheme] = useState(() => {
+        const saved = localStorage.getItem('theme')
+        if (saved) return saved
+        return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+    })
+
+    useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme)
+        localStorage.setItem('theme', theme)
+    }, [theme])
+
+    const toggleTheme = () => {
+        setTheme(prev => prev === 'dark' ? 'light' : 'dark')
+    }
+
     return (
         <>
             {/* Background Effects */}
@@ -17,7 +33,7 @@ function App() {
             <div className="noise-overlay"></div>
 
             {/* Navigation */}
-            <Navbar />
+            <Navbar theme={theme} toggleTheme={toggleTheme} />
 
             {/* Main Content */}
             <main>
