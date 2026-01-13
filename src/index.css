@@ -792,9 +792,10 @@ body {
 
 .project-header {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   margin-bottom: var(--space-4);
+  position: relative;
 }
 
 .project-icon {
@@ -811,6 +812,10 @@ body {
 .project-links {
   display: flex;
   gap: var(--space-3);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .project-link {
