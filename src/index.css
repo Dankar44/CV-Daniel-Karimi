@@ -86,7 +86,7 @@
   --transition-slow: 400ms ease;
 
   /* Container */
-  --container-max: 1200px;
+  --container-max: 1400px;
   --section-padding: var(--space-24);
 }
 
@@ -111,7 +111,7 @@ body {
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 var(--space-6);
+  padding: 0 var(--space-8);
 }
 
 .section {
