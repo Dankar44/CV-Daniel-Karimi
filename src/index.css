@@ -21,6 +21,7 @@
   --surface-hover: rgba(255, 255, 255, 0.06);
   --border: rgba(255, 255, 255, 0.08);
   --border-hover: rgba(255, 255, 255, 0.15);
+  --navbar-bg: rgba(10, 10, 15, 0.8);
 
   /* Text */
   --text-primary: #ffffff;
@@ -99,6 +100,7 @@
   --surface-hover: rgba(0, 0, 0, 0.06);
   --border: rgba(0, 0, 0, 0.08);
   --border-hover: rgba(0, 0, 0, 0.15);
+  --navbar-bg: rgba(255, 255, 255, 0.9);
 
   /* Text */
   --text-primary: #0f172a;
@@ -399,7 +401,7 @@ body {
   right: 0;
   z-index: 100;
   padding: var(--space-4) 0;
-  background: rgba(10, 10, 15, 0.8);
+  background: var(--navbar-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
