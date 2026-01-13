@@ -34,15 +34,15 @@ function Skills() {
             icon: '💻',
             title: 'Desarrollo & Lenguajes',
             skills: [
+                'C',
+                'Java',
                 'Python',
                 'JavaScript / TypeScript',
                 'React',
                 'Next.js',
                 'Node.js',
-                'HTML5 / CSS3',
-                'Java',
-                'C',
-                'SQL'
+                'SQL',
+                'HTML5 / CSS3'
             ]
         },
         {
