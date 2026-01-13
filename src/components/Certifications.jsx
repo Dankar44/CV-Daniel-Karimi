@@ -34,11 +34,18 @@ function Certifications() {
 
                 <div className="certifications-list">
                     {certifications.map((cert, index) => (
-                        <div key={index} className="certification-badge glass-card">
-                            <span className="certification-icon">{cert.icon}</span>
-                            <div className="certification-info">
-                                <span className="certification-name">{cert.name}</span>
-                                <span className="certification-issuer" style={{ marginTop: '4px' }}>{cert.issuer}</span>
+                        <div key={index} className="certification-badge glass-card" style={{
+                            flexDirection: 'column',
+                            textAlign: 'center',
+                            padding: 'var(--space-6)'
+                        }}>
+                            <span className="certification-icon" style={{
+                                display: 'block',
+                                marginBottom: 'var(--space-3)'
+                            }}>{cert.icon}</span>
+                            <div className="certification-info" style={{ textAlign: 'center' }}>
+                                <span className="certification-name" style={{ display: 'block' }}>{cert.name}</span>
+                                <span className="certification-issuer" style={{ display: 'block', marginTop: '6px' }}>{cert.issuer}</span>
                             </div>
                         </div>
                     ))}
