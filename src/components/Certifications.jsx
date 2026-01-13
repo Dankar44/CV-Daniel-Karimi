@@ -38,7 +38,7 @@ function Certifications() {
                             <span className="certification-icon">{cert.icon}</span>
                             <div className="certification-info">
                                 <span className="certification-name">{cert.name}</span>
-                                <span className="certification-issuer">{cert.issuer}</span>
+                                <span className="certification-issuer" style={{ marginTop: '4px' }}>{cert.issuer}</span>
                             </div>
                         </div>
                     ))}

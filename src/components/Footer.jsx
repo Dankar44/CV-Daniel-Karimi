@@ -5,9 +5,9 @@ function Footer() {
         <footer className="footer">
             <div className="container">
                 <p className="footer-text">
-                    © {currentYear} Guillermo Prieto Rodriguez. Diseñado y desarrollado con 💜
+                    © {currentYear} Guillermo Prieto Rodriguez
                     <br />
-                    <a href="https://github.com/guillermop2002/CV" target="_blank" rel="noopener noreferrer">
+                    <a href="https://github.com/guillermop2002/CV-Guillermo-Prieto-Rodriguez" target="_blank" rel="noopener noreferrer">
                         Ver código fuente
                     </a>
                 </p>
