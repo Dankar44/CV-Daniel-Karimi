@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 import AppEN from './AppEN.jsx'
+import PortfolioPage from './PortfolioPage.jsx'
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
@@ -11,6 +12,7 @@ createRoot(document.getElementById('root')).render(
             <Routes>
                 <Route path="/" element={<App />} />
                 <Route path="/english" element={<AppEN />} />
+                <Route path="/portfolio" element={<PortfolioPage />} />
             </Routes>
         </BrowserRouter>
     </StrictMode>,

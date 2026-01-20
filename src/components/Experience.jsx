@@ -2,7 +2,7 @@ function Experience() {
     const experiences = [
         {
             date: 'Enero 2025 - Enero 2026',
-            role: 'Ingeniero de Ciberseguridad en Prácticas',
+            role: 'Ingeniero de Ciberseguridad',
             company: 'Centro de Servicios Avanzados (CSA)',
             location: 'Madrid, España',
             description: [

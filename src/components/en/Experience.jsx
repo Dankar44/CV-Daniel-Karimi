@@ -2,7 +2,7 @@ function Experience() {
     const experiences = [
         {
             date: 'Oct 2024 - Present',
-            role: 'Cybersecurity Intern',
+            role: 'Cybersecurity Engineer',
             company: 'Cloud Security Alliance (CSA)',
             location: 'Madrid, Spain',
             description: [

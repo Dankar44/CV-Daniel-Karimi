@@ -21,6 +21,22 @@ function Projects() {
             demo: null
         },
         {
+            icon: '🔐',
+            badge: 'DevSecOps',
+            title: 'Golden Pipeline',
+            description: 'Pipeline CI/CD seguro con GitHub Actions que detecta y bloquea automáticamente código vulnerable antes de llegar a producción.',
+            details: 'Golden Pipeline demuestra un enfoque de seguridad "shift-left" integrando Gitleaks para detección de secretos y Semgrep para análisis SAST directamente en GitHub Actions. El pipeline falla automáticamente cuando detecta secretos hardcodeados, vulnerabilidades de inyección SQL, uso inseguro de eval() o verificación SSL deshabilitada, previniendo que código vulnerable llegue a producción.',
+            features: [
+                'Integración de Gitleaks detectando 6+ tipos de secretos',
+                'Análisis SAST con Semgrep para SQL Injection y vulnerabilidades',
+                'Bloqueo automático del pipeline ante problemas de seguridad',
+                'Reportes detallados de seguridad en cada commit'
+            ],
+            tech: ['GitHub Actions', 'Gitleaks', 'Semgrep', 'Python', 'CI/CD', 'SAST'],
+            github: 'https://github.com/guillermop2002/Golden-Pipeline',
+            demo: null
+        },
+        {
             icon: '🤖',
             badge: 'AI + RAG',
             title: 'AI Chatbot Widget',

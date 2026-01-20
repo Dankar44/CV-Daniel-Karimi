@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 function NavbarEN({ theme, toggleTheme }) {
     const [scrolled, setScrolled] = useState(false)
@@ -32,6 +33,7 @@ function NavbarEN({ theme, toggleTheme }) {
                     <li onClick={closeMenu}><a href="#about">About</a></li>
                     <li onClick={closeMenu}><a href="#experience">Experience</a></li>
                     <li onClick={closeMenu}><a href="#projects">Projects</a></li>
+                    <li onClick={closeMenu}><Link to="/portfolio" className="portfolio-nav-link">Portfolio</Link></li>
                     <li onClick={closeMenu}><a href="#skills">Skills</a></li>
                     <li onClick={closeMenu}><a href="#education">Education</a></li>
                     <li onClick={closeMenu}><a href="#contact">Contact</a></li>
