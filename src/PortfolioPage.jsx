@@ -11,6 +11,7 @@ function PortfolioPage() {
     })
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         document.documentElement.setAttribute('data-theme', theme)
     }, [theme])
 

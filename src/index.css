@@ -1493,7 +1493,6 @@ body {
 
 .portfolio-page {
   min-height: 100vh;
-  padding-top: var(--space-20);
 }
 
 .portfolio-hero {
