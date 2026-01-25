@@ -1,3 +1,5 @@
+import MobileSkillsStack from './MobileSkillsStack'
+
 function Skills() {
     const skillCategories = [
         {
@@ -90,7 +92,7 @@ function Skills() {
                     </h2>
                 </div>
 
-                <div className="skills-grid">
+                <div className="skills-grid desktop-skills">
                     {skillCategories.map((category, index) => (
                         <div key={index} className="skill-category glass-card">
                             <div className="skill-category-icon">{category.icon}</div>
@@ -102,6 +104,10 @@ function Skills() {
                             </div>
                         </div>
                     ))}
+                </div>
+
+                <div className="mobile-skills-container">
+                    <MobileSkillsStack categories={skillCategories} />
                 </div>
             </div>
         </section>

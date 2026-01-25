@@ -23,7 +23,7 @@ function Contact() {
                         >
                             <span className="contact-link-icon">📧</span>
                             <span className="contact-link-label">Email</span>
-                            <span className="contact-link-value">daniel.karimi.alvarez@gmail.com</span>
+                            <span className="contact-link-value">daniel.karimi.alvarez<br />@gmail.com</span>
                         </a>
 
                         <a
