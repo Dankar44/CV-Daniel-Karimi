@@ -1,34 +1,33 @@
 function Experience() {
     const experiences = [
         {
-            date: 'Enero 2025 - Enero 2026',
-            role: 'Ingeniero de Ciberseguridad',
-            company: 'Centro de Servicios Avanzados (CSA)',
+            date: 'Octubre 2025 - Enero 2026',
+            role: 'Ingeniero de Inteligencia Artificial (Prácticas)',
+            company: 'CSIC - Instituto de Tecnologías Físicas y de la Información (ITEFI)',
             location: 'Madrid, España',
             description: [
-                'Trabajo con herramientas del ecosistema CCN-CERT como LUCIA (Listado Unificado de Coordinación de Incidentes y Amenazas) para la gestión centralizada de ciberincidentes',
-                'Participación activa en el SOC (Security Operations Center) realizando monitorización 24/7 y análisis de eventos de seguridad mediante SIEM',
-                'Ejecución de análisis de vulnerabilidades y pruebas de penetración en infraestructuras críticas siguiendo metodologías OWASP y PTES',
-                'Desarrollo de scripts de automatización en Python para la detección y respuesta ante incidentes de seguridad',
-                'Implementación y auditoría de controles de seguridad según Esquema Nacional de Seguridad (ENS) e ISO 27001/27002',
-                'Elaboración de informes técnicos de seguridad y documentación de procedimientos para respuesta ante incidentes',
-                'Colaboración en la configuración y hardening de sistemas según guías CCN-STIC'
+                'Desarrollo de sistemas de Visión Artificial para automatización del análisis biológico: generación y curación de datasets de alta calidad para entrenamiento de redes neuronales YOLOv8',
+                'Implementación de pipelines de preprocesamiento de imágenes celulares: conversión de formatos, normalización y optimización del rango dinámico para clasificación automatizada',
+                'Anotación semántica y generación de Ground Truth mediante LabelMe: definición de taxonomías, etiquetado masivo de células y exportación a formatos compatibles con Deep Learning',
+                'Colaboración multidisciplinar con el grupo de investigación RESULT: traducción de requerimientos biológicos complejos a estructuras de datos interpretables por IA',
+                'Configuración de entornos de desarrollo con Anaconda/Python y gestión de dependencias para frameworks de Machine Learning (PyTorch, OpenCV)',
+                'Validación y optimización de modelos: análisis de métricas de rendimiento, refinamiento de datasets y mejora de la capacidad predictiva del sistema'
             ],
-            skills: ['LUCIA', 'SOC', 'SIEM', 'Pentesting', 'ISO 27001', 'ENS', 'Python', 'OWASP', 'CCN-STIC']
+            skills: ['YOLOv8', 'PyTorch', 'OpenCV', 'Python', 'LabelMe', 'Deep Learning', 'Computer Vision', 'Data Curation']
         },
         {
             date: 'Septiembre 2020 - Julio 2025',
-            role: 'Formación Especializada en Ciberseguridad',
-            company: 'Universidad Rey Juan Carlos',
+            role: 'Formación en Sistemas de Telecomunicación',
+            company: 'Universidad Politécnica de Madrid (ETSIT-UPM)',
             location: 'Madrid, España',
             description: [
-                'Especialización en Técnicas de Hacking: Explotación de vulnerabilidades, reconocimiento y escaneo con Burp Suite, Metasploit y Nmap',
-                'Pentesting avanzado: Etapas completas de un pentest, desarrollo de exploits y entornos web',
-                'Seguridad en Redes: Wireshark, Firewalls, IDS/IPS, seguridad en capa de red (IPSec)',
-                'Inteligencia Artificial aplicada a la seguridad: Machine Learning, Deep Learning y sistemas de decisión',
-                'Desarrollo Web Seguro: Buenas prácticas OWASP, prevención de inyecciones SQL, XSS y CSRF'
+                'Especialización en Procesado Digital de la Señal: Análisis espectral, filtrado digital, modulaciones y demodulaciones, algoritmos DSP en tiempo real',
+                'Sistemas de Radiocomunicación y RF: Diseño de antenas, propagación de ondas electromagnéticas, tecnología de alta frecuencia y sistemas de transmisión',
+                'Electrónica de Comunicaciones: Diseño de circuitos analógicos/digitales, microprocesadores, sistemas embebidos y diseño microelectrónico',
+                'Redes y Servicios de Telecomunicación: Arquitectura TCP/IP, protocolos de red, sistemas operativos y redes de ordenadores',
+                'Programación y Desarrollo: Algoritmos, estructuras de datos, programación orientada a objetos (C, Python) y sistemas de información'
             ],
-            skills: ['Burp Suite', 'Metasploit', 'Nmap', 'Wireshark', 'IDS/IPS', 'Machine Learning', 'OWASP Top 10']
+            skills: ['DSP', 'Antenas', 'RF', 'Microprocesadores', 'Redes TCP/IP', 'Electrónica', 'Python', 'C']
         }
     ]
 

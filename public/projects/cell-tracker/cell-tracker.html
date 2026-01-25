@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CellTracker - Documentación Técnica Completa</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #21262d;
+            --border: #30363d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent: #238636;
+            /* Changing accent to Green for CellTracker distinction */
+            --accent-soft: #2ea043;
+            --success: #3fb950;
+            --warning: #d29922;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding-top: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            /* Wider container for detailed info */
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(13, 17, 23, 0.95);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-content {
+            max-width: 95%;
+            margin: 0 60px;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2em;
+        }
+
+        .nav-logo img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .main-logo {
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* HEADER */
+        .header-section {
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(120deg, var(--text-primary), var(--accent-soft));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.3em;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
+
+        .badges-row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(35, 134, 54, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(35, 134, 54, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .status-banner {
+            background: rgba(210, 153, 34, 0.15);
+            border: 1px solid var(--warning);
+            color: #e3b341;
+            padding: 10px 20px;
+            border-radius: 6px;
+            margin: 20px auto;
+            max-width: 800px;
+            font-size: 0.9em;
+            display: inline-block;
+        }
+
+        .feature-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-top: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-img:hover {
+            transform: scale(1.02);
+            border-color: var(--accent);
+        }
+
+        /* SECTIONS */
+        section {
+            scroll-margin-top: 100px;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 2em;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-icon {
+            color: var(--accent);
+        }
+
+        h3 {
+            font-size: 1.4em;
+            color: var(--text-primary);
+            margin: 35px 0 20px 0;
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+        }
+
+        .sub-header {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 1.05em;
+            text-align: justify;
+        }
+
+        ul {
+            margin-bottom: 20px;
+            padding-left: 25px;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* CARDS & GRID */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 25px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .card h4 {
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* TIMELINE (PIPELINE) */
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            border-left: 2px solid var(--border);
+            margin-left: 15px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -47px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            background: var(--bg-primary);
+            border: 3px solid var(--accent);
+            border-radius: 50%;
+        }
+
+        .timeline-title {
+            color: var(--text-primary);
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* CODE & FILE TREE */
+        .code-block {
+            background: #0d1117;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.85em;
+            overflow-x: auto;
+            color: var(--success);
+            white-space: pre;
+            line-height: 1.5;
+            margin: 20px 0;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .file-tree {
+            font-family: 'Consolas', monospace;
+            color: var(--text-secondary);
+        }
+
+        .file-tree .dir {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .file-tree .file {
+            color: var(--text-primary);
+        }
+
+        .file-tree .comment {
+            color: #57606a;
+            font-style: italic;
+        }
+
+        /* TABLES */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.95em;
+        }
+
+        th {
+            text-align: left;
+            padding: 15px;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        td {
+            padding: 15px;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            margin-top: 80px;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* LAYOUT & SIDEBAR */
+        /* LAYOUT & SIDEBAR */
+        .doc-layout {
+            display: flex;
+            gap: 40px;
+            max-width: 95%;
+            margin: 0 60px;
+            /* Increased left separation as requested */
+            padding: 0;
+        }
+
+        /* Nav Tree Active State */
+        .nav-tree a.active {
+            color: var(--accent);
+            background: rgba(35, 134, 54, 0.1);
+            border-left-color: var(--accent);
+            font-weight: 600;
+        }
+
+        .sidebar {
+            width: 280px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 100px;
+            /* Offset for fixed navbar */
+            height: calc(100vh - 140px);
+            overflow-y: auto;
+            border-right: 1px solid var(--border);
+            padding-right: 20px;
+            display: none;
+            /* Hidden on mobile/tablet by default */
+        }
+
+        .content-area {
+            flex-grow: 1;
+            min-width: 0;
+            /* Prevents overflow issues */
+            max-width: 1200px;
+            /* Limit content width for readability */
+        }
+
+        @media (min-width: 1200px) {
+
+            /* Show only on Desktop (>1200px) */
+            .sidebar {
+                display: block;
+            }
+        }
+
+        /* Nav Tree Styles */
+        .nav-tree ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-tree li {
+            margin-bottom: 4px;
+        }
+
+        .nav-tree a {
+            display: block;
+            padding: 6px 12px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9em;
+            border-left: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .nav-tree a:hover {
+            color: var(--accent);
+            background: rgba(35, 134, 54, 0.05);
+            border-left-color: var(--accent-semitransparent);
+        }
+
+        .nav-tree .main-link {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 15px;
+        }
+
+        .nav-tree .sub-link {
+            padding-left: 24px;
+            font-size: 0.85em;
+            border-left: 1px solid var(--border);
+            margin-left: 12px;
+        }
+
+        .nav-tree .sub-link:hover {
+            border-left-color: var(--accent);
+        }
+
+        /* Scrollbar for sidebar */
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .sidebar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .sidebar::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#" class="nav-logo">
+                <img src="icono-celltracker.png" alt="Logo">
+                CellTracker
+            </a>
+            <div class="nav-links">
+                <a href="/portfolio">Volver al Portfolio</a>
+                <a href="#inicio">Inicio</a>
+                <a href="#problema">Contexto</a>
+                <a href="#arquitectura">Arquitectura</a>
+                <a href="#estructura">Estructura</a>
+                <a href="#pipeline">Pipeline</a>
+                <a href="#modulos">Módulos</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="doc-layout">
+
+        <!-- SIDEBAR INDEX -->
+        <aside class="sidebar">
+            <nav class="nav-tree">
+                <ul>
+                    <li><a href="#inicio" class="main-link">1. Inicio & Contexto</a></li>
+                    <li><a href="#problema" class="sub-link">1.1 Definición del Problema</a></li>
+
+                    <li><a href="#deteccion" class="main-link">2. Detección y Análisis</a></li>
+                    <li><a href="#backend" class="sub-link">2.1 Backend Inferencia</a></li>
+                    <li><a href="#morphology" class="sub-link">2.2 Morfología</a></li>
+                    <li><a href="#image-editor" class="sub-link">2.3 Editor de Imagen</a></li>
+                    <li><a href="#visualization" class="sub-link">2.4 Visualización</a></li>
+                    <li><a href="#metrics" class="sub-link">2.5 Métricas</a></li>
+
+                    <li><a href="#batch" class="main-link">3. Procesamiento Lotes</a></li>
+                    <li><a href="#responsive-ui" class="sub-link">3.1 UI Responsiva</a></li>
+                    <li><a href="#drawer" class="sub-link">3.2 Navegación Lotes</a></li>
+
+                    <li><a href="#rastreo" class="main-link">4. Rastreo y Dinámica</a></li>
+                    <li><a href="#interfaz-rastreo" class="sub-link">4.1 Interfaz Dual</a></li>
+                    <li><a href="#algoritmo-tracking" class="sub-link">4.2 Algoritmo Probabilístico</a></li>
+                    <li><a href="#validacion-cruzada" class="sub-link">4.3 Validación Cruzada</a></li>
+
+                    <li><a href="#arquitectura" class="main-link">5. Arquitectura</a></li>
+                    <li><a href="#estructura" class="sub-link">5.1 File Tree</a></li>
+                    <li><a href="#pipeline" class="sub-link">5.2 Pipeline</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="content-area">
+
+            <!-- HERO -->
+            <section id="inicio" class="header-section">
+                <div class="status-banner">
+                    🚀 <strong>Estado: Versión Alfa (TFG)</strong> — En desarrollo activo. Próxima publicación en
+                    revista
+                    científica (Feb/Mar 2026).
+                </div>
+                <img src="icono-celltracker.png" alt="Logo" class="main-logo">
+                <h1>CellTracker System</h1>
+                <p class="subtitle">Plataforma Modular de Segmentación y Conteo Celular basada en Visión por Computador
+                    e
+                    Inteligencia Artificial (YOLOv8-seg)</p>
+
+                <div class="badges-row">
+                    <span class="badge">Python 3.10+</span>
+                    <span class="badge">YOLOv8-seg</span>
+                    <span class="badge">PyTorch</span>
+                    <span class="badge">Trabajo Fin de Grado</span>
+                    <span class="badge">Scientific Research</span>
+                </div>
+            </section>
+
+            <!-- PROBLEMA Y SOLUCIÓN -->
+            <section id="problema">
+                <div class="section-title"><span class="section-icon">🔬</span> Contexto y Retos</div>
+                <div class="grid-2">
+                    <div class="card">
+                        <h4>⚠️ Reto Experimental</h4>
+                        <p>La cuantificación manual de cultivos celulares presenta múltiples dificultades en el entorno
+                            de
+                            laboratorio:</p>
+                        <ul>
+                            <li><strong>Diferenciación Visual:</strong> Dificultad para distinguir subtipos celulares
+                                con
+                                morfologías similares en microscopía de campo claro.</li>
+                            <li><strong>Volumen de Datos:</strong> Los experimentos de timelapse generan miles de
+                                imágenes
+                                imposibles de procesar manualmente.</li>
+                            <li><strong>Reproducibilidad:</strong> El conteo manual introduce variabilidad intra e
+                                inter-observador.</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>✅ Solución CellTracker</h4>
+                        <p>Un sistema integral que combina:</p>
+                        <ul>
+                            <li><strong>Deep Learning (YOLOv8):</strong> Para segmentación semántica de instancias
+                                robusta
+                                frente a ruido y artefactos.</li>
+                            <li><strong>Clasificación Dual:</strong> Distinción automática entre `celula_negra` (Clase
+                                0) y
+                                `celula_blanca` (Clase 1) con visualización coloreada.</li>
+                            <li><strong>Arquitectura Modular:</strong> Separación limpia entre entrenamiento, inferencia
+                                y
+                                análisis.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ESTRUCTURA PROYECTO -->
+            <section id="estructura">
+                <div class="section-title"><span class="section-icon">📂</span> Estructura del Proyecto (Reorganizada)
+                </div>
+                <p>El proyecto sigue una arquitectura de diseño modular para maximizar la mantenibilidad y
+                    escalabilidad. A
+                    continuación, se detalla el árbol de directorios completo:</p>
+
+                <div class="code-block file-tree">
+                    CellTracker/
+                    ├── 📁 <span class="dir">app/</span> <span class="comment"># NÚCLEO DE LA APLICACIÓN</span>
+                    │ ├── main.py <span class="comment"># Punto de entrada principal</span>
+                    │ │
+                    │ ├── 📁 <span class="dir">ui/</span> <span class="comment"># MÓDULOS DE INTERFAZ GRÁFICA</span>
+                    │ │ ├── deteccion.py <span class="comment"># UI para inferencia de imágenes individuales</span>
+                    │ │ ├── entrenamiento.py <span class="comment"># UI para configuración y lanzamiento de
+                        entrenamientos</span>
+                    │ │ └── secuencia.py <span class="comment"># UI para análisis secuencial/timelapse</span>
+                    │ │
+                    │ ├── 📁 <span class="dir">core/</span> <span class="comment"># LÓGICA DE NEGOCIO PESADA</span>
+                    │ │ ├── dataset_preparation.py <span class="comment"># Conversión: LabelMe JSON → YOLO Txt
+                        Polygon</span>
+                    │ │ └── model_training.py <span class="comment"># Wrapper de entrenamiento Ultralytics</span>
+                    │ │
+                    │ ├── 📁 <span class="dir">inference/</span> <span class="comment"># MOTORES DE INFERENCIA</span>
+                    │ │ ├── infer_v3.py <span class="comment"># Motor estable actual (Detección + Contornos)</span>
+                    │ │ └── infer_v5.py <span class="comment"># Versiones experimentales/futuras</span>
+                    │ │
+                    │ └── 📁 <span class="dir">utils/</span> <span class="comment"># UTILIDADES TRANSVERSALES</span>
+                    │ ├── cell_counter.py <span class="comment"># Algoritmos de conteo post-procesado</span>
+                    │ └── image_editor.py <span class="comment"># Herramientas de manipulación de imagen</span>
+                    │
+                    ├── 📁 <span class="dir">config/</span> <span class="comment"># CONFIGURACIÓN CENTRALIZADA</span>
+                    │ ├── dataset_config.yaml <span class="comment"># Rutas y definición de clases YOLO</span>
+                    │ ├── environment.yml <span class="comment"># Dependencias Conda</span>
+                    │ └── 📁 <span class="dir">user_settings/</span> <span class="comment"># Preferencias de usuario
+                        persistentes</span>
+                    │
+                    ├── 📁 <span class="dir">data/</span> <span class="comment"># GESTIÓN DE DATOS</span>
+                    │ ├── 📁 <span class="dir">raw/</span> <span class="comment"># Entradas crudas</span>
+                    │ ├── 📁 <span class="dir">dataset/</span> <span class="comment"># Dataset formateado para YOLO
+                        (train/val/test)</span>
+                    │ └── 📁 <span class="dir">annotated/</span> <span class="comment"># Archivos JSON de LabelMe
+                        originales</span>
+                    │
+                    ├── 📁 <span class="dir">models/</span> <span class="comment"># ALMACÉN DE MODELOS</span>
+                    │ ├── 📁 <span class="dir">pretrained/</span> <span class="comment"># Pesos base (Transfer
+                        Learning)</span>
+                    │ └── 📁 <span class="dir">trained/</span> <span class="comment"># Pesos resultantes de
+                        entrenamientos
+                        propios</span>
+                    │
+                    └── 📁 <span class="dir">outputs/</span> <span class="comment"># RESULTADOS GENERADOS</span>
+                    ├── 📁 <span class="dir">inference/</span> <span class="comment"># Salidas raw</span>
+                    └── 📁 <span class="dir">contoured/</span> <span class="comment"># Imágenes con overlays de
+                        segmentación</span>
+                </div>
+            </section>
+
+            <!-- PIPELINE -->
+            <section id="pipeline">
+                <div class="section-title"><span class="section-icon">⚡</span> Pipeline de Procesamiento IA</div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-title">1. Anotación y Preparación de Datos</div>
+                        <div>
+                            <ul>
+                                <li>Entrada: Imágenes de microscopía.</li>
+                                <li>Herramienta: <strong>LabelMe</strong> para generar polígonos JSON.</li>
+                                <li>Proceso: Script <code>dataset_preparation.py</code> convierte JSONs a formato
+                                    YOLO-SEG
+                                    (coordenadas normalizadas).</li>
+                                <li>Split: División automática en Train (80%), Val (10%), Test (10%).</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">2. Entrenamiento (Training Loop)</div>
+                        <div>
+                            <ul>
+                                <li>Modelo Base: <code>yolov8n-seg.pt</code> (Nano) para velocidad o superior para
+                                    precisión.</li>
+                                <li>Config: Definida en <code>dataset_config.yaml</code> (rutas y nombres de clases).
+                                </li>
+                                <li>Hiperparámetros: Épocas, Batch Size, Image Size (typ. 1024px).</li>
+                                <li>Output: Pesos optimizados (<code>best.pt</code>) guardados en
+                                    <code>models/trained/</code>.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">3. Inferencia y Segmentación</div>
+                        <div>
+                            <ul>
+                                <li>Carga del modelo entrenado.</li>
+                                <li>Predicción sobre nuevas imágenes no vistas.</li>
+                                <li>Generación de máscaras binarias para cada instancia detectada.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-title">4. Post-procesamiento y Visualización</div>
+                        <div>
+                            <ul>
+                                <li>Extracción de contornos con OpenCV (<code>cv2.findContours</code>).</li>
+                                <li><strong>Código de Color:</strong>
+                                    <ul>
+                                        <li>Clase 0 (`celula_negra`): Contorno <strong>BLANCO</strong> (RGB
+                                            255,255,255).
+                                        </li>
+                                        <li>Clase 1 (`celula_blanca`): Contorno <strong>VERDE</strong> (RGB 0,255,0).
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Exportación de imagen final y CSV de conteo.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MODULOS DETALLE -->
+            <section id="modulos">
+                <div class="section-title"><span class="section-icon">🛠️</span> Módulos Principales y Flujo de Trabajo
+                </div>
+
+                <!-- ENTRENAMIENTO -->
+                <h3>1. Entrenamiento de IA Personalizado</h3>
+                <div class="grid-2">
+                    <div>
+                        <p>El módulo de entrenamiento permite al investigador adaptar el sistema a tipos celulares
+                            específicos mediante un flujo guiado y robusto:</p>
+                        <ul>
+                            <li><strong>Configuración del Entorno:</strong> Verificación automática de dependencias
+                                (Python/Anaconda) y creación de estructuras de carpetas aisladas para cada experimento.
+                            </li>
+                            <li><strong>Etiquetado Asistido:</strong> Integración fluida con herramientas de anotación.
+                                El
+                                usuario define el número de células a rastrear y utiliza guías visuales (Apple-style)
+                                para
+                                rodear las células de interés.</li>
+                            <li><strong>Aseguramiento de Calidad (QA):</strong>
+                                <ul>
+                                    <li>Verificación de integridad de archivos JSON generados.</li>
+                                    <li>Detección automática de datos corruptos y herramientas de reconstrucción de
+                                        dataset.
+                                    </li>
+                                    <li>Configuración granular de características del dataset antes del procesamiento.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong>Generación del Modelo:</strong> Input de parámetros de entrenamiento y ejecución
+                                automatizada que resulta en un archivo de pesos optimizado <code>best.pt</code>.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="imagen1.png" alt="Interfaz de Entrenamiento y Configuración" class="feature-img">
+                        <p
+                            style="text-align: center; font-size: 0.85em; color: var(--text-secondary); margin-top: 5px;">
+                            Fig
+                            1. Panel de configuración y preparación del dataset.</p>
+                    </div>
+                </div>
+
+                <!-- DETECCION -->
+                <section id="modulos-deteccion">
+                    <h3>2. Detección y Análisis Avanzado</h3>
+                    <p>El núcleo de inferencia ofrece herramientas potentes para la segmentación precisa y el análisis
+                        cuantitativo. La interfaz se divide en módulos especializados que otorgan al usuario control
+                        total
+                        sobre el proceso.</p>
+
+                    <!-- 2.0 Overview -->
+                    <div class="tech-container" style="margin-bottom: 50px;">
+                        <h4>Vista General del Workspace</h4>
+                        <p>La clase principal <code>PantallaComparacion</code> orquesta la interfaz, dividiendo el flujo
+                            en
+                            tres paneles lógicos: parámetros (izquierda), viewport (centro) y resultados (derecha).</p>
+                        <img src="imagen2.png" alt="Vista General Detección" class="feature-img"
+                            style="margin-top: 20px;">
+                        <p class="img-caption"
+                            style="text-align: center; color: var(--text-secondary); font-size: 0.85em;">
+                            Fig 2.0. Interfaz general de detección.</p>
+                    </div>
+
+                    <!-- 2.1 Backend -->
+                    <div class="tech-container" style="margin-bottom: 50px;">
+                        <h4 id="backend"
+                            style="border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 15px; color: var(--accent);">
+                            2.1. Backend de Inferencia y "Script Injection"
+                        </h4>
+                        <p>
+                            La función core <code>ejecutar_inferencia_imagen</code> no solo llama al modelo YOLOv8, sino
+                            que
+                            orquesta un entorno de ejecución aislado mediante <code>subprocess</code>.
+                            Para permitir la modificación de parámetros morfológicos (Area, Growth, Smooth) sin alterar
+                            el
+                            código fuente, el sistema utiliza una técnica de <strong>Inyección de Script
+                                Dinámica</strong>:
+                        </p>
+                        <ul style="margin-bottom: 20px;">
+                            <li><strong>Generación de Overrides (`crear_script_temporal_con_overrides`):</strong>
+                                Antes de cada inferencia, el sistema lee el script base (e.g., <code>infer_v3.py</code>)
+                                y
+                                utiliza Expresiones Regulares (Regex) para sustituir al vuelo las constantes del
+                                diccionario
+                                <code>CARACS_DEFAULTS</code> por los valores de la UI.
+                                Se genera un archivo temporal <code>.tmp.py</code> que es el que realmente se ejecuta.
+                            </li>
+                            <li><strong>Aislamiento de Procesos:</strong>
+                                La inferencia corre en un proceso hijo independiente con <code>subprocess.Popen</code>
+                                (o
+                                <code>runpy</code> en versión congelada), pasando argumentos críticos por CLI:
+                                <code>--conf {0.001-0.99}</code>, <code>--imgsz 1280</code>, y
+                                <code>--weights best.pt</code>.
+                            </li>
+                            <li><strong>Gestión de Hilos (Threading):</strong>
+                                Para evitar congelar la interfaz Tkinter durante el forward pass (que puede tardar
+                                segundos
+                                en CPU), toda la llamada al backend se encapsula en un hilo demonio asíncrono.
+                            </li>
+                        </ul>
+                        <img src="imagen2.2.png" alt="Parámetros de Inferencia" class="feature-img"
+                            style="max-width: 300px; margin: 0 auto; display: block;">
+                        <p class="img-caption"
+                            style="text-align: center; color: var(--text-secondary); font-size: 0.85em;">
+                            Fig 2.1. Panel de configuración con inyección de parámetros en tiempo real.</p>
+                    </div>
+
+                    <!-- 2.2 Morphology -->
+                    <div class="tech-container" style="margin-bottom: 60px;">
+                        <h4 id="morphology"
+                            style="border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px; color: var(--accent);">
+                            2.2. Post-Procesamiento Morfológico Avanzado
+                        </h4>
+                        <div class="grid-2" style="align-items: center;">
+                            <div>
+                                <p style="margin-bottom: 15px;">
+                                    El motor de post-procesado refina las máscaras binarias crudas generadas por YOLOv8
+                                    para
+                                    garantizar contornos biológicamente plausibles.
+                                    Este paso es fundamental para corregir la segmentación de citoplasmas irregulares y
+                                    eliminar falsos positivos.
+                                    El sistema utiliza un pipeline de operaciones morfológicas secuenciales
+                                    configurables:
+                                </p>
+                                <ul style="margin-bottom: 20px;">
+                                    <li><strong>Filtrado Dimensional Inteligente:</strong>
+                                        Se aplican umbrales estrictos para descartar artefactos no celulares.
+                                        <ul>
+                                            <li><code>MIN_AREA_FINAL_CLS0</code> (Def: 800px): Descarta debris o
+                                                suciedad
+                                                menor al núcleo de una célula negra.</li>
+                                            <li><code>MAX_AREA_FINAL_CLS0</code> (Def: 50000px): Elimina grandes manchas
+                                                de
+                                                cultivo o artefactos de iluminación.</li>
+                                            <li><code>MIN_AREA_FINAL_CLS1</code> (Def: 8px): Umbral específico para
+                                                células
+                                                blancas pequeñas/brillantes.</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Algoritmo de Crecimiento de Semillas (Seed Growing):</strong>
+                                        Debido a que YOLO detecta mejor el núcleo denso que el citoplasma difuso,
+                                        implementamos un algoritmo iterativo:
+                                        <ul>
+                                            <li>Identifica "semillas" de alta confianza (<code>MIN_AREA_SEED=80</code>).
+                                            </li>
+                                            <li>Expande la máscara radialmente durante <code>GROW_ITERS</code> (20
+                                                ciclos)
+                                                con un radio de <code>GROW_RADIUS</code> (1px).</li>
+                                            <li>Esto permite "rellenar" la forma de la célula hasta sus bordes reales
+                                                sin
+                                                fusionarse con vecinas.</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Suavizado de Contornos (Smoothing):</strong>
+                                        Para evitar bordes pixelados ("efecto sierra"), se aplica un kernel de suavizado
+                                        (<code>SMOOTH_KERNEL=15</code>)
+                                        seguido de operaciones de Cierre (`CLOSE_ITERS`) para rellenar huecos internos
+                                        en la
+                                        máscara.
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <img src="imagen2.3.png" alt="Características Morfológicas" class="feature-img"
+                                    style="max-width: 280px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.3); display: block; margin: 0 auto;">
+                                <p class="img-caption"
+                                    style="text-align: center; color: var(--text-secondary); font-size: 0.85em; margin-top: 10px;">
+                                    Fig 2.2. Panel de control de constantes morfológicas en <code>deteccion.py</code>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2.3 Image Editor -->
+                    <div class="tech-container" style="margin-bottom: 60px;">
+                        <h4 id="image-editor"
+                            style="border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px; color: var(--accent);">
+                            2.3. Motor de Pre-Procesamiento y Edición de Imagen
+                        </h4>
+                        <div class="grid-2" style="align-items: center;">
+                            <div>
+                                <img src="imagen2.4.png" alt="Ajustes de Imagen" class="feature-img"
+                                    style="max-width: 280px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.3); display: block; margin: 0 auto;">
+                                <p class="img-caption"
+                                    style="text-align: center; color: var(--text-secondary); font-size: 0.85em; margin-top: 10px;">
+                                    Fig 2.3. Sliders de normalización de imagen (-100 a +100).
+                                </p>
+                            </div>
+                            <div>
+                                <p style="margin-bottom: 15px;">
+                                    Antes de pasar la imagen por la red neuronal, es crucial normalizar el histograma
+                                    para
+                                    maximizar el contraste entre célula y fondo.
+                                    El módulo <code>image_editor.py</code> proporciona un laboratorio fotográfico no
+                                    destructivo integrado en el pipeline de inferencia.
+                                    Los ajustes se aplican en tiempo real sobre el buffer de memoria, sin alterar el
+                                    archivo
+                                    original en disco.
+                                </p>
+                                <ul style="margin-bottom: 20px;">
+                                    <li><strong>Corrección Tonal (Rango Dinámico):</strong>
+                                        <ul>
+                                            <li><strong>Exposición y Brillo:</strong> Compensa imágenes subexpuestas
+                                                típicas
+                                                en microscopía de campo claro con baja luz.</li>
+                                            <li><strong>Contraste y Punto Negro:</strong> Aumenta la separación entre el
+                                                fondo grisáceo y las membranas celulares oscuras, facilitando la
+                                                detección
+                                                de bordes.</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Mejora de Detalles (Frecuencias Altas):</strong>
+                                        <ul>
+                                            <li><strong>Nitidez (Sharpness):</strong> Aplica máscaras de enfoque para
+                                                resaltar los límites celulares difusos.</li>
+                                            <li><strong>Definición (Clarity):</strong> Aumenta el contraste local
+                                                (mid-tone
+                                                contrast) para revelar estructuras internas sin quemar las altas luces.
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Reducción de Ruido:</strong>
+                                        El slider de <code>reduccion_ruido</code> aplica filtros de suavizado
+                                        preservador de
+                                        bordes (como Bilateral Filter)
+                                        para eliminar el granulado ISO de la cámara que podría confundirse con células
+                                        pequeñas (clase 1).
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2.4 Visualization -->
+                    <div class="tech-container" style="margin-bottom: 50px;">
+                        <h4 id="visualization"
+                            style="border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 15px; color: var(--accent);">
+                            2.4. Sistema de Visualización y State Machine
+                        </h4>
+                        <p>
+                            El layout central (<code>PantallaComparacion</code>) no es un simple visor estático, sino
+                            una
+                            máquina de estados compleja que gestiona múltiples capas de información (`view_mode`).
+                            Implementa una herramienta de comparación tipo "Wiper" (deslizante) gestionada por la
+                            función
+                            <code>_redibujar()</code>, que mezcla en tiempo real el buffer de entrada (`st["in"]`) con
+                            el de
+                            salida (`st["out"]`) basándose en la posición del slider (0.0 a 1.0).
+                        </p>
+                        <ul style="margin-bottom: 20px;">
+                            <li><strong>Modos de Visualización (`view_mode`):</strong>
+                                Controlados dinámicamente desde el panel lateral (<code>_set_view_mode</code>):
+                                <ul>
+                                    <li><code>contour</code>: Muestra solo los polígonos vectoriales (útil para revisar
+                                        precisión de bordes).</li>
+                                    <li><code>painted</code>: Carga los assets de <code>outputs/coloured</code> para un
+                                        relleno semántico sólido (Verde/Magenta).</li>
+                                    <li><code>num_contour</code> / <code>num_painted</code>: Superpone IDs únicos
+                                        generados
+                                        post-conteo (e.g. <code>#243</code>) para trazabilidad.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Navegación Vectorial:</strong>
+                                El canvas soporta <strong>Zoom & Pan</strong> nativo (`_zoom_steps`,
+                                `<Control-MouseWheel>`), permitiendo al usuario inspeccionar detalles sub-celulares sin
+                                    pérdida de calidad de renderizado.
+                            </li>
+                        </ul>
+                        <img src="imagen2.6.png" alt="Visualización" class="feature-img"
+                            style="max-width: 400px; margin: 0 auto; display: block;">
+                        <p class="img-caption"
+                            style="text-align: center; color: var(--text-secondary); font-size: 0.85em;">
+                            Fig 2.4. Comparativa de modos de visualización (Contornos vs. Máscaras).</p>
+                    </div>
+
+                    <!-- 2.5 Metrics -->
+                    <div class="tech-container" style="margin-bottom: 20px;">
+                        <h4 id="metrics"
+                            style="border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 15px; color: var(--accent);">
+                            2.5. Métricas y Cuantificación (CLI Parsing)
+                        </h4>
+                        <p>
+                            Para garantizar la reproducibilidad científica, el recuento no se realiza en la UI, sino
+                            delegando la tarea a un script CLI robusto (<code>cell_counter.py</code>).
+                            La interfaz captura el `stdout` de este proceso asíncrono y parsea los resultados mediante
+                            Regex
+                            para poblar la UI:
+                        </p>
+                        <ul style="margin-bottom: 20px;">
+                            <li><strong>Regex Parsing:</strong>
+                                Se buscan patrones robustos como <code>r"C[eé]lulas negras .*?:\s*(\d+)"</code> para
+                                extraer
+                                conteos fenotípicos fiables independientemente del idioma del sistema o encoding.
+                            </li>
+                            <li><strong>Componente `ttk.Treeview`:</strong>
+                                Los datos detallados de cada instancia (Área en px, Coordenadas X,Y) se vierten en una
+                                tabla
+                                interactiva.
+                                Esta tabla implementa una función de limpieza <code>_ensure_rows</code> y un sistema de
+                                <strong>Renderizado Diferido</strong> para manejar miles de filas sin congelar el
+                                scroll.
+                            </li>
+                            <li><strong>Trazabilidad Cruzada:</strong> Cada fila de la tabla está vinculada al ID único
+                                de
+                                la célula. Al seleccionar una fila, el visor salta automáticamente a esa célula
+                                (Cross-Highlighting).</li>
+                        </ul>
+                        <img src="imagen2.5.png" alt="Tabla de Resultados" class="feature-img"
+                            style="max-width: 400px; margin: 0 auto; display: block;">
+                        <p class="img-caption"
+                            style="text-align: center; color: var(--text-secondary); font-size: 0.85em;">
+                            Fig 2.5. Tabla de métricas y resultados por instancia.</p>
+                    </div>
+
+                    <!-- 3. Batch Processing -->
+                    <div class="tech-container"
+                        style="margin-top: 60px; padding-top: 40px; border-top: 1px dashed var(--border);">
+                        <h3 id="batch"
+                            style="border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-bottom: 20px; color: var(--accent);">
+                            3. Procesamiento por Lotes y Secuencias
+                        </h3>
+                        <p>
+                            Para experimentos <em>High-Throughput</em>, el sistema implementa un controlador específico
+                            en
+                            <code>deteccion_secuencia.py</code>.
+                            A diferencia del modo "Single Image" (`deteccion.py`), este módulo gestiona colas de
+                            archivos y
+                            añade componentes de navegación masiva.
+                        </p>
+
+                        <h4 id="responsive-ui"
+                            style="margin-top: 25px; margin-bottom: 15px; color: var(--text-primary); border-left: 3px solid var(--accent); padding-left: 10px;">
+                            3.1. Arquitectura de UI "Responsive" (Pseudo-Asíncrona)
+                        </h4>
+                        <p>
+                            El procesamiento de carpetas completas (centenas de imágenes) presenta el reto de no
+                            congelar la
+                            interfaz (GUI blocking) durante la ejecución.
+                            En lugar de un complejo sistema de Multi-Threading que podría causar Race Conditions con
+                            Tkinter, se implementó un bucle de eventos optimizado:
+                        </p>
+                        <ul style="margin-bottom: 20px;">
+                            <li><strong>Bucle con `update_idletasks`:</strong>
+                                La función <code>guardar_carpeta</code> itera sobre la lista de archivos de forma
+                                síncrona
+                                pero fuerza el refresco de la UI en cada ciclo.
+                                Esto permite que la barra de progreso (<code>ttk.Progressbar</code>) y el diálogo modal
+                                se
+                                rendericen suavemente sin necesidad de hilos paralelos.
+                            </li>
+                            <li><strong>Manejo de Excepciones Atómico:</strong>
+                                Cada iteración está encapsulada en un bloque <code>try/except</code> individual. Si una
+                                imagen está corrupta, el error se captura, se registra en una lista de fallos
+                                (<code>fail.append</code>), y el bucle continúa con la siguiente muestra.
+                            </li>
+                        </ul>
+
+                        <h4 id="drawer"
+                            style="margin-top: 25px; margin-bottom: 15px; color: var(--text-primary); border-left: 3px solid var(--accent); padding-left: 10px;">
+                            3.2. Navegación Visual y `BottomSequenceDrawer`
+                        </h4>
+                        <div class="grid-2" style="align-items: center;">
+                            <div>
+                                <p>
+                                    Se ha desarrollado un componente personalizado, <code>BottomSequenceDrawer</code>,
+                                    para
+                                    la gestión visual de los datasets:
+                                </p>
+                                <ul>
+                                    <li><strong>Ordenamiento Natural (`natural_key`):</strong>
+                                        Implementa lógica de ordenación humana (<code>img2.png</code> antes que
+                                        <code>img10.png</code>), resolviendo el problema del ordenamiento ASCII estándar
+                                        que
+                                        listaría <code>1, 10, 2</code>.
+                                    </li>
+                                    <li><strong>Galería de Miniaturas (Lazy Loading):</strong>
+                                        Un panel inferior deslizante muestra thumbnails generados al vuelo. Permite la
+                                        selección rápida de cualquier frame de la secuencia para inspección individual.
+                                    </li>
+                                    <li><strong>Persistencia de Contexto:</strong>
+                                        Al cambiar de imagen en la secuencia, se preservan todos los parámetros
+                                        morfológicos
+                                        y ajustes de edición, garantizando la consistencia del análisis en todo el lote.
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <img src="imagen3.png" alt="Procesamiento por Lotes" class="feature-img"
+                                    style="max-width: 100%; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+                                <p class="img-caption"
+                                    style="text-align: center; color: var(--text-secondary); font-size: 0.85em; margin-top: 10px;">
+                                    Fig 3.1. Drawer inferior navegando una secuencia de time-lapse.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 4. RASTREO (TRACKING) -->
+                <section id="rastreo">
+                    <div class="section-title"><span class="section-icon">⏱️</span> Rastreo y Dinámica Temporal</div>
+                    <p>
+                        El módulo de rastreo (<code>app.utils.tracker</code>) permite la reconstrucción de linajes
+                        celulares a través del tiempo.
+                        A continuación se detalla el flujo de operación de la interfaz <code>PantallaComparacion</code>,
+                        paso a paso.
+                    </p>
+
+                    <!-- 4.1 Interfaz y Carga -->
+                    <div class="tech-container" style="margin-bottom: 40px;">
+                        <h4 id="interfaz-rastreo"
+                            style="border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px; color: var(--accent);">
+                            4.1. Interfaz de Rastreo de Imágenes (PantallaComparacion)
+                        </h4>
+                        <p>
+                            El módulo de rastreo, encapsulado en la clase <code>PantallaComparacion</code>
+                            (<code>app/ui/rastreo.py</code>), gestiona la visualización concurrente de dos estados
+                            temporales ($T_0$ y $T_1$).
+                            La arquitectura de la UI se basa en un contenedor `tk.PanedWindow` con un Canvas central de
+                            renderizado de alto rendimiento.
+                        </p>
+                        <p>
+                            <strong>Selector de Carga (Figura 4.0):</strong>
+                            La entrada principal se gestiona mediante el botón "Elegir imagen", vinculado al método
+                            <code>_go_detectar_imagen</code>.
+                            Al seleccionar el par de imágenes, el sistema invoca
+                            <code>_cargar_imagenes(in_path, out_path)</code>, que inicializa la estructura de datos
+                            interna:
+                            una lista de diccionarios de estado <code>self.imagenes = [st0, st1]</code>. Cada
+                            diccionario `st` almacena:
+                            <code>in_full</code> (imagen original en RAM), <code>out_full</code> (máscara de
+                            segmentación), <code>out_path</code> (ruta al filesystem), y flags de estado como
+                            <code>needs_rescale</code>.
+                        </p>
+                        <img src="imagen4.png" alt="Interfaz General de Rastreo" class="feature-img"
+                            style="max-width: 600px; display: block; margin: 0 auto 20px auto;">
+                        <p class="img-caption"
+                            style="text-align: center; color: var(--text-secondary); margin-bottom: 30px;">Fig 4.0.
+                            Vista general de la interfaz `PantallaComparacion` inicializada.</p>
+
+                        <p>
+                            <strong>Gestión de Paneles (Figura 4.1):</strong>
+                            Para maximizar el área de trabajo, los paneles laterales implementan un mecanismo de colapso
+                            dinámico (Drawers).
+                            Las funciones <code>toggle_left_drawer</code> y <code>toggle_right_drawer</code> manipulan
+                            la anchura del frame (`config(width=target)`) entre las constantes
+                            <code>WIDTH_OPEN</code> (380px) y <code>WIDTH_CLOSED</code> (28px). Esto permite al usuario
+                            centrarse en la validación visual sin perder acceso a los controles.
+                        </p>
+                        <img src="imagen4.1.png" alt="Detalle de Controles" class="feature-img"
+                            style="max-width: 600px; display: block; margin: 0 auto 20px auto;">
+                        <p class="img-caption" style="text-align: center; color: var(--text-secondary);">Fig 4.1.
+                            Controles de carga y gestión de Drawers laterales.</p>
+                    </div>
+
+                    <!-- 4.2 Gestión de Activos y Errores -->
+                    <div class="tech-container" style="margin-bottom: 40px;">
+                        <h4
+                            style="border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px; color: var(--accent);">
+                            4.2. Árbol de Activos y Lógica de Gatekeeping
+                        </h4>
+                        <p>
+                            <strong>Jerarquía de Archivos (Figura 4.2):</strong>
+                            El panel derecho aloja un `ttk.Treeview` que refleja el estado del directorio de proyecto.
+                            Al cargar las imágenes, el método <code>_actualizar_recuento_desde_json</code> intenta
+                            parsear los reportes de conteo asociados.
+                            Es crucial notar la <strong>asimetría temporal</strong>:
+                        <ul style="margin-top: 5px; margin-bottom: 10px;">
+                            <li><strong>Imagen 1 ($T_0$):</strong> Al ser la base, su conteo es estático y se carga
+                                inmediatamente tras la inferencia.</li>
+                            <li><strong>Imagen 2 ($T_1$):</strong> Su identidad celular depende del rastreo. Por tanto,
+                                <em>antes</em> de ejecutar el algoritmo de tracking, sus metadatos de "conteo" son
+                                inexistentes o nulos.
+                            </li>
+                        </ul>
+                        </p>
+                        <img src="imagen4.2.png" alt="Lista de Imágenes Parcial" class="feature-img"
+                            style="max-width: 600px; display: block; margin: 0 auto 20px auto;">
+                        <p class="img-caption"
+                            style="text-align: center; color: var(--text-secondary); margin-bottom: 30px;">Fig 4.2.
+                            Árbol de archivos: Note la ausencia de datos numéricos para T1 (segunda imagen).</p>
+
+                        <p>
+                            <strong>Sistema de Prevención de Errores (Gatekeeper) (Figura 4.3):</strong>
+                            La integridad del pipeline se asegura mediante validaciones estrictas en los manejadores de
+                            eventos.
+                            Específicamente, el método <code>numerar_sobre_contornos_segunda</code> (Línea 1195 de
+                            `rastreo.py`) actúa como guardián.
+                            Cuando el usuario intenta activar la visualización de IDs en la segunda imagen (modos
+                            <code>num_contour</code> o <code>num_painted</code>),
+                            la función verifica la existencia del archivo JSON de predicción reescrito
+                            (`_reescrito.json`).
+                        </p>
+                        <p>
+                            Si el rastreo no se ha ejecutado (<code>empezar_rastrear</code> no ha sido invocado), el
+                            sistema intercepta la llamada y despliega un <code>messagebox.showwarning</code>.
+                            Esto previene excepciones de "Archivo no encontrado" y guía al usuario hacia el flujo
+                            correcto: primero rastrear, luego visualizar.
+                        </p>
+                        <img src="imagen4.3.png" alt="Mensaje de Error de Flujo" class="feature-img"
+                            style="max-width: 600px; display: block; margin: 0 auto;">
+                        <p class="img-caption" style="text-align: center; color: var(--text-secondary);">Fig 4.3.
+                            Excepción de flujo controlada: Intento de acceso a datos no computados.</p>
+                    </div>
+
+                    <!-- 4.3 Parametrización y Ejecución -->
+                    <div class="tech-container" style="margin-bottom: 40px;">
+                        <h4
+                            style="border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px; color: var(--accent);">
+                            4.3. Parametrización y Ejecución del Algoritmo
+                        </h4>
+
+                        <!-- Grid Layout for Image Left / Text Right -->
+                        <div class="grid-2"
+                            style="grid-template-columns: 2fr 3fr; align-items: start; gap: 40px; margin-bottom: 40px;">
+                            <div>
+                                <img src="imagen4.4.png" alt="Barra de Parámetros" class="feature-img"
+                                    style="max-width: 250px; display: block; margin: 0 auto;">
+                                <p class="img-caption"
+                                    style="text-align: center; color: var(--text-secondary); margin-top: 10px;">Fig 4.4.
+                                    Configuración.</p>
+                            </div>
+                            <div>
+                                <p style="margin-top: 0;">
+                                    <strong>Lógica de Botones y Estados de Visualización:</strong><br>
+                                    La barra de parámetros (<em>Figura 4.4</em>) también alberga los controles de
+                                    visualización ("Pintar", "Numerar").
+                                    Aquí reside una diferencia crítica de software:
+                                </p>
+                                <ul style="margin-bottom: 10px;">
+                                    <li><strong>Primera Imagen ($T_0$):</strong> Los botones <code>pintar_celulas</code>
+                                        y
+                                        <code>numerar_sobre_contornos</code> funcionan inmediatamente tras la carga, ya
+                                        que
+                                        la inferencia base genera los activos `_coloured.png` y `_count.png` de forma
+                                        síncrona.
+                                    </li>
+                                    <li><strong>Segunda Imagen ($T_1$):</strong> Los botones equivalentes (e.g.,
+                                        <code>numerar_sobre_contornos_segunda</code>) están <strong>bloqueados
+                                            lógicamente</strong>.
+                                        Si se pulsan antes del rastreo, el método <code>_set_view_mode</code> fallará
+                                        controladamente al buscar en <code>outputs/counts/</code>.
+                                        Solo tras ejecutar <code>empezar_rastrear</code>, que genera los archivos
+                                        <code>_contorno_v7_count.png</code> con IDs propagados, estos botones se vuelven
+                                        funcionales.
+                                    </li>
+                                </ul>
+                                <p style="font-size: 0.9em; color: var(--text-secondary);">
+                                    Este comportamiento no es un error, sino una consecuencia directa de la arquitectura
+                                    de
+                                    dependencia de datos del sistema.
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <p>
+                            Al pulsar el botón <strong>"Empezar Rastrear"</strong>, se ejecuta el algoritmo de
+                            <em>Probabilistic Centroid Matching</em>.
+                            La <strong>Figura 4.5</strong> confirma la ejecución exitosa: el sistema genera un dataset
+                            masivo de validación (en este ejemplo, <strong>516 imágenes</strong> o "crops"),
+                            que corresponden a cada célula detectada y su entorno local para análisis detallado.
+                        </p>
+                        <img src="imagen4.5.png" alt="Log de Ejecución Exitosa" class="feature-img"
+                            style="max-width: 600px; display: block; margin: 0 auto;">
+                        <p class="img-caption" style="text-align: center; color: var(--text-secondary);">Fig 4.5. Log de
+                            confirmación: Generación de 516 muestras de validación.</p>
+                    </div>
+
+                    <!-- 4.4 Resultados y Validación -->
+                    <div class="tech-container" style="margin-bottom: 20px;">
+                        <h4
+                            style="border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px; color: var(--accent);">
+                            4.4. Pipeline de Rastreo Célula a Célula
+                        </h4>
+
+                        <!-- Grid Layout: Figure 4.6 Left / Description Right -->
+                        <div class="grid-2"
+                            style="grid-template-columns: 1fr 2fr; align-items: start; gap: 40px; margin-bottom: 30px;">
+                            <div>
+                                <img src="imagen4.6.png" alt="Lista Completa de Resultados" class="feature-img"
+                                    style="max-width: 250px; display: block; margin: 0 auto;">
+                                <p class="img-caption"
+                                    style="text-align: center; color: var(--text-secondary); margin-top: 10px;">Fig 4.6.
+                                    Panel de resultados generados por el rastreador.</p>
+                            </div>
+                            <div>
+                                <p style="margin-top: 0;">
+                                    <strong>Orquestación del Rastreo (<code>empezar_rastrear</code>):</strong><br>
+                                    Al ejecutarse, el método <code>empezar_rastrear</code> realiza una secuencia crítica
+                                    de operaciones:
+                                </p>
+                                <ol style="margin-bottom: 15px; padding-left: 20px;">
+                                    <li><strong>Limpieza de Entorno:</strong> Se invocan funciones robustas de limpieza
+                                        (basadas en <code>shutil.rmtree</code>) para purgar los directorios
+                                        <code>outputs/tracker</code> y <code>outputs/prediction_number</code>. Esto
+                                        garantiza que no se mezclen resultados de ejecuciones previas.
+                                    </li>
+                                    <li><strong>Validación de Entradas:</strong> Se verifica la existencia del fichero
+                                        JSON (<code>{orig_stem}__contorno_v7.json</code>) y la imagen de salida
+                                        (<code>out_path</code>) para ambas imágenes temporales.</li>
+                                    <li><strong>Generación Masiva de Micro-Imágenes (Crops):</strong>
+                                        Este es el paso central del pipeline. El algoritmo recorre el JSON de
+                                        predicción,
+                                        que contiene las coordenadas de <em>cada célula individual</em> detectada en
+                                        $T_0$.
+                                        Para cada entrada:
+                                        <ul style="margin-top: 8px; margin-bottom: 8px;">
+                                            <li>Se carga la <strong>imagen principal completa</strong> (la contorneada o
+                                                coloreada).</li>
+                                            <li>Se dibuja un <strong>círculo de resaltado</strong> (marcador visual)
+                                                alrededor del centroide de esa célula específica.</li>
+                                            <li>Se guarda esta imagen modificada como un fichero independiente en
+                                                <code>outputs/tracker/</code>.
+                                            </li>
+                                        </ul>
+                                        Por tanto, si la imagen contiene 258 células, se generarán <strong>2 × 258 = 516
+                                            imágenes</strong> (una por célula en $T_0$ y otra en $T_1$), permitiendo
+                                        auditar visualmente el emparejamiento célula a célula.
+                                    </li>
+                                    <li><strong>Asociación Probabilística:</strong> Se ejecuta el módulo
+                                        <code>tracker.py</code>, que calcula la similitud probabilística (basada en
+                                        distancia euclidiana y proporción de área) entre células de $T_0$ y $T_1$,
+                                        asignando IDs persistentes.
+                                    </li>
+                                </ol>
+                                <p style="font-size: 0.9em; color: var(--text-secondary);">
+                                    El resultado de este proceso es la lista de archivos de la <em>Figura 4.6</em>:
+                                    cientos de micro-imágenes que documentan, una a una, cada célula rodeada sobre la
+                                    imagen original.
+                                    Este enfoque de "una imagen por célula" proporciona una trazabilidad completa y
+                                    facilita la revisión manual del rastreo.
+                                </p>
+                            </div>
+                        </div>
+
+                        <p>
+                            El resultado final se visualiza en la <strong>Figura 4.7</strong>. Ahora, la segunda imagen
+                            ($T_1$) muestra las células <strong>numeradas</strong>.
+                            Los IDs asignados corresponden a sus células "madre" en $T_0$, calculados con un margen de
+                            confianza o probabilidad de asociación (en este caso, cercano al <strong>85%</strong>).
+                        </p>
+                        <img src="imagen4.7.png" alt="Resultado de Trazabilidad" class="feature-img"
+                            style="max-width: 600px; display: block; margin: 0 auto 30px auto;">
+                        <p class="img-caption"
+                            style="text-align: center; color: var(--text-secondary); margin-bottom: 30px;">Fig 4.7.
+                            Transferencia de IDs a T1 con un 85% de similitud probabilística.</p>
+
+                        <p>
+                            Finalmente, las <strong>Figuras 4.8 y 4.9</strong> sirven para la validación comparativa
+                            completa. Gracias a que el rastreo ha concluido,
+                            ahora es posible visualizar tanto la Imagen 1 como la Imagen 2 con todas sus capas de datos:
+                            numeración, contornos vectoriales y máscaras de pintura sólida,
+                            permitiendo certificar la consistencia biológica del rastreo.
+                        </p>
+                        <div class="grid-2" style="align-items: center;">
+                            <div>
+                                <img src="imagen4.8.png" alt="Validación T0" class="feature-img">
+                                <p class="img-caption" style="text-align: center; color: var(--text-secondary);">Fig
+                                    4.8. Vista completa validada de Tiempo 0.</p>
+                            </div>
+                            <div>
+                                <img src="imagen4.9.png" alt="Validación T1" class="feature-img">
+                                <p class="img-caption" style="text-align: center; color: var(--text-secondary);">Fig
+                                    4.9. Vista completa validada de Tiempo 1.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- TECNOLOGIA -->
+                <section id="arquitectura">
+                    <div class="section-title"><span class="section-icon">🧠</span> Stack Tecnológico</div>
+                    <table>
+                        <tr>
+                            <th>Componente</th>
+                            <th>Tecnología Principal</th>
+                            <th>Uso en el Proyecto</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Detección</strong></td>
+                            <td>Ultralytics YOLOv8</td>
+                            <td>SOTA (State of the Art) en segmentación de instancias en tiempo real.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Visión</strong></td>
+                            <td>OpenCV (cv2)</td>
+                            <td>Manipulación de matrices de imagen, dibujo de polígonos y post-proceso.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Interfaz</strong></td>
+                            <td>Tkinter / CustomTkinter</td>
+                            <td>Framework nativo de Python para GUIs de escritorio ligeras.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Datos</strong></td>
+                            <td>Pandas & NumPy</td>
+                            <td>Manejo de estructuras de datos numéricos y exportación de estadísticas.</td>
+                        </tr>
+                    </table>
+
+                    <h3>Diagrama de Flujo de Datos</h3>
+                    <div class="code-block">
+                        [Imágenes Crudas]
+                        ⬇
+                        [LabelMe] --> 📄 JSONs de Anotación
+                        ⬇
+                        [dataset_preparation.py] --> 📂 Dataset YOLO (Txt + Images Normalized)
+                        ⬇
+                        [YOLOv8 Training] <--> [GPU Acceleration]
+                            ⬇
+                            🤖 MODELO (.pt)
+                            ⬇
+                            [Inferencia APP] --> [OpenCV Rendering] --> 🖼️ Imagen Final (Contornos Verdes/Blancos)
+                            --> 📊 Reporte Excel/CSV
+                    </div>
+                </section>
+
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer"
+        style="text-align: center; width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <p style="text-align: center;"><strong>CellTracker System</strong> — Desarrollado por Daniel Karimi</p>
+        <p style="font-size: 0.9em; margin-top: 10px; text-align: center;">
+            <a href="https://github.com/Dankar44/CellTracker"
+                style="color: var(--accent); text-decoration: none;">GitHub Repository</a> •
+            Built with Python &amp; Love
+        </p>
+    </footer>
+
+    <script>
+        // Active State Tracking for Sidebar
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px', // Activate when section is in top part of middle screen
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+
+                        // Remove active from all links
+                        document.querySelectorAll('.nav-tree a').forEach(link => {
+                            link.classList.remove('active');
+                        });
+
+                        // Add active to current link
+                        const activeLink = document.querySelector(`.nav-tree a[href="#${id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add('active');
+
+                            // Optional: Scroll sidebar to keep active link in view
+                            activeLink.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections, h3, h4 that have IDs and are targets of nav links
+            document.querySelectorAll('section[id], h3[id], h4[id]').forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+
+</html>

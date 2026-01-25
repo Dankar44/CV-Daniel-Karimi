@@ -1,10 +1,10 @@
 function Hero() {
     const keywords = [
-        'Ciberseguridad',
-        'Pentesting',
-        'Full-Stack',
-        'DevOps',
-        'ISO 27001',
+        'Telecomunicaciones',
+        'Inteligencia Artificial',
+        'Computer Vision',
+        'YOLO',
+        'Desarrollo Web',
         'Python'
     ]
 
@@ -18,14 +18,14 @@ function Hero() {
                     </div>
 
                     <h1 className="hero-title">
-                        Hola, soy <span className="gradient-text">Guillermo</span>
+                        Hola, soy <span className="gradient-text">Daniel</span>
                         <br />
-                        Prieto Rodriguez
+                        <span style={{ marginTop: '0.3em', display: 'inline-block' }}>Karimi Álvarez</span>
                     </h1>
 
                     <p className="hero-description">
-                        Ingeniero de Ciberseguridad y Desarrollador Full-Stack especializado en
-                        seguridad ofensiva, DevSecOps y desarrollo de soluciones innovadoras con IA.
+                        Ingeniero Técnico en Sistemas de Telecomunicaciones especializado en el desarrollo
+                        de soluciones tecnológicas innovadoras con Inteligencia Artificial.
                     </p>
 
                     <div className="hero-keywords">
@@ -56,7 +56,7 @@ function Hero() {
                         <div className="hero-image-ring"></div>
                         <img
                             src="/profile.jpg"
-                            alt="Guillermo Prieto Rodriguez - Ingeniero de Ciberseguridad"
+                            alt="Daniel Karimi - Ingeniero de Ciberseguridad"
                             className="hero-image"
                         />
                     </div>

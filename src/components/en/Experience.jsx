@@ -1,31 +1,33 @@
 function Experience() {
     const experiences = [
         {
-            date: 'Oct 2024 - Present',
-            role: 'Cybersecurity Engineer',
-            company: 'Cloud Security Alliance (CSA)',
+            date: 'October 2025 - January 2026',
+            role: 'Artificial Intelligence Engineer (Internship)',
+            company: 'CSIC - Institute of Physical and Information Technologies (ITEFI)',
             location: 'Madrid, Spain',
             description: [
-                'Analyze IoT security certification schemes (Matter, RED, CSA IoT) to harmonize requirements.',
-                'Collaborate on the "OWASP Top 10 for LLM" research group, developing security guidelines for AI.',
-                'Assist in technical maintenance of the C STAR repository and Cloud Controls Matrix (CCM).',
-                'Develop Python scripts to automate security control mapping.'
+                'Development of Computer Vision systems for biological analysis automation: generation and curation of high-quality datasets for training YOLOv8 neural networks',
+                'Implementation of cell image preprocessing pipelines: format conversion, normalization, and dynamic range optimization for automated classification',
+                'Semantic annotation and Ground Truth generation using LabelMe: taxonomy definition, massive cell labeling, and export to Deep Learning compatible formats',
+                'Multidisciplinary collaboration with the RESULT research group: translation of complex biological requirements into AI-interpretable data structures',
+                'Configuration of development environments with Anaconda/Python and dependency management for Machine Learning frameworks (PyTorch, OpenCV)',
+                'Model validation and optimization: performance metrics analysis, dataset refinement, and improvement of system predictive capacity'
             ],
-            skills: ['IoT Security', 'LLM Security', 'Python', 'Compliance', 'Research']
+            skills: ['YOLOv8', 'PyTorch', 'OpenCV', 'Python', 'LabelMe', 'Deep Learning', 'Computer Vision', 'Data Curation']
         },
         {
-            date: 'Sep 2020 - Jun 2024',
-            role: 'BSc in Cybersecurity Engineering',
-            company: 'Rey Juan Carlos University',
+            date: 'September 2020 - July 2025',
+            role: 'Telecommunications Systems Training',
+            company: 'Polytechnic University of Madrid (ETSIT-UPM)',
             location: 'Madrid, Spain',
             description: [
-                'Specialized in Offensive Security: Vulnerability exploitation, reconnaissance and scanning with Burp Suite, Metasploit and Nmap.',
-                'Advanced Pentesting: Full pentest stages, exploit development and web environments.',
-                'Network Security: Wireshark, Firewalls, IDS/IPS, network layer security (IPSec).',
-                'AI applied to Security: Machine Learning, Deep Learning and decision systems.',
-                'Secure Web Development: OWASP best practices, SQL injection prevention, XSS and CSRF.'
+                'Specialization in Digital Signal Processing: Spectral analysis, digital filtering, modulations and demodulations, real-time DSP algorithms',
+                'Radiocommunication Systems and RF: Antenna design, electromagnetic wave propagation, high-frequency technology, and transmission systems',
+                'Communications Electronics: Analog/digital circuit design, microprocessors, embedded systems, and microelectronic design',
+                'Telecommunication Networks and Services: TCP/IP architecture, network protocols, operating systems, and computer networks',
+                'Programming and Development: Algorithms, data structures, object-oriented programming (C, Python), and information systems'
             ],
-            skills: ['Pentesting', 'Cryptography', 'Network Security', 'Secure Coding']
+            skills: ['DSP', 'Antennas', 'RF', 'Microprocessors', 'TCP/IP Networks', 'Electronics', 'Python', 'C']
         }
     ]
 
@@ -33,9 +35,9 @@ function Experience() {
         <section className="experience section" id="experience">
             <div className="container">
                 <div className="section-header">
-                    <span className="section-label">Career</span>
+                    <span className="section-label">Experience</span>
                     <h2 className="section-title">
-                        Professional <span className="gradient-text">Experience</span>
+                        My Professional <span className="gradient-text">Journey</span>
                     </h2>
                 </div>
 

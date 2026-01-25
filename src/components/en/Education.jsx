@@ -1,19 +1,18 @@
-
 function Education() {
     const education = [
         {
             years: '2020 - 2025',
-            degree: 'BSc in Cybersecurity Engineering',
-            school: 'Rey Juan Carlos University',
+            degree: 'Bachelor\'s Degree in Telecommunications Systems Engineering',
+            school: 'Polytechnic University of Madrid (ETSIT-UPM)',
             location: 'Madrid, Spain',
-            details: 'Comprehensive training in computer security, pentesting, cryptography, network security, secure development and AI applied to cybersecurity.'
+            details: 'Comprehensive training in communication systems, digital signal processing, electronics, networks, programming, and radiocommunication systems. Specialization in developing solutions with Artificial Intelligence and Computer Vision.'
         },
         {
             years: '2018 - 2020',
             degree: 'Technological Baccalaureate',
-            school: 'IES de Excelencia Deportiva "Ortega y Gasset"',
+            school: 'IES Isabel la Católica',
             location: 'Madrid, Spain',
-            details: 'Technological Sciences track. Combining studies with high-performance sports (volleyball), developing time management skills and working under pressure.'
+            details: 'Science and Technology track. Training in advanced mathematics, physics, industrial technology, and technical drawing. Solid foundation in logical-mathematical thinking and problem-solving facilitating engineering access.'
         }
     ]
 

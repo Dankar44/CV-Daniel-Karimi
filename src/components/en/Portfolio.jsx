@@ -1,47 +1,103 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
+// Icons components
+const Icons = {
+    All: () => (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <circle cx="12" cy="12" r="6" />
+            <circle cx="12" cy="12" r="2" />
+        </svg>
+    ),
+    Biotech: () => (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1" />
+            <path d="M19.5 12c-2.483 0-4.5 2.015-4.5 4.5s2.017 4.5 4.5 4.5 4.5-2.015 4.5-4.5-2.017-4.5-4.5-4.5z" />
+            <circle cx="10" cy="9" r="5" />
+            <path d="M11 11.5L7.5 9" />
+        </svg>
+    ),
+    Cyber: () => (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+        </svg>
+    ),
+    Telecom: () => (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5" />
+            <path d="M8.5 8.5a4 4 0 0 1 5 5" />
+            <path d="M4.5 4.5a8 8 0 0 1 12 12" />
+        </svg>
+    ),
+    AI: () => (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z" />
+        </svg>
+    ),
+    Web: () => (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+        </svg>
+    ),
+    App: () => (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+            <line x1="12" y1="18" x2="12.01" y2="18" />
+        </svg>
+    ),
+    Folder: () => (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+        </svg>
+    )
+}
+
 function Portfolio() {
-    const [selectedProject, setSelectedProject] = useState(null)
-    const [filter, setFilter] = useState('all')
-    const [carouselIndex, setCarouselIndex] = useState(0)
+    const [areaFilter, setAreaFilter] = useState('all')
+    const [typeFilter, setTypeFilter] = useState('all')
 
     const projects = [
         {
-            id: 'graphsec-iac',
-            icon: '🛡️',
-            category: 'security',
-            badge: 'Thesis Project',
-            title: 'GraphSec-IaC',
-            subtitle: 'Infrastructure Security Visualizer',
-            description: 'Infrastructure as Code security visualizer that combines Terraform dependency graphs with vulnerability analysis from industry-leading tools.',
-            image: '/portfolio/graphsec-iac.png',
-            problem: 'Modern cloud infrastructure defined by code (IaC) can be extremely complex, with hundreds of interconnected resources. When security tools detect vulnerabilities, it\'s difficult to understand the real impact without seeing the architectural context.',
-            solution: 'GraphSec-IaC parses Terraform files, builds a comprehensive resource dependency graph, and overlays vulnerabilities detected by Checkov and Trivy. Security engineers can now visualize the "blast radius" of each vulnerability and prioritize fixes based on actual architecture, not just CVSS severity.',
+            id: 'migracell',
+            icon: <img src="/projects/migracell/icono.ico" alt="MigraCell Icon" style={{ width: '20px', height: '20px', objectFit: 'contain' }} />,
+            area: ['biotech', 'ai'],
+            type: 'app',
+            badge: 'Deep Learning + Bio',
+            title: 'MigraCell Analyzer',
+            subtitle: 'Intelligent Microscopy Platform',
+            description: 'Intelligent Microscopy Platform for Automated Cell Migration Analysis using Deep Learning.',
+            image: '/projects/migracell/images_html/imagen2.2.png',
+            problem: 'In biomedical research, wound healing assays are critical but analyzing them manually implies 4-8 hours per experiment, researcher subjectivity, and low reproducibility.',
+            solution: 'Total automation via Deep Learning. The system processes full experiments in under 5 minutes using custom YOLOv8-seg models for pixel-perfect segmentation, ensuring 100% reproducible results and unattended batch processing.',
             features: [
-                'Custom HCL parsing engine that understands Terraform syntax',
-                'Interactive graph visualization powered by React Flow',
-                'SARIF finding correlation with infrastructure nodes',
-                'Risk propagation algorithm that traces vulnerability impact through dependencies',
-                'Filter and search capabilities for large infrastructures',
-                'Export reports for security audits'
+                '< 5 minutes per experiment (automated)',
+                'Pixel-perfect segmentation with YOLOv8-seg',
+                '100% reproducible results',
+                'Unattended batch processing',
+                'Publication-ready chart generation',
+                'Full pipeline from ingestion to reporting'
             ],
-            tech: ['Python', 'Terraform', 'React', 'React Flow', 'Checkov', 'Trivy', 'SARIF', 'Docker'],
+            tech: ['Python', 'YOLOv8-seg', 'PyTorch', 'OpenCV', 'Tkinter', 'Pandas'],
             metrics: [
-                { label: 'Vulnerability Detection', value: '98%' },
-                { label: 'Resources Parsed', value: '1000+' },
-                { label: 'Integration Time', value: '<5min' }
+                { label: 'Proc. Time', value: '<5 min' },
+                { label: 'Accuracy', value: 'High' },
+                { label: 'Time Saved', value: '98%' }
             ],
-            github: 'https://github.com/guillermop2002/GraphSec-IaC',
+            github: 'https://github.com/Dankar44/MigraCell-Analyzer',
             demo: null,
             year: '2024',
-            duration: '6 months',
-            role: 'Full-stack Developer & Security Researcher'
+            duration: 'In development',
+            role: 'AI Engineer'
         },
         {
             id: 'golden-pipeline',
-            icon: '🔐',
-            category: 'security',
+            icon: <Icons.Cyber />,
+            area: 'cyber',
+            type: 'web',
             badge: 'DevSecOps',
             title: 'Golden Pipeline',
             subtitle: 'Security as Code Demo',
@@ -81,8 +137,9 @@ function Portfolio() {
         },
         {
             id: 'ai-chatbot',
-            icon: '🤖',
-            category: 'ai',
+            icon: <Icons.AI />,
+            area: 'ai',
+            type: 'web',
             badge: 'AI + RAG',
             title: 'AI Chatbot Widget',
             subtitle: 'Serverless RAG-Powered Assistant',
@@ -112,8 +169,9 @@ function Portfolio() {
         },
         {
             id: 'patch-boe',
-            icon: '📜',
-            category: 'ai',
+            icon: <Icons.AI />,
+            area: 'ai',
+            type: 'web',
             badge: 'LegalTech',
             title: 'Patch-BOE',
             subtitle: 'AI-Powered Legislative Intelligence',
@@ -143,8 +201,9 @@ function Portfolio() {
         },
         {
             id: 'dreizeer',
-            icon: '💪',
-            category: 'web',
+            icon: <Icons.Telecom />,
+            area: 'telecom',
+            type: 'web',
             badge: 'SEO + GEO',
             title: 'Dreizeer',
             subtitle: 'Fitness Business Digitalization',
@@ -174,8 +233,9 @@ function Portfolio() {
         },
         {
             id: 'cell-tracker',
-            icon: '🔬',
-            category: 'ml',
+            icon: <Icons.Biotech />,
+            area: ['biotech', 'ai'],
+            type: 'app',
             badge: 'Computer Vision',
             title: 'Cell Tracker',
             subtitle: 'Scientific Cell Analysis Tool',
@@ -204,11 +264,12 @@ function Portfolio() {
             role: 'ML Engineer'
         },
         {
-            id: 'nativeconnect',
-            icon: '🌍',
-            category: 'mobile',
+            id: 'benative',
+            icon: <Icons.Telecom />,
+            area: 'telecom',
+            type: 'web',
             badge: 'In Development',
-            title: 'NativeConnect',
+            title: 'BeNative',
             subtitle: 'Cultural Exchange Platform',
             description: 'Mobile app connecting travelers with native locals. Features matching system, real-time chat, and identity verification.',
             image: '/portfolio/nativeconnect.png',
@@ -236,40 +297,26 @@ function Portfolio() {
         }
     ]
 
-    const categories = [
-        { id: 'all', label: 'All Projects', icon: '🎯' },
-        { id: 'security', label: 'Security', icon: '🛡️' },
-        { id: 'ai', label: 'AI & ML', icon: '🤖' },
-        { id: 'web', label: 'Web', icon: '🌐' },
-        { id: 'mobile', label: 'Mobile', icon: '📱' },
-        { id: 'ml', label: 'Computer Vision', icon: '🔬' }
+    const areas = [
+        { id: 'all', label: 'All Projects', icon: <Icons.All /> },
+        { id: 'biotech', label: 'Biotechnology', icon: <Icons.Biotech /> },
+        { id: 'cyber', label: 'Cybersecurity', icon: <Icons.Cyber /> },
+        { id: 'telecom', label: 'Telecommunications', icon: <Icons.Telecom /> },
+        { id: 'ai', label: 'Artificial Intelligence', icon: <Icons.AI /> }
     ]
 
-    const filteredProjects = filter === 'all'
-        ? projects
-        : projects.filter(p => p.category === filter)
+    const types = [
+        { id: 'all', label: 'All Types', icon: <Icons.Folder /> },
+        { id: 'web', label: 'Web Page', icon: <Icons.Web /> },
+        { id: 'app', label: 'Application', icon: <Icons.App /> }
+    ]
 
-    useEffect(() => {
-        if (selectedProject) {
-            document.body.style.overflow = 'hidden'
-            setCarouselIndex(0)
-        } else {
-            document.body.style.overflow = 'unset'
-        }
-        return () => { document.body.style.overflow = 'unset' }
-    }, [selectedProject])
-
-    const nextImage = () => {
-        if (selectedProject?.images) {
-            setCarouselIndex((prev) => (prev + 1) % selectedProject.images.length)
-        }
-    }
-
-    const prevImage = () => {
-        if (selectedProject?.images) {
-            setCarouselIndex((prev) => (prev - 1 + selectedProject.images.length) % selectedProject.images.length)
-        }
-    }
+    const filteredProjects = projects.filter(project => {
+        const projectAreas = Array.isArray(project.area) ? project.area : [project.area]
+        const areaMatch = areaFilter === 'all' || projectAreas.includes(areaFilter)
+        const typeMatch = typeFilter === 'all' || project.type === typeFilter
+        return areaMatch && typeMatch
+    })
 
     return (
         <div className="portfolio-page">
@@ -286,27 +333,52 @@ function Portfolio() {
                     <div className="portfolio-hero-content">
                         <span className="section-label">Portfolio</span>
                         <h1 className="portfolio-title">
-                            My <span className="gradient-text">Work</span>
+                            My <span className="gradient-text">Projects</span>
                         </h1>
                         <p className="portfolio-subtitle">
-                            A collection of projects showcasing my expertise in full-stack development,
+                            A collection of projects demonstrating my expertise in full-stack development,
                             security engineering, and AI integration. Each project represents a real-world
                             problem solved with modern technologies.
                         </p>
                     </div>
 
-                    {/* Category Filter */}
-                    <div className="portfolio-filters">
-                        {categories.map(cat => (
-                            <button
-                                key={cat.id}
-                                className={`filter-btn ${filter === cat.id ? 'active' : ''}`}
-                                onClick={() => setFilter(cat.id)}
-                            >
-                                <span className="filter-icon">{cat.icon}</span>
-                                {cat.label}
-                            </button>
-                        ))}
+                    {/* Filters Container */}
+                    <div className="portfolio-filters-container" style={{ display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'center', marginBottom: '40px' }}>
+
+                        {/* Area Filter */}
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+                            <span style={{ fontSize: '0.9em', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px' }}>Project Area</span>
+                            <div className="portfolio-filters">
+                                {areas.map(cat => (
+                                    <button
+                                        key={cat.id}
+                                        className={`filter-btn ${areaFilter === cat.id ? 'active' : ''}`}
+                                        onClick={() => setAreaFilter(cat.id)}
+                                    >
+                                        <span className="filter-icon">{cat.icon}</span>
+                                        {cat.label}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Type Filter */}
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+                            <span style={{ fontSize: '0.9em', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '1px' }}>Platform Type</span>
+                            <div className="portfolio-filters">
+                                {types.map(cat => (
+                                    <button
+                                        key={cat.id}
+                                        className={`filter-btn ${typeFilter === cat.id ? 'active' : ''}`}
+                                        onClick={() => setTypeFilter(cat.id)}
+                                    >
+                                        <span className="filter-icon">{cat.icon}</span>
+                                        {cat.label}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
@@ -316,11 +388,11 @@ function Portfolio() {
                 <div className="container">
                     <div className="portfolio-grid">
                         {filteredProjects.map((project, index) => (
-                            <article
+                            <a
                                 key={project.id}
+                                href={`/projects/${project.id}/${project.id}.html`}
                                 className="portfolio-card glass-card"
-                                onClick={() => setSelectedProject(project)}
-                                style={{ animationDelay: `${index * 0.1}s` }}
+                                style={{ animationDelay: `${index * 0.1}s`, textDecoration: 'none', color: 'inherit', display: 'block' }}
                             >
                                 <div className="portfolio-card-image">
                                     <img
@@ -329,7 +401,7 @@ function Portfolio() {
                                         loading="lazy"
                                     />
                                     <div className="portfolio-card-overlay">
-                                        <span className="view-project">View Case Study</span>
+                                        <span className="view-project">View Case Study (HTML)</span>
                                     </div>
                                 </div>
 
@@ -339,7 +411,14 @@ function Portfolio() {
                                         <span className="portfolio-card-badge">{project.badge}</span>
                                     </div>
 
-                                    <h3 className="portfolio-card-title">{project.title}</h3>
+                                    <h3 className="portfolio-card-title">
+                                        {project.title}
+                                        {(project.title === 'Cell Tracker' || project.title === 'CellTracker') && (
+                                            <span title="Most Featured Project" style={{ marginLeft: '8px', cursor: 'help', verticalAlign: 'middle', fontSize: '1.2em' }}>
+                                                👑
+                                            </span>
+                                        )}
+                                    </h3>
                                     <p className="portfolio-card-subtitle">{project.subtitle}</p>
                                     <p className="portfolio-card-description">{project.description}</p>
 
@@ -371,174 +450,11 @@ function Portfolio() {
                                         </span>
                                     </div>
                                 </div>
-                            </article>
+                            </a>
                         ))}
                     </div>
                 </div>
             </section>
-
-            {/* Project Modal */}
-            {selectedProject && (
-                <div className="portfolio-modal-overlay" onClick={() => setSelectedProject(null)}>
-                    <div className="portfolio-modal glass-card" onClick={(e) => e.stopPropagation()}>
-                        <button className="close-btn" onClick={() => setSelectedProject(null)}>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <path d="M18 6L6 18M6 6l12 12"></path>
-                            </svg>
-                        </button>
-
-                        <div className="portfolio-modal-content">
-                            {/* Header */}
-                            <div className="portfolio-modal-header">
-                                <div className="portfolio-modal-title-group">
-                                    <span className="portfolio-modal-icon">{selectedProject.icon}</span>
-                                    <div>
-                                        <h2>{selectedProject.title}</h2>
-                                        <p className="portfolio-modal-subtitle">{selectedProject.subtitle}</p>
-                                    </div>
-                                </div>
-                                <span className="portfolio-modal-badge">{selectedProject.badge}</span>
-                            </div>
-
-                            {/* Image / Carousel */}
-                            <div className="portfolio-modal-image">
-                                {selectedProject.images ? (
-                                    <div className="image-carousel">
-                                        <button className="carousel-btn carousel-prev" onClick={prevImage}>
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                                <path d="M15 18l-6-6 6-6" />
-                                            </svg>
-                                        </button>
-                                        <img src={selectedProject.images[carouselIndex]} alt={`${selectedProject.title} - ${carouselIndex + 1}`} />
-                                        <button className="carousel-btn carousel-next" onClick={nextImage}>
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                                <path d="M9 18l6-6-6-6" />
-                                            </svg>
-                                        </button>
-                                        <div className="carousel-dots">
-                                            {selectedProject.images.map((_, idx) => (
-                                                <button
-                                                    key={idx}
-                                                    className={`carousel-dot ${idx === carouselIndex ? 'active' : ''}`}
-                                                    onClick={() => setCarouselIndex(idx)}
-                                                />
-                                            ))}
-                                        </div>
-                                        <span className="carousel-counter">{carouselIndex + 1} / {selectedProject.images.length}</span>
-                                    </div>
-                                ) : (
-                                    <img src={selectedProject.image} alt={selectedProject.title} />
-                                )}
-                            </div>
-
-                            {/* Metrics */}
-                            <div className="portfolio-modal-metrics">
-                                {selectedProject.metrics.map((metric, i) => (
-                                    <div key={i} className="metric-card glass-card">
-                                        <span className="metric-value">{metric.value}</span>
-                                        <span className="metric-label">{metric.label}</span>
-                                    </div>
-                                ))}
-                            </div>
-
-                            {/* Project Info */}
-                            <div className="portfolio-modal-info">
-                                <div className="info-item">
-                                    <span className="info-label">Year</span>
-                                    <span className="info-value">{selectedProject.year}</span>
-                                </div>
-                                <div className="info-item">
-                                    <span className="info-label">Duration</span>
-                                    <span className="info-value">{selectedProject.duration}</span>
-                                </div>
-                                <div className="info-item">
-                                    <span className="info-label">Role</span>
-                                    <span className="info-value">{selectedProject.role}</span>
-                                </div>
-                            </div>
-
-                            {/* Problem & Solution */}
-                            <div className="portfolio-modal-section">
-                                <h3>
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <circle cx="12" cy="12" r="10"></circle>
-                                        <line x1="12" y1="8" x2="12" y2="12"></line>
-                                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
-                                    </svg>
-                                    The Problem
-                                </h3>
-                                <p>{selectedProject.problem}</p>
-                            </div>
-
-                            <div className="portfolio-modal-section">
-                                <h3>
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                    </svg>
-                                    The Solution
-                                </h3>
-                                <p>{selectedProject.solution}</p>
-                            </div>
-
-                            {/* Features */}
-                            <div className="portfolio-modal-section">
-                                <h3>
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                    </svg>
-                                    Key Features
-                                </h3>
-                                <ul className="feature-list">
-                                    {selectedProject.features.map((feature, i) => (
-                                        <li key={i}>
-                                            <span className="feature-bullet">▹</span>
-                                            {feature}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            {/* Tech Stack */}
-                            <div className="portfolio-modal-section">
-                                <h3>
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
-                                    </svg>
-                                    Tech Stack
-                                </h3>
-                                <div className="tech-stack-grid">
-                                    {selectedProject.tech.map((tech, i) => (
-                                        <span key={i} className="tag tag-cyan">{tech}</span>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Actions */}
-                            <div className="portfolio-modal-actions">
-                                {selectedProject.github && (
-                                    <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                                        </svg>
-                                        View on GitHub
-                                    </a>
-                                )}
-                                {selectedProject.demo && (
-                                    <a href={selectedProject.demo} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                            <polyline points="15 3 21 3 21 9"></polyline>
-                                            <line x1="10" y1="14" x2="21" y2="3"></line>
-                                        </svg>
-                                        Live Demo
-                                    </a>
-                                )}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
         </div>
     )
 }

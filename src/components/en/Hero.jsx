@@ -1,10 +1,12 @@
+import HeroImg from '/profile.jpg' // Assuming image path logic is same or checking imports
+
 function Hero() {
     const keywords = [
-        'Cybersecurity',
-        'Pentesting',
-        'Full-Stack',
-        'DevOps',
-        'ISO 27001',
+        'Telecommunications',
+        'Artificial Intelligence',
+        'Computer Vision',
+        'YOLO',
+        'Web Development',
         'Python'
     ]
 
@@ -14,18 +16,18 @@ function Hero() {
                 <div className="hero-text">
                     <div className="hero-subtitle">
                         <span className="dot"></span>
-                        <span>Open to new opportunities</span>
+                        <span>Available for new opportunities</span>
                     </div>
 
                     <h1 className="hero-title">
-                        Hi, I'm <span className="gradient-text">Guillermo</span>
+                        Hi, I'm <span className="gradient-text">Daniel</span>
                         <br />
-                        Prieto Rodriguez
+                        <span style={{ marginTop: '0.3em', display: 'inline-block' }}>Karimi Álvarez</span>
                     </h1>
 
                     <p className="hero-description">
-                        Cybersecurity Engineer and Full-Stack Developer specialized in
-                        offensive security, DevSecOps, and innovative AI solutions.
+                        Technical Telecommunications Engineer specializing in the development
+                        of innovative technological solutions with Artificial Intelligence.
                     </p>
 
                     <div className="hero-keywords">
@@ -42,7 +44,7 @@ function Hero() {
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                                 <polyline points="22,6 12,13 2,6"></polyline>
                             </svg>
-                            Contact
+                            Contact Me
                         </a>
                         <a href="#projects" className="btn btn-secondary">
                             View Projects
@@ -56,7 +58,7 @@ function Hero() {
                         <div className="hero-image-ring"></div>
                         <img
                             src="/profile.jpg"
-                            alt="Guillermo Prieto Rodriguez - Cybersecurity Engineer"
+                            alt="Daniel Karimi - AI Engineer"
                             className="hero-image"
                         />
                     </div>

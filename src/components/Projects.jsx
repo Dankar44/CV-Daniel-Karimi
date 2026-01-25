@@ -1,43 +1,84 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 function Projects() {
     const [selectedProject, setSelectedProject] = useState(null)
 
     const projects = [
         {
-            icon: '🛡️',
-            badge: 'TFG',
-            title: 'GraphSec-IaC',
-            description: 'Visualizador de seguridad de infraestructura como código. Combina grafos de dependencias de Terraform con análisis de vulnerabilidades.',
-            details: 'Este proyecto aborda la complejidad de asegurar infraestructuras modernas definidas por código (IaC). GraphSec-IaC analiza archivos de Terraform, construye un grafo de dependencias de recursos y superpone vulnerabilidades detectadas por herramientas líderes como Checkov y Trivy. Esto permite a los ingenieros de seguridad visualizar el "radio de explosión" de una vulnerabilidad y priorizar las correcciones basándose en la arquitectura real, no solo en la severidad CVSS.',
+            icon: '🔬',
+            type: 'App',
+            badge: 'IA + Paper Científico',
+            title: 'CellTracker',
+            description: 'Sistema de rastreo celular con IA para microscopía. Pendiente de publicación en revista científica de software.',
+            details: 'Proyecto estrella de visión artificial para laboratorios de biología. Implementa modelos de detección basados en YOLOv8 con entrenamiento personalizado para la identificación y seguimiento automático de células en secuencias de microscopía. Incluye pipeline completo de procesamiento de imagen: preprocesamiento, augmentación de datos, tracking multi-objeto con filtros de Kalman, y exportación de métricas para análisis estadístico. Desarrollado en colaboración con investigadores, actualmente en proceso de publicación.',
             features: [
-                'Motor de análisis sintáctico HCL propio',
-                'Visualización de grafos interactivos con React Flow',
-                'Correlación de hallazgos SARIF con nodos de infraestructura',
-                'Algoritmo de propagación de riesgo en dependencias'
+                'Detección de células con YOLOv8 entrenamiento custom',
+                'Tracking multi-objeto con filtros de Kalman',
+                'Pipeline de preprocesamiento y augmentación de datos',
+                'Análisis cuantitativo de trayectorias y exportación de métricas',
+                'Pendiente de publicación en revista científica'
             ],
-            tech: ['Python', 'Terraform', 'React', 'Checkov', 'Trivy', 'SARIF'],
-            github: 'https://github.com/guillermop2002/GraphSec-IaC',
+            tech: ['Python', 'YOLOv8', 'PyTorch', 'OpenCV', 'NumPy', 'Pandas', 'Deep Learning'],
+            github: null,
             demo: null
         },
         {
-            icon: '🔐',
-            badge: 'DevSecOps',
-            title: 'Golden Pipeline',
-            description: 'Pipeline CI/CD seguro con GitHub Actions que detecta y bloquea automáticamente código vulnerable antes de llegar a producción.',
-            details: 'Golden Pipeline demuestra un enfoque de seguridad "shift-left" integrando Gitleaks para detección de secretos y Semgrep para análisis SAST directamente en GitHub Actions. El pipeline falla automáticamente cuando detecta secretos hardcodeados, vulnerabilidades de inyección SQL, uso inseguro de eval() o verificación SSL deshabilitada, previniendo que código vulnerable llegue a producción.',
+            icon: '🔬',
+            type: 'App',
+            badge: 'Deep Learning + Bio',
+            title: 'MigraCell Analyzer',
+            description: 'Plataforma de Microscopía Inteligente para el Análisis Automatizado de Migración Celular mediante Deep Learning.',
+            details: 'Automatización total de ensayos de wound healing mediante Deep Learning. Procesa experimentos completos en < 5 minutos (vs 4-8h manual) con segmentación pixel-perfect y resultados 100% reproducibles. Incluye pipeline completo: ingesta de datos, inferencia con YOLOv8-seg, post-procesamiento de máscaras, cálculo geométrico y generación de reportes automáticos locales.',
             features: [
-                'Integración de Gitleaks detectando 6+ tipos de secretos',
-                'Análisis SAST con Semgrep para SQL Injection y vulnerabilidades',
-                'Bloqueo automático del pipeline ante problemas de seguridad',
-                'Reportes detallados de seguridad en cada commit'
+                '< 5 minutos por experimento (automático)',
+                'Segmentación pixel-perfect con YOLOv8-seg',
+                'Resultados 100% reproducibles',
+                'Procesamiento batch desatendido',
+                'Generación de gráficas para publicación'
             ],
-            tech: ['GitHub Actions', 'Gitleaks', 'Semgrep', 'Python', 'CI/CD', 'SAST'],
-            github: 'https://github.com/guillermop2002/Golden-Pipeline',
+            tech: ['Python', 'YOLOv8-seg', 'PyTorch', 'OpenCV', 'Tkinter', 'Pandas'],
+            github: 'https://github.com/Dankar44/MigraCell-Analyzer',
             demo: null
         },
+        {
+            icon: '🌊',
+            type: 'Web',
+            badge: 'Educación + Física',
+            title: 'Simulador Efecto Doppler',
+            description: 'Herramienta educativa interactiva desarrollada para el Departamento de Física de la Universidad de Vigo.',
+            details: 'Plataforma web educativa que permite experimentar con el efecto Doppler en diferentes escenarios. Incluye múltiples simuladores visuales que facilitan la comprensión de conceptos de física ondulatoria: ondas sonoras, barrera del sonido, y variaciones de frecuencia. Desarrollado a petición del Departamento de Física de la Universidad de Vigo para uso docente.',
+            features: [
+                'Simulador interactivo del efecto Doppler',
+                'Visualización de ondas y frecuencias en tiempo real',
+                'Múltiples escenarios físicos configurables',
+                'Interfaz intuitiva para estudiantes universitarios'
+            ],
+            tech: ['HTML5', 'CSS3', 'JavaScript', 'Canvas API'],
+            github: 'https://github.com/Dankar44/Doppler',
+            demo: 'https://doppler-six.vercel.app'
+        },
+        {
+            icon: '🍽️',
+            type: 'Web',
+            badge: 'Web Comercial',
+            title: 'Dulcinea - Restaurante',
+            description: 'Sitio web comercial completamente funcional para un restaurante real en producción.',
+            details: 'Desarrollo completo de la presencia digital de un restaurante real. Diseño responsive con catálogo de productos, galería de imágenes optimizadas, menús digitales y experiencia de usuario enfocada en conversión. Desplegado en producción con Vercel y optimizado para SEO local.',
+            features: [
+                'Diseño responsive y moderno',
+                'Catálogo de productos con imágenes optimizadas',
+                'Menús digitales interactivos',
+                'SEO Local optimizado'
+            ],
+            tech: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design', 'Vercel'],
+            github: 'https://github.com/Dankar44/Dulcinea',
+            demo: 'https://dulcinea-rho.vercel.app'
+        },
+
         {
             icon: '🤖',
+            type: 'Web',
             badge: 'AI + RAG',
             title: 'AI Chatbot Widget',
             description: 'Infraestructura serverless para crear chatbots con RAG. Solo pasas la URL y genera automáticamente un chatbot entrenado.',
@@ -49,27 +90,12 @@ function Projects() {
                 'Widget empaquetado como Web Component universal'
             ],
             tech: ['Cloudflare Workers', 'React', 'Groq AI', 'KV Storage', 'RAG'],
-            github: 'https://github.com/guillermop2002/chatbot',
+            github: 'https://github.com/Dankar44/chatbot',
             demo: 'https://chatbot-6h9.pages.dev'
         },
         {
-            icon: '📜',
-            badge: 'LegalTech',
-            title: 'Patch-BOE',
-            description: 'Plataforma que extrae cambios legislativos del BOE, genera resúmenes con IA y asigna puntuaciones de relevancia.',
-            details: 'Patch-BOE transforma la manera en que los profesionales legales se mantienen actualizados. Diariamente, el sistema descarga el Boletín Oficial del Estado, procesa texto jurídico complejo utilizando modelos de lenguaje (LLMs) y genera resúmenes ejecutivos digeribles. Además, un sistema de scoring predice el impacto nacional de cada nueva norma, permitiendo filtrar el "ruido" regulatorio.',
-            features: [
-                'Pipeline ETL diario automático del BOE',
-                'Resumen jurídico mediante GPT-4/Groq',
-                'Algoritmo de clasificación de relevancia normativa',
-                'Interfaz de lectura optimizada para abogados'
-            ],
-            tech: ['Next.js', 'Python', 'OpenAI', 'Web Scraping', 'PostgreSQL'],
-            github: 'https://github.com/guillermop2002/Patch-Boe',
-            demo: null
-        },
-        {
             icon: '💪',
+            type: 'Web',
             badge: 'SEO + GEO',
             title: 'Dreizeer',
             description: 'Digitalización completa de negocio fitness. Sitio web con máxima optimización SEO/Local y sistema de gestión.',
@@ -81,40 +107,8 @@ function Projects() {
                 'Sistema de conversión de leads automatizado'
             ],
             tech: ['Next.js', 'Vercel', 'SEO', 'Google Business', 'Analytics'],
-            github: 'https://github.com/guillermop2002/Dreizeer',
+            github: 'https://github.com/Dankar44/Dreizeer',
             demo: 'https://www.dreizeer.es'
-        },
-        {
-            icon: '🔬',
-            badge: 'Computer Vision',
-            title: 'Cell Tracker',
-            description: 'Sistema de rastreo y análisis de células mediante procesamiento de imágenes y machine learning.',
-            details: 'Herramienta científica desarrollada para laboratorios de biología. Utiliza técnicas avanzadas de visión por computador para automatizar el tedioso proceso de contar y seguir el movimiento celular en videos de microscopía. Implementa algoritmos de segmentación Watershed y filtros de Kalman para predecir trayectorias incluso cuando las células se superponen.',
-            features: [
-                'Segmentación de imágenes médica avanzada',
-                'Algoritmos de tracking (Kalman Filter)',
-                'Análisis estadístico de movilidad y proliferación',
-                'Procesamiento de video en tiempo real'
-            ],
-            tech: ['Python', 'OpenCV', 'TensorFlow', 'NumPy', 'Image Processing'],
-            github: null,
-            demo: null
-        },
-        {
-            icon: '🌍',
-            badge: 'En Desarrollo',
-            title: 'NativeConnect',
-            description: 'App para conectar viajeros con locales nativos. Sistema de matching, chat en tiempo real y verificación.',
-            details: 'Una plataforma social enfocada en el intercambio cultural genuino. NativeConnect utiliza geolocalización y algoritmos de afinidad para conectar viajeros que buscan experiencias auténticas con locales dispuestos a compartirlas. La seguridad es prioritaria, con sistemas de verificación de identidad y reputación comunitaria.',
-            features: [
-                'Geolocalización en tiempo real',
-                'Chat encriptado punto a punto (E2E)',
-                'Algoritmo de matching por intereses y disponibilidad',
-                'Sistema de verificación de identidad (KYC light)'
-            ],
-            tech: ['React Native', 'Firebase', 'Node.js', 'Real-time Chat'],
-            github: null,
-            demo: null
         }
     ]
 
@@ -144,7 +138,25 @@ function Projects() {
                             key={index}
                             className="project-card glass-card"
                             onClick={() => setSelectedProject(project)}
+                            style={{ position: 'relative' }}
                         >
+                            <span style={{
+                                position: 'absolute',
+                                top: '15px',
+                                left: '15px',
+                                background: 'rgba(255, 255, 255, 0.1)',
+                                backdropFilter: 'blur(4px)',
+                                padding: '4px 12px',
+                                borderRadius: '20px',
+                                fontSize: '0.75rem',
+                                fontWeight: '600',
+                                color: 'rgba(255, 255, 255, 0.9)',
+                                border: '1px solid rgba(255, 255, 255, 0.1)',
+                                zIndex: 10,
+                                boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
+                            }}>
+                                {project.type}
+                            </span>
                             <div className="project-header">
                                 <div className="project-icon">{project.icon}</div>
                                 <div className="project-links" onClick={(e) => e.stopPropagation()}>
@@ -162,7 +174,14 @@ function Projects() {
                             </div>
 
                             <span className="project-badge">{project.badge}</span>
-                            <h3 className="project-title">{project.title}</h3>
+                            <h3 className="project-title">
+                                {project.title}
+                                {(project.title === 'CellTracker' || project.title === 'Cell Tracker') && (
+                                    <span title="Proyecto Más Destacado" style={{ marginLeft: '8px', cursor: 'help', verticalAlign: 'middle' }}>
+                                        👑
+                                    </span>
+                                )}
+                            </h3>
                             <p className="project-description">{project.description}</p>
 
                             <div className="project-tech">
@@ -252,6 +271,11 @@ function Projects() {
                         </div>
                     </div>
                 )}
+                <div style={{ marginTop: '40px', textAlign: 'center' }}>
+                    <Link to="/portfolio" className="btn btn-primary">
+                        Ver más proyectos
+                    </Link>
+                </div>
             </div>
         </section>
     )

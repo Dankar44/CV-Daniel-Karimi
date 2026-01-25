@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MigraCell Analyzer - Documentación Técnica</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #21262d;
+            --border: #30363d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent: #58a6ff;
+            --accent-soft: #1f6feb;
+            --success: #3fb950;
+            --warning: #d29922;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding-top: 80px;
+            /* Space for fixed navbar */
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(13, 17, 23, 0.95);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* HEADER */
+        .header-section {
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 60px;
+        }
+
+        .main-logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .badges-row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(88, 166, 255, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(88, 166, 255, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        /* SECTIONS */
+        section {
+            scroll-margin-top: 100px;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-icon {
+            color: var(--accent);
+        }
+
+        h3 {
+            font-size: 1.3em;
+            color: var(--text-primary);
+            margin: 30px 0 15px 0;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+
+        /* CARDS & GRID */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 25px;
+        }
+
+        .card h4 {
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* TIMELINE (PIPELINE) */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid var(--border);
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background: var(--bg-primary);
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+        }
+
+        .timeline-title {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        /* CODE BLOCK */
+        .code-block {
+            background: #0d1117;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.85em;
+            overflow-x: auto;
+            color: var(--success);
+            white-space: pre;
+            line-height: 1.5;
+            margin: 20px 0;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* SCREENSHOTS */
+        .screenshot-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .screenshot-container img,
+        .screenshot-container video {
+            max-width: 100%;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .caption {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        /* TABLES */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th {
+            text-align: left;
+            padding: 12px;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        td {
+            padding: 12px;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            margin-top: 80px;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            /* Simplificado para móvil */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#" class="nav-logo">
+                <img src="../src/icono.ico" alt="Logo">
+                MigraCell
+            </a>
+            <div class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#problema">Contexto</a>
+                <a href="#tecnologia">Tecnología</a>
+                <a href="#pipeline">Pipeline</a>
+                <a href="#gui">Interfaz</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <!-- HERO -->
+        <section id="inicio" class="header-section">
+            <img src="../src/icono.ico" alt="Logo" class="main-logo">
+            <h1>MigraCell Analyzer</h1>
+            <p class="subtitle">Plataforma de Microscopía Inteligente para el Análisis Automatizado de Migración Celular
+                mediante Deep Learning</p>
+
+            <div class="badges-row">
+                <span class="badge">Python 3.10+</span>
+                <span class="badge">YOLOv8-seg</span>
+                <span class="badge">PyTorch</span>
+                <span class="badge">OpenCV</span>
+                <span class="badge">Tkinter</span>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <a href="https://github.com/Dankar44/MigraCell-Analyzer" style="
+                display: inline-flex; align-items: center; gap: 8px;
+                background: var(--bg-card); color: var(--text-primary);
+                padding: 10px 20px; border-radius: 6px; text-decoration: none;
+                border: 1px solid var(--border); font-weight: 600;">
+                    <span style="font-size: 1.2em;">📦</span> Ver en GitHub
+                </a>
+            </div>
+        </section>
+
+        <!-- PROBLEMA Y SOLUCIÓN -->
+        <section id="problema">
+            <div class="section-title"><span class="section-icon">🔬</span> El Problema Científico</div>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>⚠️ Desafío Actual</h4>
+                    <p>En investigación biomédica, los ensayos de <em>wound healing</em> son críticos para estudiar
+                        cáncer y regeneración celular. Analizarlos manualmente implica:</p>
+                    <ul>
+                        <li><strong>4-8 horas</strong> por experimento</li>
+                        <li>Subjetividad del investigador</li>
+                        <li>Errores por fatiga visual</li>
+                        <li>Baja reproducibilidad</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>✅ Solución MigraCell</h4>
+                    <p>Automatización total mediante <strong>Deep Learning</strong>:</p>
+                    <ul>
+                        <li><strong>
+                                < 5 minutos</strong> por experimento</li>
+                        <li>Segmentación <strong>pixel-perfect</strong></li>
+                        <li>Resultados 100% reproducibles</li>
+                        <li>Procesamiento batch desatendido</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECNOLOGÍA -->
+        <section id="tecnologia">
+            <div class="section-title"><span class="section-icon">🧠</span> Arquitectura & Stack IA</div>
+
+            <p>El núcleo del sistema es un modelo <strong>YOLOv8-seg</strong> personalizado, entrenado con imágenes de
+                microscopía segmentadas manualmente. La arquitectura permite detectar instancias de células y fondo con
+                alta precisión.</p>
+
+            <!-- Diagrama ASCII -->
+            <div class="code-block">
+                                ┌─────────────────────────────────────────────────────────────┐
+                                │               ARQUITECTURA YOLOv8 SEGMENTATION              │
+                                ├───────────────────────┬──────────────────────┬──────────────┤
+                                │       BACKBONE        │         NECK         │     HEAD     │
+                                │    (CSPDarknet53)     │      (PANet+FPN)     │  (Dual Task) │
+                                ├───────────────────────┼──────────────────────┼──────────────┤
+                                │  ┌──────┐   ┌──────┐  │   ┌─────────────┐    │ ┌──────────┐ │
+                                │  │ Conv │   │ C2f  │  │   │   Feature   │    │ │  Detect  │ │
+                                │  └──────┘   └──────┘  │   └─────────────┘    │ └──────────┘ │
+                                └───────────────────────┴──────────────────────┴──────────────┘
+            </div>
+
+            <table>
+                <tr>
+                    <th>Componente</th>
+                    <th>Tecnología</th>
+                    <th>Función</th>
+                </tr>
+                <tr>
+                    <td><strong>Modelo IA</strong></td>
+                    <td>YOLOv8-seg + PyTorch</td>
+                    <td>Segmentación de instancias (Células vs Fondo)</td>
+                </tr>
+                <tr>
+                    <td><strong>Visión</strong></td>
+                    <td>OpenCV 4.8</td>
+                    <td>Preprocesamiento, contornos y morfología</td>
+                </tr>
+                <tr>
+                    <td><strong>Datos</strong></td>
+                    <td>Pandas + NumPy</td>
+                    <td>Análisis numérico y exportación Excel</td>
+                </tr>
+                <tr>
+                    <td><strong>GUI</strong></td>
+                    <td>Tkinter (Custom Theme)</td>
+                    <td>Interfaz de usuario profesional y reactiva</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- PIPELINE -->
+        <section id="pipeline">
+            <div class="section-title"><span class="section-icon">⚡</span> Pipeline de Procesamiento</div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-title">1. Ingesta de Datos</div>
+                    <div>Carga de imágenes time-lapse (JPG/PNG) y validación de metadatos.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">2. Inferencia Neural (YOLOv8)</div>
+                    <div>Ejecución del modelo (imgsz=1024, conf=0.25) para obtener máscaras binarias.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">3. Post-procesamiento de Máscaras</div>
+                    <div>Redimensionado, extracción de contornos (cv2.findContours) y limpieza morfológica.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">4. Cálculo Geométrico</div>
+                    <div>Cuantificación de píxeles por clase y cálculo de porcentajes de cobertura.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-title">5. Visualización y Reporte</div>
+                    <div>Generación de overlays, gráficas de evolución y exportación a Excel.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GUI SHOWCASE -->
+        <section id="gui">
+            <div class="section-title"><span class="section-icon">🖥️</span> Interfaz y Flujo de Uso</div>
+
+            <!-- MODO IMAGEN -->
+            <h3>1. Análisis Individual (Validación)</h3>
+            <p>Permite al investigador verificar la calidad de la segmentación imagen por imagen.</p>
+
+            <div class="grid-2">
+                <div class="screenshot-container">
+                    <img src="images_html/imagen1.png" alt="Original">
+                    <div class="caption">Imagen Origina (Input)</div>
+                </div>
+                <div class="screenshot-container">
+                    <img src="images_html/imagen1.2.png" alt="Contornos">
+                    <div class="caption">Detección de Bordes (Output IA)</div>
+                </div>
+            </div>
+            <div class="screenshot-container" style="max-width: 600px; margin: 0 auto;">
+                <img src="images_html/imagen1.3.png" alt="Overlay">
+                <div class="caption">Overlay de Segmentación (Fondo Detectado)</div>
+            </div>
+
+            <hr style="border-color: var(--border); margin: 40px 0;">
+
+            <!-- MODO CARPETA -->
+            <h3>2. Procesamiento Batch (Producción)</h3>
+            <p>El núcleo de la automatización. Procesa carpetas enteras (experimentos completos de 24-48h) sin
+                intervención.</p>
+
+            <div class="screenshot-container">
+                <img src="images_html/imagen2.2.png" alt="Batch">
+                <div class="caption">Interfaz de procesado batch mostrando tabla de progreso y visualización en tiempo
+                    real</div>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h4>🎥 Resultado: Timelapse de Migración</h4>
+                <div class="screenshot-container" style="border: none; background: transparent; padding: 0;">
+                    <video controls autoplay loop muted style="max-width: 800px;">
+                        <source src="images_html/video2.3.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <!-- MODO GRAFICA -->
+            <h3>3. Análisis de Resultados</h3>
+            <p>Generación automática de gráficas listas para publicación científica.</p>
+
+            <div class="screenshot-container">
+                <img src="images_html/imagen3.1.png" alt="Gráfica">
+                <div class="caption">Comparativa automática: Fondo Absoluto (Azul) vs Normalizado (Rojo)</div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p><strong>MigraCell Analyzer</strong> — Desarrollado por Daniel Karimi</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">
+                <a href="https://github.com/Dankar44/MigraCell-Analyzer"
+                    style="color: var(--accent); text-decoration: none;">GitHub Repository</a> •
+                Built with Python & Love
+            </p>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>

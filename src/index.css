@@ -469,7 +469,96 @@ body {
   border: none;
   color: var(--text-primary);
   cursor: pointer;
-  padding: var(--space-2);
+  padding: 0;
+  z-index: 200;
+  position: relative;
+}
+
+.hamburger {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
+/* Mobile Menu Styles that will be activated by media query */
+@media (max-width: 768px) {
+  .navbar-content {
+    /* Reorder for mobile: Button Left, Logo Center */
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: var(--space-4);
+  }
+
+  /* Ensure button is on the far left */
+  .mobile-menu-btn {
+    display: block;
+    order: 1;
+    /* Button first (left) */
+    margin-right: auto;
+  }
+
+  .navbar-logo {
+    order: 2;
+    /* Logo second */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .navbar-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 10, 15, 0.98);
+    /* Very dark background */
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-8);
+    transform: translateX(-100%);
+    /* Start hidden to the left */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 150;
+    /* Below button but above content */
+    padding: var(--space-8);
+  }
+
+  .navbar-links.active {
+    transform: translateX(0);
+    /* Slide in */
+  }
+
+  .navbar-links a {
+    font-size: var(--font-size-2xl);
+    /* Larger font for mobile */
+  }
 }
 
 /* ========================================
@@ -1131,6 +1220,10 @@ body {
     max-width: 400px;
     margin: var(--space-8) auto 0;
   }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -1163,8 +1256,7 @@ body {
   }
 
   .contact-links {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1181,6 +1273,10 @@ body {
 
   .btn {
     width: 100%;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
 }
 

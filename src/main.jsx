@@ -12,7 +12,8 @@ createRoot(document.getElementById('root')).render(
             <Routes>
                 <Route path="/" element={<App />} />
                 <Route path="/english" element={<AppEN />} />
-                <Route path="/portfolio" element={<PortfolioPage />} />
+                <Route path="/portfolio" element={<PortfolioPage lang="es" />} />
+                <Route path="/portfolio-en" element={<PortfolioPage lang="en" />} />
             </Routes>
         </BrowserRouter>
     </StrictMode>,

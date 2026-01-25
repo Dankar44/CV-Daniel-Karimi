@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Daniel Karimi - Ingeniero de Telecomunicaciones & IA</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background: #fff;
+            line-height: 1.45;
+            /* Slightly reduced line height */
+            font-size: 8.8pt;
+            /* Reduced from 9.5pt */
+        }
+
+        .cv-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px 40px;
+            /* Reduced padding */
+            min-height: 297mm;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 20px;
+            /* Reduced padding */
+            margin-bottom: 20px;
+            /* Reduced margin */
+        }
+
+        .header-left {
+            margin-right: 25px;
+        }
+
+        .profile-img {
+            width: 90px;
+            /* Slightly smaller image */
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .header-center {
+            flex: 1;
+        }
+
+        .header-center h1 {
+            font-size: 18pt;
+            /* Reduced from 20pt */
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .header-center h2 {
+            font-size: 10pt;
+            /* Reduced from 11pt */
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 8.5pt;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .header-right a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* SECTIONS */
+        section {
+            margin-bottom: 20px;
+            /* Reduced margin */
+        }
+
+        .section-title {
+            font-size: 10.5pt;
+            /* Reduced from 11pt */
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 12px;
+            padding-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        /* PROFILE */
+        .profile-text {
+            text-align: justify;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        /* SKILLS GRID */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            /* Reduced gap */
+            margin-bottom: 10px;
+        }
+
+        .skill-cat h4 {
+            font-size: 9pt;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .skill-list {
+            list-style: none;
+            font-size: 8.5pt;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        .skill-list li {
+            display: inline-block;
+        }
+
+        .skill-list li:not(:last-child):after {
+            content: " • ";
+            margin: 0 3px;
+            color: var(--accent);
+        }
+
+        /* EXPERIENCE */
+        .exp-item {
+            margin-bottom: 15px;
+            /* Reduced margin */
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .exp-role {
+            font-weight: 700;
+            font-size: 10pt;
+            color: var(--primary);
+        }
+
+        .exp-company {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 9.5pt;
+        }
+
+        .exp-date {
+            font-size: 7.5pt;
+            color: var(--text-light);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .exp-details ul {
+            padding-left: 14px;
+            margin-top: 6px;
+        }
+
+        .exp-details li {
+            margin-bottom: 3px;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        .tag-cloud {
+            margin-top: 4px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #f1f5f9;
+            color: #475569;
+            padding: 1px 5px;
+            border-radius: 4px;
+            font-size: 7.5pt;
+            font-weight: 600;
+            margin-right: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* PROJECTS */
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            /* Reduced gap */
+        }
+
+        .project-card {
+            border-left: 3px solid var(--accent);
+            padding-left: 12px;
+        }
+
+        .project-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .project-title {
+            font-weight: 700;
+            font-size: 10pt;
+            color: var(--primary);
+        }
+
+        .project-badge {
+            background: var(--primary);
+            color: white;
+            font-size: 7pt;
+            padding: 1px 5px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .project-tech {
+            font-size: 8pt;
+            color: var(--accent);
+            font-weight: 600;
+            font-family: monospace;
+            text-transform: uppercase;
+        }
+
+        .project-desc {
+            font-size: 9pt;
+            color: #1e293b;
+            font-weight: 500;
+            margin-bottom: 4px;
+            font-style: italic;
+        }
+
+        .project-details {
+            font-size: 8.8pt;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            text-align: justify;
+        }
+
+        .project-features {
+            font-size: 8.8pt;
+            color: var(--text-light);
+        }
+
+        .project-features ul {
+            padding-left: 14px;
+            margin-top: 3px;
+            list-style-type: square;
+        }
+
+        /* EDUCATION & CERTIFICATIONS */
+        .edu-item,
+        .cert-item {
+            margin-bottom: 12px;
+        }
+
+        .grade-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .edu-degree {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 9.5pt;
+        }
+
+        .edu-school {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 9pt;
+        }
+
+        .edu-date {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 7.5pt;
+            white-space: nowrap;
+        }
+
+        .edu-details {
+            font-size: 8.8pt;
+            color: var(--text-main);
+            margin-top: 3px;
+            text-align: justify;
+        }
+
+        /* Responsive Styles for Screen Viewing */
+        @media screen and (max-width: 794px) {
+            .cv-container {
+                width: 100%;
+                padding: 20px;
+                min-height: auto;
+            }
+
+            .header-center h1 {
+                font-size: 16pt;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-left {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .header-right {
+                text-align: center;
+                margin-top: 15px;
+            }
+        }
+
+        @media print {
+            body {
+                margin: 0;
+            }
+
+            .cv-container {
+                box-shadow: none;
+                width: 100%;
+                padding: 30px;
+                margin: 0;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .exp-item,
+            .project-card,
+            .skill-cat,
+            .edu-item {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+
+        <!-- HEADER -->
+        <header>
+            <div class="header-left">
+                <img src="cara.jpg" alt="Perfil" class="profile-img">
+            </div>
+            <div class="header-center">
+                <h1>Daniel Karimi</h1>
+                <h2>Ingeniero de Telecomunicaciones & IA</h2>
+            </div>
+            <div class="header-right">
+                <div>Madrid, España</div>
+                <div>daniel.karimi.alvarez@gmail.com</div>
+                <div>+34 654 310 492</div>
+                <div><a href="https://linkedin.com/in/daniel-karimi-alvarez">linkedin.com/in/daniel-karimi-alvarez</a>
+                </div>
+                <div><a href="https://github.com/Dankar44">github.com/Dankar44</a></div>
+            </div>
+        </header>
+
+        <!-- PERFIL -->
+        <section>
+            <div class="section-title">Sobre Mí</div>
+            <p class="profile-text">
+                Soy Ingeniero Técnico en Sistemas de Telecomunicaciones graduado por la <strong>Universidad Politécnica
+                    de Madrid</strong>,
+                con una sólida formación en sistemas de comunicaciones, redes y desarrollo de soluciones tecnológicas.
+                Mi enfoque combina habilidades técnicas en <strong>telecomunicaciones</strong>,
+                <strong>programación</strong> y
+                <strong>sistemas embebidos</strong> con una mentalidad orientada a la resolución creativa de problemas.
+            </p>
+            <p class="profile-text">
+                Me apasiona la <strong>Inteligencia Artificial a bajo nivel</strong>: desde el entrenamiento y
+                desarrollo de mis propios
+                modelos LLM hasta la implementación de soluciones que resuelven problemas técnicos y cotidianos.
+                Busco oportunidades donde pueda combinar mi conocimiento en telecomunicaciones con el desarrollo de
+                soluciones innovadoras.
+            </p>
+        </section>
+
+        <!-- HABILIDADES -->
+        <section>
+            <div class="section-title">Stack Tecnológico</div>
+            <div class="skills-grid">
+                <div class="skill-cat">
+                    <h4>📡 Telecomunicaciones</h4>
+                    <ul class="skill-list">
+                        <li>DSP</li>
+                        <li>Radiocomunicación</li>
+                        <li>Antenas y RF</li>
+                        <li>Redes TCP/IP</li>
+                        <li>Microprocesadores</li>
+                        <li>Sistemas Embebidos</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🤖 IA & Computer Vision</h4>
+                    <ul class="skill-list">
+                        <li>YOLO (v5/v8)</li>
+                        <li>PyTorch</li>
+                        <li>OpenCV</li>
+                        <li>Deep Learning</li>
+                        <li>TensorFlow</li>
+                        <li>RAG</li>
+                        <li>Image Processing</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>💻 Desarrollo</h4>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>JavaScript / TypeScript</li>
+                        <li>C</li>
+                        <li>React.js</li>
+                        <li>Next.js</li>
+                        <li>HTML5 / CSS3</li>
+                        <li>Node.js</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>☁️ Cloud & DevOps</h4>
+                    <ul class="skill-list">
+                        <li>Vercel</li>
+                        <li>Cloudflare Workers</li>
+                        <li>GitHub Actions</li>
+                        <li>CI/CD</li>
+                        <li>Docker</li>
+                        <li>Linux</li>
+                        <li>Git</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>📈 Ciencia de Datos</h4>
+                    <ul class="skill-list">
+                        <li>Pandas</li>
+                        <li>NumPy</li>
+                        <li>Data Curation</li>
+                        <li>Análisis de Datos</li>
+                        <li>Visualización</li>
+                        <li>Jupyter</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🛠️ Herramientas</h4>
+                    <ul class="skill-list">
+                        <li>Git / GitHub</li>
+                        <li>VS Code</li>
+                        <li>PostgreSQL</li>
+                        <li>API REST</li>
+                        <li>Metodologías Ágiles</li>
+                        <li>Documentación</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- IDIOMAS -->
+        <section style="margin-top:-10px;">
+            <div style="font-size:8.8pt; border-top:1px solid #eee; padding-top:8px; color:#555;">
+                <strong>Idiomas:</strong> Español (Nativo) • Inglés (B2)
+            </div>
+        </section>
+
+        <!-- EXPERIENCIA -->
+        <section>
+            <div class="section-title">Experiencia Profesional</div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-role">Ingeniero de Inteligencia Artificial (Prácticas)</span>
+                        <span class="exp-company"> | CSIC - Instituto de Tecnologías Físicas y de la Información
+                            (ITEFI)</span>
+                    </div>
+                    <span class="exp-date">Oct 2025 - Ene 2026</span>
+                </div>
+                <div class="exp-details">
+                    <ul>
+                        <li>Desarrollo de sistemas de Visión Artificial para automatización del análisis biológico:
+                            generación y curación de datasets para YOLOv8.</li>
+                        <li>Implementación de pipelines de preprocesamiento de imágenes celulares: conversión,
+                            normalización y optimización.</li>
+                        <li>Anotación semántica y generación de Ground Truth mediante LabelMe.</li>
+                        <li>Colaboración con grupo de investigación RESULT: traducción de requerimientos biológicos a
+                            estructuras de datos para IA.</li>
+                        <li>Configuración de entornos (Anaconda/Python) y gestión de dependencias (PyTorch, OpenCV).
+                        </li>
+                        <li>Validación y optimización de modelos: análisis de métricas y mejora de capacidad predictiva.
+                        </li>
+                    </ul>
+                </div>
+                <div class="tag-cloud">
+                    <span class="tag">YOLOv8</span><span class="tag">PyTorch</span><span class="tag">OpenCV</span><span
+                        class="tag">Python</span><span class="tag">Deep Learning</span><span class="tag">Computer
+                        Vision</span>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-role">Formación en Sistemas de Telecomunicación</span>
+                        <span class="exp-company"> | Universidad Politécnica de Madrid (ETSIT-UPM)</span>
+                    </div>
+                    <span class="exp-date">Sep 2020 - Jul 2025</span>
+                </div>
+                <div class="exp-details">
+                    <ul>
+                        <li><strong>Procesado Digital de la Señal:</strong> Análisis espectral, filtrado digital,
+                            modulaciones, algoritmos DSP en tiempo real.</li>
+                        <li><strong>Sistemas de Radiocomunicación y RF:</strong> Diseño de antenas, propagación de
+                            ondas, alta frecuencia.</li>
+                        <li><strong>Electrónica de Comunicaciones:</strong> Circuitos analógicos/digitales,
+                            microprocesadores, sistemas embebidos.</li>
+                        <li><strong>Redes y Servicios:</strong> Arquitectura TCP/IP, protocolos de red, sistemas
+                            operativos.</li>
+                        <li><strong>Programación:</strong> Algoritmos, estructuras de datos, POO (C, Python).</li>
+                    </ul>
+                </div>
+                <div class="tag-cloud">
+                    <span class="tag">DSP</span><span class="tag">Antenas</span><span class="tag">RF</span><span
+                        class="tag">Microprocesadores</span><span class="tag">C</span><span class="tag">Python</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section>
+            <div class="section-title">Formación Académica</div>
+            <div class="edu-item">
+                <div class="grade-header">
+                    <div>
+                        <span class="edu-degree">Grado en Ingeniería de Sistemas de Telecomunicación</span>,
+                        <span class="edu-school">Universidad Politécnica de Madrid (ETSIT-UPM)</span>
+                    </div>
+                    <span class="edu-date">2020 - 2025</span>
+                </div>
+                <div class="edu-details">
+                    Formación integral en sistemas de comunicación, procesado digital de señal, electrónica y redes.
+                    Especialización en IA y Computer Vision.
+                </div>
+            </div>
+            <div class="edu-item">
+                <div class="grade-header">
+                    <div>
+                        <span class="edu-degree">Bachillerato Tecnológico</span>,
+                        <span class="edu-school">IES Isabel la Católica</span>
+                    </div>
+                    <span class="edu-date">2018 - 2020</span>
+                </div>
+                <div class="edu-details">
+                    Modalidad Ciencias y Tecnología. Matrícula de Honor. Base sólida en matemáticas y física.
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS -->
+        <section>
+            <div class="section-title">Certificaciones</div>
+            <div class="cert-item">
+                <ul class="skill-list" style="display: block;">
+                    <li style="display: block; margin-bottom: 5px;"><strong>Inteligencia Artificial y Productividad
+                            (Google):</strong> Uso eficiente de herramientas de IA y automatización.</li>
+                    <li style="display: block; margin-bottom: 5px;"><strong>IA Generativa (MIT):</strong> Implementación
+                        de soluciones de GenAI y análisis de sentimientos.</li>
+                    <li style="display: block; margin-bottom: 5px;"><strong>Internet of Things (MIT):</strong>
+                        Soluciones IoT para hogares y agricultura inteligente.</li>
+                    <li style="display: block; margin-bottom: 5px;"><strong>Transformación Digital (MIT):</strong>
+                        Estrategia tecnológica y digitalización de negocios.</li>
+                    <li style="display: block; margin-top: 5px;"><strong>Aptis ESOL B2 (British Council):</strong>
+                        Certificación oficial que acredita competencia lingüística completa (MCER). Evaluación de
+                        Reading, Writing, Listening y Speaking, demostrando capacidad para desenvolverse en entornos
+                        profesionales y comprender lenguaje técnico complejo.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PROYECTOS (Last as requested) -->
+        <section>
+            <div class="section-title">Proyectos Destacados</div>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div class="project-head">
+                        <div>
+                            <span class="project-title">CellTracker</span>
+                            <span class="project-badge">IA + Paper Científico</span>
+                        </div>
+                        <span class="project-tech">Python • YOLOv8 • PyTorch • OpenCV</span>
+                    </div>
+                    <div class="project-desc">Sistema de rastreo celular con IA para microscopía. Pendiente de
+                        publicación en revista científica.</div>
+                    <div class="project-details">
+                        Proyecto estrella de visión artificial para laboratorios de biología. Implementa modelos de
+                        detección basados en YOLOv8 customizados
+                        para la identificación y seguimiento automático de células. Incluye pipeline completo de
+                        procesamiento de imagen, tracking multi-objeto
+                        con filtros de Kalman y exportación de métricas estadísticas.
+                    </div>
+                    <div class="project-features">
+                        <ul>
+                            <li>Detección de células con YOLOv8 entrenamiento custom y Tracking multi-objeto (Filtros
+                                Kalman).</li>
+                            <li>Pipeline de preprocesamiento, análisis cuantitativo de trayectorias y exportación de
+                                métricas.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-head">
+                        <div>
+                            <span class="project-title">MigraCell Analyzer</span>
+                            <span class="project-badge">Deep Learning + Bio</span>
+                        </div>
+                        <span class="project-tech">Python • YOLOv8-seg • PyTorch • Tkinter</span>
+                    </div>
+                    <div class="project-desc">Plataforma de Microscopía Inteligente para Análisis de Migración Celular.
+                    </div>
+                    <div class="project-details">
+                        Automatización total de ensayos de wound healing mediante Deep Learning. Procesa experimentos
+                        completos en &lt; 5 minutos (vs 4-8h manual).
+                        Inferencia con YOLOv8-seg, post-procesamiento de máscaras, cálculo geométrico y generación de
+                        reportes automáticos.
+                    </div>
+                    <div class="project-features">
+                        <ul>
+                            <li>Resultados 100% reproducibles y Segmentación pixel-perfect con YOLOv8-seg.</li>
+                            <li>Procesamiento batch desatendido y generación de gráficas para publicación.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+</body>
+
+</html>

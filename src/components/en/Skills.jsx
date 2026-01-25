@@ -1,76 +1,69 @@
 function Skills() {
     const skillCategories = [
         {
-            icon: '🛡️',
-            title: 'Cybersecurity',
+            icon: '📡',
+            title: 'Telecommunications',
             skills: [
-                'Pentesting',
-                'Ethical Hacking',
-                'Vulnerability Analysis',
-                'OWASP Top 10',
-                'Burp Suite',
-                'Metasploit',
-                'Nmap',
-                'Wireshark',
-                'SOC / SIEM',
-                'Incident Response'
+                'Digital Signal Processing (DSP)',
+                'Radiocommunication Systems',
+                'Antennas & RF Propagation',
+                'TCP/IP Networks',
+                'Microprocessors',
+                'Analog/Digital Electronics',
+                'Embedded Systems'
             ]
         },
         {
-            icon: '📋',
-            title: 'Standards & Compliance',
+            icon: '🤖',
+            title: 'AI & Computer Vision',
             skills: [
-                'ISO 27001',
-                'ISO 27002',
-                'ENS',
-                'CCN-STIC',
-                'LUCIA (CCN-CERT)',
-                'GDPR',
-                'Security Auditing',
-                'Risk Management'
+                'YOLO (v5/v8)',
+                'PyTorch',
+                'OpenCV',
+                'Deep Learning',
+                'Computer Vision',
+                'TensorFlow',
+                'Image Processing',
+                'RAG'
             ]
         },
         {
             icon: '💻',
             title: 'Development & Languages',
             skills: [
-                'C',
-                'Java',
                 'Python',
                 'JavaScript / TypeScript',
-                'React',
+                'C',
+                'React.js',
                 'Next.js',
+                'HTML5 / CSS3',
                 'Node.js',
-                'SQL',
-                'HTML5 / CSS3'
+                'SQL'
             ]
         },
         {
             icon: '☁️',
             title: 'Cloud & DevOps',
             skills: [
-                'Terraform (IaC)',
-                'Cloudflare Workers',
                 'Vercel',
+                'Cloudflare Workers',
                 'GitHub Actions',
                 'CI/CD',
                 'Docker',
                 'Linux',
-                'Checkov',
-                'Trivy'
+                'Git'
             ]
         },
         {
-            icon: '🤖',
-            title: 'AI & Machine Learning',
+            icon: '📈',
+            title: 'Data Science',
             skills: [
-                'RAG (Retrieval-Augmented Generation)',
-                'OpenAI / GPT',
-                'Groq AI',
-                'Computer Vision',
-                'TensorFlow',
-                'NLP',
-                'Deep Learning'
+                'Pandas',
+                'NumPy',
+                'Data Curation',
+                'Data Analysis',
+                'Visualization',
+                'Jupyter Notebooks'
             ]
         },
         {
@@ -79,9 +72,8 @@ function Skills() {
             skills: [
                 'Git / GitHub',
                 'VS Code',
-                'Oracle Database',
                 'PostgreSQL',
-                'REST APIs',
+                'REST AI',
                 'Agile Methodologies',
                 'Technical Documentation'
             ]

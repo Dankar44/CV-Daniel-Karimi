@@ -25,7 +25,7 @@ function NavbarEN({ theme, toggleTheme }) {
         <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
             <div className="container navbar-content">
                 <a href="#home" className="navbar-logo">
-                    G<span>.</span>Prieto
+                    D<span>.</span>Karimi
                 </a>
 
                 <ul className={`navbar-links ${isMenuOpen ? 'active' : ''}`}>
@@ -33,7 +33,7 @@ function NavbarEN({ theme, toggleTheme }) {
                     <li onClick={closeMenu}><a href="#about">About</a></li>
                     <li onClick={closeMenu}><a href="#experience">Experience</a></li>
                     <li onClick={closeMenu}><a href="#projects">Projects</a></li>
-                    <li onClick={closeMenu}><Link to="/portfolio" className="portfolio-nav-link">Portfolio</Link></li>
+                    <li onClick={closeMenu}><Link to="/portfolio-en" className="portfolio-nav-link">Portfolio</Link></li>
                     <li onClick={closeMenu}><a href="#skills">Skills</a></li>
                     <li onClick={closeMenu}><a href="#education">Education</a></li>
                     <li onClick={closeMenu}><a href="#contact">Contact</a></li>

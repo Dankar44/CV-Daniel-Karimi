@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AI Chatbot Widget - Documentación</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #21262d;
+            --border: #30363d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent: #58a6ff;
+            --accent-soft: #1f6feb;
+            --success: #3fb950;
+            --warning: #d29922;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding-top: 80px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(13, 17, 23, 0.95);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .header-section {
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 60px;
+        }
+
+        .main-logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            object-fit: contain;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .badges-row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(88, 166, 255, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(88, 166, 255, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        section {
+            scroll-margin-top: 100px;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-icon {
+            color: var(--accent);
+        }
+
+        h3 {
+            font-size: 1.3em;
+            color: var(--text-primary);
+            margin: 30px 0 15px 0;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 25px;
+        }
+
+        .card h4 {
+            color: var(--text-primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .screenshot-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .screenshot-container img {
+            max-width: 100%;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            margin-top: 80px;
+            color: var(--text-secondary);
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            font-weight: 600;
+            margin: 0 5px;
+        }
+
+        .action-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#" class="nav-logo">
+                <img src="/favicon.svg" alt="Logo">
+                AI Chatbot
+            </a>
+            <div class="nav-links">
+                <a href="/portfolio">Volver al Portfolio</a>
+                <a href="#overview">Resumen</a>
+                <a href="#details">Detalles</a>
+                <a href="#gallery">Galería</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- HERO -->
+        <section id="overview" class="header-section">
+            <div style="font-size: 4em; margin-bottom: 20px;">🤖</div>
+            <h1>AI Chatbot Widget</h1>
+            <p class="subtitle">Asistente Serverless con RAG</p>
+
+            <div class="badges-row">
+                <span class="badge">Cloudflare Workers</span>
+                <span class="badge">React</span>
+                <span class="badge">Groq AI</span>
+                <span class="badge">RAG</span>
+                <span class="badge">Serverless</span>
+            </div>
+
+            <div style="margin-top: 30px;">
+                <a href="https://github.com/guillermop2002/chatbot" class="action-btn">
+                    <span>📦</span> Ver en GitHub
+                </a>
+                <a href="https://chatbot-6h9.pages.dev" class="action-btn">
+                    <span>🚀</span> Ver Demo
+                </a>
+            </div>
+        </section>
+
+        <!-- PROBLEMA Y SOLUCIÓN -->
+        <section id="details">
+            <div class="section-title"><span class="section-icon">💡</span> El Desafío y La Solución</div>
+            <div class="grid-2">
+                <div class="card">
+                    <h4>⚠️ El Problema</h4>
+                    <p>Las empresas quieren chat con IA pero carecen de la experiencia en ML o infraestructura necesaria
+                        para implementarlo y mantenerlo de forma eficiente.</p>
+                </div>
+                <div class="card">
+                    <h4>✅ La Solución</h4>
+                    <p>Solución totalmente serverless en Cloudflare Workers. Realiza crawling automático, genera
+                        embeddings y despliega un widget funcional sin servidores tradicionales.</p>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 20px;">
+                <h4>✨ Características Clave</h4>
+                <ul>
+                    <li>Crawling y scraping automático</li>
+                    <li>Generación de embeddings y búsqueda vectorial (RAG)</li>
+                    <li>Arquitectura 100% Serverless en el Edge</li>
+                    <li>Widget empaquetado como Web Component universal</li>
+                    <li>Respuestas en streaming</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- GALLERY -->
+        <section id="gallery">
+            <div class="section-title"><span class="section-icon">📸</span> Interfaz</div>
+            <div class="screenshot-container">
+                <img src="/portfolio/chatbot-widget.png" alt="Chatbot Widget Interface">
+                <div class="caption">Widget de chat integrado en una web de ejemplo</div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p><strong>AI Chatbot Widget</strong> — Desarrollado por Daniel Karimi</p>
+        </footer>
+    </div>
+</body>
+
+</html>

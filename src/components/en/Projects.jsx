@@ -1,27 +1,14 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 function Projects() {
     const [selectedProject, setSelectedProject] = useState(null)
 
     const projects = [
-        {
-            icon: '🛡️',
-            badge: 'Thesis',
-            title: 'GraphSec-IaC',
-            description: 'Infrastructure as Code security visualizer. Combines Terraform dependency graphs with vulnerability analysis.',
-            details: 'This project addresses the complexity of securing modern infrastructure defined by code (IaC). GraphSec-IaC parses Terraform files, builds a resource dependency graph, and overlays vulnerabilities detected by leading tools like Checkov and Trivy. This allows security engineers to visualize the "blast radius" of a vulnerability and prioritize fixes based on real architecture, not just CVSS severity.',
-            features: [
-                'Custom HCL parsing engine',
-                'Interactive graph visualization with React Flow',
-                'Correlation of SARIF findings with infrastructure nodes',
-                'Risk propagation algorithm in dependencies'
-            ],
-            tech: ['Python', 'Terraform', 'React', 'Checkov', 'Trivy', 'SARIF'],
-            github: 'https://github.com/guillermop2002/GraphSec-IaC',
-            demo: null
-        },
+
         {
             icon: '🔐',
+            type: 'Web',
             badge: 'DevSecOps',
             title: 'Golden Pipeline',
             description: 'Secure CI/CD pipeline with GitHub Actions that automatically detects and blocks vulnerable code before reaching production.',
@@ -38,6 +25,7 @@ function Projects() {
         },
         {
             icon: '🤖',
+            type: 'Web',
             badge: 'AI + RAG',
             title: 'AI Chatbot Widget',
             description: 'Serverless infrastructure to create RAG chatbots. Just pass the URL and it automatically generates a trained chatbot.',
@@ -54,6 +42,7 @@ function Projects() {
         },
         {
             icon: '📜',
+            type: 'Web',
             badge: 'LegalTech',
             title: 'Patch-BOE',
             description: 'Platform that extracts legislative changes from BOE, generates AI summaries, and assigns relevance scores.',
@@ -70,6 +59,7 @@ function Projects() {
         },
         {
             icon: '💪',
+            type: 'Web',
             badge: 'SEO + GEO',
             title: 'Dreizeer',
             description: 'Complete digitalization of a fitness business. Website with maximum SEO/Local optimization and management system.',
@@ -86,6 +76,7 @@ function Projects() {
         },
         {
             icon: '🔬',
+            type: 'App',
             badge: 'Computer Vision',
             title: 'Cell Tracker',
             description: 'Cell tracking and analysis system using image processing and machine learning.',
@@ -102,6 +93,7 @@ function Projects() {
         },
         {
             icon: '🌍',
+            type: 'App',
             badge: 'In Development',
             title: 'NativeConnect',
             description: 'App to connect travelers with native locals. Matching system, real-time chat, and verification.',
@@ -144,7 +136,25 @@ function Projects() {
                             key={index}
                             className="project-card glass-card"
                             onClick={() => setSelectedProject(project)}
+                            style={{ position: 'relative' }}
                         >
+                            <span style={{
+                                position: 'absolute',
+                                top: '15px',
+                                left: '15px',
+                                background: 'rgba(255, 255, 255, 0.1)',
+                                backdropFilter: 'blur(4px)',
+                                padding: '4px 12px',
+                                borderRadius: '20px',
+                                fontSize: '0.75rem',
+                                fontWeight: '600',
+                                color: 'rgba(255, 255, 255, 0.9)',
+                                border: '1px solid rgba(255, 255, 255, 0.1)',
+                                zIndex: 10,
+                                boxShadow: '0 2px 10px rgba(0,0,0,0.1)'
+                            }}>
+                                {project.type}
+                            </span>
                             <div className="project-header">
                                 <div className="project-icon">{project.icon}</div>
                                 <div className="project-links" onClick={(e) => e.stopPropagation()}>
@@ -162,7 +172,14 @@ function Projects() {
                             </div>
 
                             <span className="project-badge">{project.badge}</span>
-                            <h3 className="project-title">{project.title}</h3>
+                            <h3 className="project-title">
+                                {project.title}
+                                {(project.title === 'Cell Tracker' || project.title === 'CellTracker') && (
+                                    <span title="Most Featured Project" style={{ marginLeft: '8px', cursor: 'help', verticalAlign: 'middle' }}>
+                                        👑
+                                    </span>
+                                )}
+                            </h3>
                             <p className="project-description">{project.description}</p>
 
                             <div className="project-tech">
@@ -252,6 +269,11 @@ function Projects() {
                         </div>
                     </div>
                 )}
+                <div style={{ marginTop: '40px', textAlign: 'center' }}>
+                    <Link to="/portfolio-en" className="btn btn-primary">
+                        View more projects
+                    </Link>
+                </div>
             </div>
         </section>
     )

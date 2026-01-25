@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import Portfolio from './components/en/Portfolio'
+import Portfolio from './components/Portfolio'
+import PortfolioEN from './components/en/Portfolio'
 
-function PortfolioPage() {
+function PortfolioPage({ lang = 'es' }) {
     const [theme, setTheme] = useState(() => {
         const savedTheme = localStorage.getItem('theme')
         if (savedTheme) {
@@ -21,7 +22,7 @@ function PortfolioPage() {
             <div className="bg-gradient-mesh"></div>
             <div className="noise-overlay"></div>
 
-            <Portfolio />
+            {lang === 'en' ? <PortfolioEN /> : <Portfolio />}
         </div>
     )
 }

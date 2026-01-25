@@ -2,17 +2,17 @@ function Education() {
     const education = [
         {
             years: '2020 - 2025',
-            degree: 'Grado en Ingeniería de la Ciberseguridad',
-            school: 'Universidad Rey Juan Carlos',
+            degree: 'Grado en Ingeniería de Sistemas de Telecomunicación',
+            school: 'Universidad Politécnica de Madrid (ETSIT-UPM)',
             location: 'Madrid, España',
-            details: 'Formación integral en seguridad informática, pentesting, criptografía, seguridad de redes, desarrollo seguro e inteligencia artificial aplicada a la ciberseguridad.'
+            details: 'Formación integral en sistemas de comunicación, procesado digital de señal, electrónica, redes, programación y sistemas de radiocomunicación. Especialización en desarrollo de soluciones con Inteligencia Artificial y Computer Vision.'
         },
         {
             years: '2018 - 2020',
             degree: 'Bachillerato Tecnológico',
-            school: 'IES de Excelencia Deportiva "Ortega y Gasset"',
+            school: 'IES Isabel la Católica',
             location: 'Madrid, España',
-            details: 'Modalidad de Ciencias Tecnológicas. Compaginación de estudios con deporte de alto rendimiento (voleibol), desarrollando habilidades de gestión del tiempo y trabajo bajo presión.'
+            details: 'Modalidad de Ciencias y Tecnología. Formación en matemáticas avanzadas, física, tecnología industrial y dibujo técnico. Base sólida en pensamiento lógico-matemático y resolución de problemas que facilitó el acceso a la ingeniería.'
         }
     ]
 

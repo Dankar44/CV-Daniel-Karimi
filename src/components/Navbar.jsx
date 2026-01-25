@@ -25,7 +25,7 @@ function Navbar({ theme, toggleTheme }) {
         <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
             <div className="container navbar-content">
                 <a href="#" className="navbar-logo">
-                    G<span>.</span>Prieto
+                    D<span>.</span>Karimi
                 </a>
 
                 <ul className={`navbar-links ${isMenuOpen ? 'active' : ''}`}>

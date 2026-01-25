@@ -18,43 +18,43 @@ function Contact() {
 
                     <div className="contact-links">
                         <a
-                            href="mailto:guillermoprieto17@gmail.com"
+                            href="mailto:daniel.karimi.alvarez@gmail.com"
                             className="contact-link glass-card"
                         >
                             <span className="contact-link-icon">📧</span>
                             <span className="contact-link-label">Email</span>
-                            <span className="contact-link-value">guillermoprieto17@gmail.com</span>
+                            <span className="contact-link-value">daniel.karimi.alvarez@gmail.com</span>
                         </a>
 
                         <a
-                            href="https://www.linkedin.com/in/guillermo-prieto-rodriguez-8640b9291/"
+                            href="https://www.linkedin.com/in/daniel-karimi-alvarez/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="contact-link glass-card"
                         >
                             <span className="contact-link-icon">💼</span>
                             <span className="contact-link-label">LinkedIn</span>
-                            <span className="contact-link-value">Guillermo Prieto</span>
+                            <span className="contact-link-value">Daniel Karimi</span>
                         </a>
 
                         <a
-                            href="https://github.com/guillermop2002"
+                            href="https://github.com/Dankar44"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="contact-link glass-card"
                         >
                             <span className="contact-link-icon">🐙</span>
                             <span className="contact-link-label">GitHub</span>
-                            <span className="contact-link-value">guillermop2002</span>
+                            <span className="contact-link-value">Dankar44</span>
                         </a>
 
                         <a
-                            href="tel:+34650164383"
+                            href="tel:+34654310492"
                             className="contact-link glass-card"
                         >
                             <span className="contact-link-icon">📱</span>
                             <span className="contact-link-label">Teléfono</span>
-                            <span className="contact-link-value">+34 650 164 383</span>
+                            <span className="contact-link-value">+34 654 310 492</span>
                         </a>
                     </div>
 
@@ -67,6 +67,7 @@ function Contact() {
                             </svg>
                             Descargar CV
                         </a>
+                        {/* HIDDEN FOR NOW
                         <a href="/carta-recomendacion.pdf" download className="btn btn-secondary">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -77,6 +78,7 @@ function Contact() {
                             </svg>
                             Carta de Recomendación
                         </a>
+                        */}
                     </div>
                 </div>
             </div>
