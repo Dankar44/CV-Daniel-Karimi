@@ -6,9 +6,10 @@ function Projects() {
 
     const projects = [
         {
-            icon: '🔬',
+            icon: <img src="/projects/cell-tracker/icono-celltracker.png" alt="CellTracker" style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '12px' }} />,
             type: 'App',
             badge: 'IA + Paper Científico',
+            id: 'cell-tracker',
             title: 'CellTracker',
             description: 'Sistema de rastreo celular con IA para microscopía. Pendiente de publicación en revista científica de software.',
             details: 'Proyecto estrella de visión artificial para laboratorios de biología. Implementa modelos de detección basados en YOLOv8 con entrenamiento personalizado para la identificación y seguimiento automático de células en secuencias de microscopía. Incluye pipeline completo de procesamiento de imagen: preprocesamiento, augmentación de datos, tracking multi-objeto con filtros de Kalman, y exportación de métricas para análisis estadístico. Desarrollado en colaboración con investigadores, actualmente en proceso de publicación.',
@@ -20,13 +21,14 @@ function Projects() {
                 'Pendiente de publicación en revista científica'
             ],
             tech: ['Python', 'YOLOv8', 'PyTorch', 'OpenCV', 'NumPy', 'Pandas', 'Deep Learning'],
-            github: null,
+            github: 'https://github.com/Dankar44/CellTracker',
             demo: null
         },
         {
-            icon: '🔬',
+            icon: <img src="/projects/migracell/icono.ico" alt="MigraCell" style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: '12px' }} />,
             type: 'App',
             badge: 'Deep Learning + Bio',
+            id: 'migracell',
             title: 'MigraCell Analyzer',
             description: 'Plataforma de Microscopía Inteligente para el Análisis Automatizado de Migración Celular mediante Deep Learning.',
             details: 'Automatización total de ensayos de wound healing mediante Deep Learning. Procesa experimentos completos en < 5 minutos (vs 4-8h manual) con segmentación pixel-perfect y resultados 100% reproducibles. Incluye pipeline completo: ingesta de datos, inferencia con YOLOv8-seg, post-procesamiento de máscaras, cálculo geométrico y generación de reportes automáticos locales.',
@@ -80,6 +82,7 @@ function Projects() {
             icon: '🤖',
             type: 'Web',
             badge: 'AI + RAG',
+            id: 'ai-chatbot',
             title: 'AI Chatbot Widget',
             description: 'Infraestructura serverless para crear chatbots con RAG. Solo pasas la URL y genera automáticamente un chatbot entrenado.',
             details: 'Una solución "llave en mano" para integrar inteligencia artificial en cualquier sitio web. El sistema realiza un crawling automático del contenido de la URL proporcionada, genera embeddings vectoriales del texto y despliega un widget de chat totalmente funcional. Todo corre en el Edge (Cloudflare Workers) para garantizar mínima latencia y máxima escalabilidad sin servidores tradicionales.',
@@ -97,6 +100,7 @@ function Projects() {
             icon: '💪',
             type: 'Web',
             badge: 'SEO + GEO',
+            id: 'dreizeer',
             title: 'Dreizeer',
             description: 'Digitalización completa de negocio fitness. Sitio web con máxima optimización SEO/Local y sistema de gestión.',
             details: 'Más que una web corporativa, Dreizeer es una plataforma de captación de clientes. Se implementó una estrategia agresiva de SEO Local (Google Business Profile) y SEO técnico (Core Web Vitals perfectos) que posicionó el negocio en el top 3 de búsquedas locales en Madrid en menos de 3 meses. Incluye gestión de leads y sistema de reservas integrado.',
@@ -109,7 +113,7 @@ function Projects() {
             tech: ['Next.js', 'Vercel', 'SEO', 'Google Business', 'Analytics'],
             github: 'https://github.com/Dankar44/Dreizeer',
             demo: 'https://www.dreizeer.es'
-        }
+        },
     ]
 
     // Disable scrolling when modal is open
@@ -136,7 +140,7 @@ function Projects() {
                     {projects.map((project, index) => (
                         <article
                             key={index}
-                            className="project-card glass-card"
+                            className={`project-card glass-card ${project.id === 'cell-tracker' ? 'featured-project' : ''}`}
                             onClick={() => setSelectedProject(project)}
                             style={{ position: 'relative' }}
                         >
@@ -158,7 +162,13 @@ function Projects() {
                                 {project.type}
                             </span>
                             <div className="project-header">
-                                <div className="project-icon">{project.icon}</div>
+                                <div className="project-icon" style={
+                                    (project.id === 'cell-tracker' || project.id === 'migracell')
+                                        ? { background: 'transparent', border: 'none' }
+                                        : {}
+                                }>
+                                    {project.icon}
+                                </div>
                                 <div className="project-links" onClick={(e) => e.stopPropagation()}>
                                     {project.github && (
                                         <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link" aria-label="Ver código en GitHub">
@@ -176,11 +186,6 @@ function Projects() {
                             <span className="project-badge">{project.badge}</span>
                             <h3 className="project-title">
                                 {project.title}
-                                {(project.title === 'CellTracker' || project.title === 'Cell Tracker') && (
-                                    <span title="Proyecto Más Destacado" style={{ marginLeft: '8px', cursor: 'help', verticalAlign: 'middle' }}>
-                                        👑
-                                    </span>
-                                )}
                             </h3>
                             <p className="project-description">{project.description}</p>
 
@@ -214,6 +219,20 @@ function Projects() {
                                 <div className="modal-title-group">
                                     <h3>{selectedProject.title}</h3>
                                     <span className="modal-subtitle-text">{selectedProject.badge}</span>
+                                    {selectedProject.id && (
+                                        <a
+                                            href={`/projects/${selectedProject.id}/${selectedProject.id}.html`}
+                                            className="portfolio-modal-btn"
+                                            title="Ver Portfolio Completo"
+                                        >
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                                <polyline points="15 3 21 3 21 9"></polyline>
+                                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                                            </svg>
+                                            Portfolio
+                                        </a>
+                                    )}
                                 </div>
                             </div>
 

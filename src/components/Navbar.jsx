@@ -54,6 +54,12 @@ function Navbar({ theme, toggleTheme }) {
                     </li>
                 </ul>
 
+                {/* Overlay para cerrar al hacer click fuera */}
+                <div
+                    className={`nav-overlay ${isMenuOpen ? 'open' : ''}`}
+                    onClick={closeMenu}
+                ></div>
+
                 <button
                     className="mobile-menu-btn"
                     onClick={toggleMenu}

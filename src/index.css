@@ -124,7 +124,10 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
+  width: 100%;
   overflow-x: hidden;
+  /* Evitar scroll horizontal */
+  position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -533,7 +536,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     background: rgba(10, 10, 15, 0.98);
     /* Very dark background */
@@ -644,8 +647,32 @@ body {
 
 .hero-image-container {
   position: relative;
-  width: 350px;
-  height: 350px;
+  width: 300px;
+  /* Tamaño móvil ajustado */
+  height: 300px;
+}
+
+@media (min-width: 768px) {
+  .hero-image-container {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-title {
+    font-size: 5rem;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    max-width: 650px;
+  }
+
+  .hero-image-container {
+    width: 450px;
+    height: 450px;
+  }
 }
 
 .hero-image {
@@ -1219,11 +1246,12 @@ body {
 
   .about-content {
     grid-template-columns: 1fr;
+    gap: var(--space-4);
   }
 
   .about-stats {
     max-width: 400px;
-    margin: var(--space-8) auto 0;
+    margin: 0 auto;
   }
 
   .skills-grid {
@@ -1236,15 +1264,88 @@ body {
     --font-size-5xl: 2.5rem;
     --font-size-4xl: 2rem;
     --font-size-3xl: 1.75rem;
-    --section-padding: var(--space-12);
+    --font-size-3xl: 1.75rem;
+    --section-padding: var(--space-8);
+  }
+
+  .section-header {
+    margin-bottom: var(--space-8);
   }
 
   .navbar-links {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    /* Ocupa toda la pantalla como solicitó el usuario */
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.98);
+    /* Más opaco para fondo total */
+    backdrop-filter: blur(10px);
+    padding: var(--space-8) var(--space-6);
+    padding-top: 80px;
+    /* Espacio para no tapar logo si estuviera fijo o simplemente aire */
+    transition: left 0.3s ease-in-out;
+    border-right: none;
+    /* Ya no es necesario borde si ocupa todo */
+    box-shadow: none;
+    /* Ni sombra */
+    z-index: 99;
+    /* Debajo del toggle de menu si z-index toggle es mayor */
+  }
+
+  .navbar-links.active {
+    left: 0;
+  }
+
+  .navbar-links li {
+    margin: var(--space-3) 0;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .navbar-links.active li {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: 0.2s;
+  }
+
+  /* Acciones (Idioma/Tema) en móvil */
+  .navbar-actions {
+    margin-top: var(--space-6);
+    justify-content: flex-start;
+    gap: var(--space-6);
+    border-top: 1px solid var(--border);
+    padding-top: var(--space-6);
   }
 
   .mobile-menu-btn {
     display: flex;
+    z-index: 100;
+    /* Siempre visible por encima del menu abierto */
+  }
+
+  .nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 98;
+    /* Debajo del menu (99) pero encima del contenido */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-overlay.open {
+    opacity: 1;
+    pointer-events: all;
   }
 
   .hero-image-container {
@@ -1257,7 +1358,23 @@ body {
   }
 
   .experience-item {
-    padding-left: var(--space-8);
+    padding-left: var(--space-5);
+  }
+
+  .experience-card {
+    padding: var(--space-5);
+  }
+
+  .experience-role {
+    font-size: var(--font-size-lg);
+  }
+
+  .experience-company {
+    font-size: var(--font-size-sm);
+  }
+
+  .experience-description {
+    font-size: var(--font-size-xs);
   }
 
   .contact-links {
@@ -1273,6 +1390,10 @@ body {
     font-size: 0.7rem;
     line-height: 1.2;
     word-break: break-all;
+  }
+
+  .about-text {
+    font-size: var(--font-size-sm);
   }
 }
 
@@ -1436,6 +1557,34 @@ body {
   transform: rotate(90deg);
 }
 
+.portfolio-modal-btn {
+  position: absolute;
+  top: var(--space-4);
+  right: 60px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  z-index: 10;
+}
+
+.portfolio-modal-btn:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+  border-color: var(--accent-1);
+}
+
 .modal-body {
   padding: var(--space-8);
 }
@@ -1468,10 +1617,58 @@ body {
   opacity: 0.5;
 }
 
+/* Revertida la reducción de fuente en cards de proyecto */
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: auto;
+  margin-bottom: var(--space-6);
+}
+
+/* ... (resto del css intermedio) ... */
+
 .modal-description {
   color: var(--text-secondary);
   font-size: var(--font-size-lg);
   line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .modal-description {
+    font-size: var(--font-size-sm);
+    /* Reducir solo en móvil dentro del modal */
+    line-height: 1.6;
+  }
+
+  /* Ajuste botón Portfolio en móvil */
+  .portfolio-modal-btn {
+    position: static;
+    /* Ya no absoluto */
+    margin-top: var(--space-3);
+    order: 3;
+    /* Asegurar que vaya después del badge */
+    align-self: flex-start;
+    /* Alinear a la izquierda con el texto */
+    background: rgba(139, 92, 246, 0.1);
+    /* Fondo sutil para destacar */
+    border-color: var(--accent-1);
+    color: var(--accent-1);
+  }
+
+  .modal-header {
+    flex-wrap: wrap;
+    /* Permitir wrap si el título es largo */
+  }
+
+  .modal-title-group {
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start;  Ya por defecto en div block, pero aseguramos para flex */
+    min-width: 0;
+    /* Para truncar texto si hiciera falta */
+  }
 }
 
 .feature-list {
@@ -1534,6 +1731,46 @@ body {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
   border-color: var(--accent-1);
+}
+
+/* Estilo destacado "Premium/Intenso" para proyecto principal */
+.featured-project {
+  position: relative;
+  /* Borde gradiente usando background-origin */
+  border: 2px solid transparent;
+  background:
+    linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.8)) padding-box,
+    linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 50%, var(--accent-3) 100%) border-box;
+
+  /* Sombra resplandeciente */
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.25);
+
+  /* Hacerlo un poco más grande */
+  transform: scale(1.03);
+  z-index: 5;
+  transition: all 0.3s ease;
+}
+
+.featured-project:hover {
+  transform: scale(1.05) translateY(-5px);
+  box-shadow: 0 0 60px rgba(139, 92, 246, 0.4);
+}
+
+/* Etiqueta "Recomendado" via CSS (opcional, pero ayuda a destacar sin ser un emoji) */
+.featured-project::after {
+  content: 'PROYECTO ESTRELLA';
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: var(--gradient-primary);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 12px;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 10;
 }
 
 .click-hint {

@@ -37,7 +37,8 @@ function MobileSkillsStack({ categories }) {
             x: direction > 0 ? 500 : -500,
             opacity: 0,
             scale: 1, // Keep scale while exiting
-            transition: { duration: 0.3 }
+            rotate: direction > 0 ? 20 : -20,
+            transition: { duration: 0.8 }
         })
     }
 

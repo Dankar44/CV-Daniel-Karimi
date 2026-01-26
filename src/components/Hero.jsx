@@ -1,3 +1,5 @@
+import MatrixBackground from './MatrixBackground'
+
 function Hero() {
     const keywords = [
         'Telecomunicaciones',
@@ -9,8 +11,9 @@ function Hero() {
     ]
 
     return (
-        <section className="hero section" id="inicio">
-            <div className="container hero-content">
+        <section className="hero section" id="inicio" style={{ position: 'relative', overflow: 'hidden' }}>
+            <MatrixBackground />
+            <div className="container hero-content" style={{ position: 'relative', zIndex: 10 }}>
                 <div className="hero-text">
                     <div className="hero-subtitle">
                         <span className="dot"></span>
