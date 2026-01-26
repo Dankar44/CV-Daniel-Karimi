@@ -11,8 +11,8 @@ function Contact() {
 
                 <div className="contact-content">
                     <p className="contact-description">
-                        Estoy buscando nuevas oportunidades en el ámbito de la ciberseguridad,
-                        DevOps y desarrollo. Si tienes un proyecto interesante o una posición
+                        Estoy buscando nuevas oportunidades en el ámbito de la Ingeniería de Telecomunicaciones,
+                        Inteligencia Artificial y desarrollo de software. Si tienes un proyecto interesante o una posición
                         que crees que encaja conmigo, ¡me encantaría saber de ti!
                     </p>
 

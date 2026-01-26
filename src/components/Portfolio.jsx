@@ -391,7 +391,7 @@ function Portfolio() {
                             <a
                                 key={project.id}
                                 href={`/projects/${project.id}/${project.id}.html`}
-                                className="portfolio-card glass-card"
+                                className={`portfolio-card glass-card ${project.id === 'cell-tracker' ? 'featured-project' : ''}`}
                                 style={{ animationDelay: `${index * 0.1}s`, textDecoration: 'none', color: 'inherit', display: 'block' }}
                             >
                                 <div className="portfolio-card-image">
@@ -413,11 +413,6 @@ function Portfolio() {
 
                                     <h3 className="portfolio-card-title">
                                         {project.title}
-                                        {(project.title === 'CellTracker' || project.title === 'Cell Tracker') && (
-                                            <span title="Proyecto Más Destacado" style={{ marginLeft: '8px', cursor: 'help', verticalAlign: 'middle', fontSize: '1.2em' }}>
-                                                👑
-                                            </span>
-                                        )}
                                     </h3>
                                     <p className="portfolio-card-subtitle">{project.subtitle}</p>
                                     <p className="portfolio-card-description">{project.description}</p>

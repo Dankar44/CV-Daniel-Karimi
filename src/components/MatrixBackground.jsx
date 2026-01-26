@@ -25,14 +25,17 @@ const MatrixBackground = () => {
         const drops = new Array(columns).fill(1)
 
         const draw = () => {
+            // Detectar si es móvil para ajustar intensidad
+            const isMobile = window.innerWidth < 768
+
             // Fondo semi-transparente para crear estela (trail effect)
-            // Usamos un color muy oscuro con mucha transparencia
-            ctx.fillStyle = 'rgba(15, 23, 42, 0.05)' // Varía alpha para trail más o menos largo
+            // En móvil usamos más opacidad (0.1) para borrar más rápido y evitar saturación
+            ctx.fillStyle = isMobile ? 'rgba(15, 23, 42, 0.1)' : 'rgba(15, 23, 42, 0.05)'
             ctx.fillRect(0, 0, canvas.width, canvas.height)
 
             // Color del texto y fuente
-            // Color sutil cyan/azul para combinar con el tema, pero muy transparente
-            ctx.fillStyle = 'rgba(56, 189, 248, 0.15)' // Cyan sutil (tailwind sky-400 approx) con baja opacidad
+            // En móvil reducimos drásticamente la opacidad (0.07) para que sea muy sutil
+            ctx.fillStyle = isMobile ? 'rgba(56, 189, 248, 0.07)' : 'rgba(56, 189, 248, 0.15)'
             ctx.font = `${fontSize}px monospace`
 
             for (let i = 0; i < drops.length; i++) {
