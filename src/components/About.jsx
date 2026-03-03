@@ -57,9 +57,9 @@ function About() {
                                 marginBottom: 'var(--space-4)',
                                 paddingLeft: 'var(--space-4)'
                             }}>
-                                Daniel ha demostrado una excelente capacidad de aprendizaje y adaptación,
-                                destacando por su proactividad, responsabilidad y habilidades técnicas
-                                en el ámbito tecnológico.
+                                Daniel es muy colaborador en el trabajo, siempre muestra disponibilidad y buen hacer...
+                                Siempre ha mostrado interés por el conocimiento y la Ciencia aplicada, con actitud
+                                positiva y capacidad de trabajo en grupo en armonía.
                             </p>
                             <div style={{
                                 display: 'flex',
@@ -69,12 +69,12 @@ function About() {
                                 gap: 'var(--space-4)'
                             }}>
                                 <div>
-                                    <strong style={{ color: 'var(--text-primary)' }}>Centro de Servicios Avanzados (CSA)</strong>
+                                    <strong style={{ color: 'var(--text-primary)' }}>CSIC (Consejo Superior de Investigaciones Científicas)</strong>
                                     <span style={{
                                         display: 'block',
                                         fontSize: 'var(--font-size-sm)',
                                         color: 'var(--text-tertiary)'
-                                    }}>Carta de Recomendación</span>
+                                    }}>Icíar González - Vicedirectora</span>
                                 </div>
                                 <a
                                     href="/carta-recomendacion.pdf"

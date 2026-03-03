@@ -57,9 +57,9 @@ function About() {
                                 marginBottom: 'var(--space-4)',
                                 paddingLeft: 'var(--space-4)'
                             }}>
-                                Daniel has demonstrated an exceptional level of professionalism, dedication, and competence.
-                                His proactive approach, analytical mindset, and ability to independently solve complex
-                                technical challenges make him an outstanding candidate.
+                                Daniel is very collaborative at work, always showing availability and good practice...
+                                He has always shown interest in knowledge and applied Science, with a positive attitude
+                                and the ability to work in harmony within a group.
                             </p>
                             <div style={{
                                 display: 'flex',
@@ -69,12 +69,12 @@ function About() {
                                 gap: 'var(--space-4)'
                             }}>
                                 <div>
-                                    <strong style={{ color: 'var(--text-primary)' }}>Centro de Servicios Avanzados (CSA)</strong>
+                                    <strong style={{ color: 'var(--text-primary)' }}>CSIC (Spanish National Research Council)</strong>
                                     <span style={{
                                         display: 'block',
                                         fontSize: 'var(--font-size-sm)',
                                         color: 'var(--text-tertiary)'
-                                    }}>Recommendation Letter</span>
+                                    }}>Icíar González - Deputy Director</span>
                                 </div>
                                 <a
                                     href="/recommendation-letter-en.pdf"
