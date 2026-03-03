@@ -1,4 +1,4 @@
-import HeroImg from '/profile.jpg' // Assuming image path logic is same or checking imports
+import MatrixBackground from '../MatrixBackground'
 
 function Hero() {
     const keywords = [
@@ -11,8 +11,9 @@ function Hero() {
     ]
 
     return (
-        <section className="hero section" id="home">
-            <div className="container hero-content">
+        <section className="hero section" id="home" style={{ position: 'relative', overflow: 'hidden' }}>
+            <MatrixBackground />
+            <div className="container hero-content" style={{ position: 'relative', zIndex: 10 }}>
                 <div className="hero-text">
                     <div className="hero-subtitle">
                         <span className="dot"></span>

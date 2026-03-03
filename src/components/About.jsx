@@ -1,6 +1,6 @@
 function About() {
     const stats = [
-        { value: '6', label: 'Meses Experiencia' },
+        { value: '1', label: 'Año Experiencia' },
         { value: '6+', label: 'Proyectos' },
         { value: '5', label: 'Años Formación' },
         { value: 'B2', label: 'Nivel Inglés' }
@@ -37,7 +37,6 @@ function About() {
                         </p>
 
                         {/* Recommendation Quote */}
-                        {/* Recommendation Quote - HIDDEN FOR NOW
                         <div className="recommendation-quote glass-card" style={{
                             marginTop: 'var(--space-8)',
                             padding: 'var(--space-6)',
@@ -93,7 +92,6 @@ function About() {
                                 </a>
                             </div>
                         </div>
-                        */}
                     </div>
 
                     <div className="about-stats">

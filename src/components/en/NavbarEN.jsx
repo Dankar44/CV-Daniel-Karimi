@@ -40,7 +40,7 @@ function NavbarEN({ theme, toggleTheme }) {
 
                     <li className="navbar-actions-item">
                         <div className="navbar-actions">
-                            <a href="/" className="lang-toggle" aria-label="Switch to Spanish">
+                            <a href="/spanish" className="lang-toggle" aria-label="Switch to Spanish">
                                 ES
                             </a>
                             <button
