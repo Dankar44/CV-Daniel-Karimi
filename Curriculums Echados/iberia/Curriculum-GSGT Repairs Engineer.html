@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Daniel Karimi - Iberia Repairs Engineer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #212121;
+            --accent: #D7192D;
+            /* Iberia Red */
+            --bg-accent: #fdf2f2;
+            --text-main: #374151;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --border: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background: #fff;
+            line-height: 1.4;
+            font-size: 8.5pt;
+        }
+
+        .cv-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #fff;
+            padding: 25px 35px;
+            min-height: 297mm;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            align-items: center;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .header-left {
+            margin-right: 25px;
+        }
+
+        .profile-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2.5px solid var(--accent);
+        }
+
+        .header-center {
+            flex: 1;
+        }
+
+        .header-center h1 {
+            font-size: 19pt;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .header-center h2 {
+            font-size: 10.5pt;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 8.5pt;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .header-right a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* SECTIONS */
+        section {
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 11.5pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--primary);
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 10px;
+            padding-bottom: 4px;
+            letter-spacing: 0.5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title span {
+            color: var(--accent);
+        }
+
+        /* PROFILE */
+        .profile-text {
+            text-align: justify;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        /* SKILLS GRID */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .skill-cat {
+            background: var(--bg-light);
+            padding: 10px;
+            border-radius: 6px;
+            border-top: 2px solid var(--accent);
+        }
+
+        .skill-cat h4 {
+            font-size: 9pt;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .skill-list {
+            list-style: none;
+            font-size: 8.5pt;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .skill-list li {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .skill-list li:before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* EXPERIENCE */
+        .exp-item {
+            margin-bottom: 15px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .exp-role {
+            font-weight: 800;
+            font-size: 11pt;
+            color: var(--primary);
+        }
+
+        .exp-company {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 10pt;
+        }
+
+        .exp-date {
+            font-size: 8pt;
+            color: var(--text-light);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .exp-details ul {
+            padding-left: 15px;
+            margin-top: 6px;
+        }
+
+        .exp-details li {
+            margin-bottom: 4px;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        .tag-cloud {
+            margin-top: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--bg-accent);
+            color: var(--accent);
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 7.5pt;
+            font-weight: 700;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            border: 1px solid rgba(215, 25, 45, 0.1);
+        }
+
+        /* PROJECTS */
+        .project-card {
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+            margin-bottom: 12px;
+            background: #fff;
+            padding: 10px 15px;
+            border-radius: 0 6px 6px 0;
+            border: 1px solid var(--border);
+            border-left: 5px solid var(--accent);
+        }
+
+        .project-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .project-title {
+            font-weight: 800;
+            font-size: 10.5pt;
+            color: var(--primary);
+        }
+
+        .project-tech {
+            font-size: 8pt;
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .project-details {
+            font-size: 9pt;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        /* EDUCATION */
+        .edu-item {
+            margin-bottom: 12px;
+        }
+
+        .grade-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .edu-degree {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 10.5pt;
+        }
+
+        .edu-school {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 10pt;
+        }
+
+        .edu-date {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 8pt;
+            white-space: nowrap;
+        }
+
+        /* Responsive */
+        @media print {
+            .cv-container {
+                width: 100%;
+                padding: 25px;
+                margin: 0;
+            }
+
+            .exp-item,
+            .project-card,
+            .edu-item {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+
+        <!-- HEADER -->
+        <header>
+            <div class="header-left">
+                <img src="../../cara.jpg" alt="Perfil" class="profile-img">
+            </div>
+            <div class="header-center">
+                <h1>Daniel Karimi</h1>
+                <h2>GSGT Development &amp; Process Improvement | Ingeniero de Procesos y Reparaciones</h2>
+                <div style="margin-top: 8px;">
+                    <a href="https://cv-daniel-karimi.vercel.app/" style="
+                        display: inline-block;
+                        color: #fff;
+                        background: var(--accent);
+                        font-weight: 700;
+                        font-size: 8.5pt;
+                        text-decoration: none;
+                        padding: 4px 12px;
+                        border-radius: 4px;
+                        text-transform: uppercase;
+                    ">
+                        Portfolio Profesional
+                    </a>
+                </div>
+            </div>
+            <div class="header-right">
+                <div>Madrid, España</div>
+                <div>daniel.karimi.alvarez@gmail.com</div>
+                <div>+34 654 310 492</div>
+                <div><a href="https://linkedin.com/in/daniel-karimi-alvarez">LinkedIn</a> | <a
+                        href="https://github.com/Dankar44">GitHub</a></div>
+            </div>
+        </header>
+
+        <!-- PROFILE -->
+        <section>
+            <div class="section-title">Ingeniería de Procesos &amp; Mejora Continua <span>/ 01</span></div>
+            <p class="profile-text">
+                <strong>Ingeniero de Sistemas de Telecomunicación (UPM)</strong> con un enfoque analítico orientado a la
+                optimización de procesos industriales complejos y el desarrollo de estrategias de reparación eficientes.
+                Especialista en identificar cuellos de botella técnicos y diseñar soluciones de automatización que
+                mejoran la rentabilidad y la calidad operativa.
+            </p>
+            <p class="profile-text">
+                Experto en el rediseño de flujos de trabajo mediante metodologías de mejora continua y digitalización.
+                Durante mi etapa en el CSIC, lideré la transformación técnica de un proceso crítico de laboratorio,
+                logrando una <strong>mejora del 90% en la eficiencia operativa</strong> (reducción de tiempos de 8 horas
+                a 5 minutos) mediante el diseño de procesos automatizados y la optimación secuencial de tareas.
+            </p>
+            <p class="profile-text">
+                Capacidad probada para integrar diversas partes interesadas internas y externas, proporcionar soporte
+                técnico in-situ y automatizar respuestas del sistema para maximizar la capacidad operativa interna.
+                Idiomas: <strong>Español (Nativo) e Inglés (B2+ Certificado)</strong>.
+            </p>
+        </section>
+
+        <!-- SKILLS / TECHNICAL STACK -->
+        <section>
+            <div class="section-title">Process &amp; Operations Engineering <span>/ 01</span></div>
+            <div class="skills-grid" style="grid-template-columns: repeat(3, 1fr); row-gap: 20px;">
+                <div class="skill-cat">
+                    <h4>🏗️ Process Engineering</h4>
+                    <ul class="skill-list">
+                        <li>Diseño de Flujos Técnicos</li>
+                        <li>Rediseño de Procesos</li>
+                        <li>Resolución de Cuellos de Botella</li>
+                        <li>Mitigación de Desviaciones</li>
+                        <li>Análisis de Gaps Tecnológicos</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>⚡ Mejora Continua</h4>
+                    <ul class="skill-list">
+                        <li>Lean Management</li>
+                        <li>SMED (Single-Minute Exchange)</li>
+                        <li>Optimización Secuencial</li>
+                        <li>Estrategias de Rentabilidad</li>
+                        <li>Alineación de Stakeholders</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🤖 Automatización &amp; IT</h4>
+                    <ul class="skill-list">
+                        <li>Python para Procesos</li>
+                        <li>Automatización de Decisiones</li>
+                        <li>Soporte Técnico In-situ</li>
+                        <li>Reporting de Sistemas</li>
+                        <li>Data Pipelines Industrializados</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🛠️ Operations Support</h4>
+                    <ul class="skill-list">
+                        <li>Coordinación Técnica Center</li>
+                        <li>Gestión de Notificaciones</li>
+                        <li>Revisión de Manuales</li>
+                        <li>Estándares de Calidad</li>
+                        <li>Integración de Centros</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>📊 Data &amp; Control</h4>
+                    <ul class="skill-list">
+                        <li>SQL para Monitorización</li>
+                        <li>Power BI (Reporting Operativo)</li>
+                        <li>Seguimiento de Milestones</li>
+                        <li>Análisis de Productividad</li>
+                        <li>Control de Decisiones</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🗣️ Professional Skills</h4>
+                    <ul class="skill-list">
+                        <li>Inglés Profesional (B2/C1)</li>
+                        <li>Liderazgo Transversal</li>
+                        <li>Comunicación Inter-Dept</li>
+                        <li>Orientación a Resultados</li>
+                        <li>Pensamiento Analítico</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section>
+            <div class="section-title">Trayectoria en Optimización Industrial <span>/ 02</span></div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-role">Ingeniero de Procesos y Desarrollo (Project Lead)</span>
+                        <span class="exp-company"> | CSIC – ITEFI</span>
+                    </div>
+                    <span class="exp-date">Sep 2025 – Feb 2026</span>
+                </div>
+                <div class="exp-details">
+                    <ul>
+                        <li><strong>Rediseño de Flujo de Proceso:</strong> Identifiqué y resolví cuellos de botella en
+                            un proceso industrial de laboratorio de alta precisión, rediseñando la secuencia técnica de
+                            ejecución.</li>
+                        <li><strong>Impacto en Productividad:</strong> Implementé una solución de automatización que
+                            redujo el Lead Time en un <strong>90%</strong>, convirtiendo tareas de 8 horas manuales en
+                            flujos de 5 minutos, mejorando drásticamente el rendimiento del centro.</li>
+                        <li><strong>Detección y Mitigación:</strong> Monitorización continua del sistema para detectar
+                            desviaciones en el proceso y aplicar acciones correctivas inmediatas, asegurando el
+                            cumplimiento de los estándares de calidad.</li>
+                        <li><strong>Soporte Técnico y Automatización:</strong> Desarrollo de herramientas en Python para
+                            automatizar la toma de decisiones críticas, actuando como puente entre los requerimientos
+                            operativos y la implementación tecnológica.</li>
+                    </ul>
+                </div>
+                <div class="tag-cloud">
+                    <span class="tag">Optimización de Ductos</span><span class="tag">Lean Mindset</span><span
+                        class="tag">Automatización</span><span class="tag">Calidad Técnica</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section style="page-break-before: always; padding-top: 25px;">
+            <div class="section-title">Formación Académica <span>/ 03</span></div>
+            <div class="edu-item">
+                <div class="grade-header" style="margin-bottom: 3px;">
+                    <div>
+                        <span class="edu-degree">Grado en Ingeniería de Sistemas de Telecomunicación</span>
+                        <span class="edu-school" style="color: var(--accent);"> | Univ. Politécnica de Madrid
+                            (UPM)</span>
+                    </div>
+                    <span class="edu-date">Sep 2020 – Jul 2025</span>
+                </div>
+                <div class="edu-details" style="margin-top: 6px;">
+                    <ul style="padding-left: 15px; margin-bottom: 6px; list-style-type: disc;">
+                        <li><strong>Ingeniería de Sistemas:</strong> Formación integral en la resolución de problemas
+                            técnicos complejos y diseño de arquitecturas robustas.</li>
+                        <li><strong>Metodologías de Ingeniería:</strong> Aplicación de estándares internacionales de
+                            calidad y rigor en el desarrollo de proyectos industriales electrónicos y de datos.</li>
+                        <li><strong>Electrónica y Control:</strong> Análisis de circuitos y sistemas de control
+                            automático, fundamentales para la mejora de procesos y automatización industrial.</li>
+                        <li><strong>Microondas y RF:</strong> Estudio de campos electromagnéticos aplicados a sistemas
+                            de alta frecuencia, crucial en entornos de mantenimiento aeronáutico.</li>
+                        <li><strong>Gestión de Calidad:</strong> Implementación de protocolos de prueba y verificación
+                            para asegurar la fiabilidad en sistemas de misión crítica.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="edu-item" style="margin-top: 5px;">
+                <div class="grade-header">
+                    <div>
+                        <span class="edu-degree">Bachillerato Tecnológico Plurilingüe</span>,
+                        <span class="edu-school">IES Isabel la Católica</span>
+                    </div>
+                    <span class="edu-date">Matrícula de Honor (2018–2020)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section>
+            <div class="section-title">Casos de Éxito en Ingeniería <span>/ 04</span></div>
+            <div class="project-card" style="border-left: 5px solid var(--accent); background: transparent;">
+                <div class="project-head">
+                    <div>
+                        <span class="project-title" style="font-size: 11pt;">MigraCell Optimizer: Ingeniería de Procesos
+                            IA</span>
+                    </div>
+                    <span class="project-tech">Process Automation • Python • Efficiency</span>
+                </div>
+                <div class="project-details">
+                    Lideré el rediseño integral de un proceso de análisis de bioensayos. Mediante la implementación de
+                    lógica inteligente y la optimización de la ruta crítica, logré automatizar la toma de decisiones
+                    técnica, eliminando el error humano y maximizando el throughput operativo del taller de
+                    investigación.
+                </div>
+            </div>
+
+            <div class="project-card" style="border-left: 5px solid var(--accent); background: transparent;">
+                <div class="project-head">
+                    <div>
+                        <span class="project-title">CellTracker Engine: Monitorización de Flujos Críticos</span>
+                    </div>
+                    <span class="project-tech">System Monitoring • Robustness • Data Strategy</span>
+                </div>
+                <div class="project-details">
+                    Desarrollo de un sistema de seguimiento para procesos en entornos ruidosos (análogo a un taller de
+                    motores). El proyecto destaca por su capacidad para predecir trayectorias y asegurar la integridad
+                    del proceso incluso ante desviaciones inesperadas.
+                </div>
+            </div>
+        </section>
+
+    </div>
+</body>
+
+</html>

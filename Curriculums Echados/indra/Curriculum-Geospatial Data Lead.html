@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Daniel Karimi - Geospatial Data Lead</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background: #fff;
+            line-height: 1.45;
+            font-size: 8.8pt;
+        }
+
+        .cv-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #fff;
+            padding: 28px 40px;
+            min-height: 297mm;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 18px;
+            margin-bottom: 18px;
+        }
+
+        .header-left {
+            margin-right: 25px;
+        }
+
+        .profile-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .header-center {
+            flex: 1;
+        }
+
+        .header-center h1 {
+            font-size: 18pt;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .header-center h2 {
+            font-size: 10pt;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 8.5pt;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .header-right a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 10.5pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 12px;
+            padding-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .profile-text {
+            text-align: justify;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .skill-cat h4 {
+            font-size: 9pt;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .skill-list {
+            list-style: none;
+            font-size: 8.5pt;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        .skill-list li {
+            display: inline-block;
+        }
+
+        .skill-list li:not(:last-child):after {
+            content: " • ";
+            margin: 0 3px;
+            color: var(--accent);
+        }
+
+        .exp-item {
+            margin-bottom: 15px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .exp-role {
+            font-weight: 700;
+            font-size: 10pt;
+            color: var(--primary);
+        }
+
+        .exp-company {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 9.5pt;
+        }
+
+        .exp-date {
+            font-size: 7.5pt;
+            color: var(--text-light);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .exp-details ul {
+            padding-left: 14px;
+            margin-top: 6px;
+        }
+
+        .exp-details li {
+            margin-bottom: 3px;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        .tag-cloud {
+            margin-top: 4px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #f1f5f9;
+            color: #475569;
+            padding: 1px 5px;
+            border-radius: 4px;
+            font-size: 7.5pt;
+            font-weight: 600;
+            margin-right: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .project-card {
+            border-left: 3px solid var(--accent);
+            padding-left: 12px;
+        }
+
+        .project-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .project-title {
+            font-weight: 700;
+            font-size: 10pt;
+            color: var(--primary);
+        }
+
+        .project-badge {
+            background: var(--primary);
+            color: white;
+            font-size: 7pt;
+            padding: 1px 5px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .project-tech {
+            font-size: 8pt;
+            color: var(--accent);
+            font-weight: 600;
+            font-family: monospace;
+            text-transform: uppercase;
+        }
+
+        .project-desc {
+            font-size: 9pt;
+            color: #1e293b;
+            font-weight: 500;
+            margin-bottom: 4px;
+            font-style: italic;
+        }
+
+        .project-details {
+            font-size: 8.8pt;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            text-align: justify;
+        }
+
+        .project-features {
+            font-size: 8.8pt;
+            color: var(--text-light);
+        }
+
+        .project-features ul {
+            padding-left: 14px;
+            margin-top: 3px;
+            list-style-type: square;
+        }
+
+        .edu-item {
+            margin-bottom: 12px;
+        }
+
+        .grade-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
+        }
+
+        .edu-degree {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 9.5pt;
+        }
+
+        .edu-school {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 9pt;
+        }
+
+        .edu-date {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 7.5pt;
+            white-space: nowrap;
+        }
+
+        .edu-details {
+            font-size: 8.8pt;
+            color: var(--text-main);
+            margin-top: 2px;
+            text-align: justify;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+            }
+
+            .cv-container {
+                padding: 25px 40px;
+            }
+
+            .exp-item,
+            .project-card,
+            .skill-cat,
+            .edu-item {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+
+        <!-- HEADER -->
+        <header>
+            <div class="header-left">
+                <img src="../../cara.jpg" alt="Perfil" class="profile-img">
+            </div>
+            <div class="header-center">
+                <h1>Daniel Karimi</h1>
+                <h2 style="font-weight: 900; font-size: 12pt;">Ingeniero de Datos · Automatización de Pipelines</h2>
+                <div style="margin-top: 8px;">
+                    <a href="https://cv-daniel-karimi.vercel.app/" style="
+                        display: inline-block; background: transparent; color: var(--accent);
+                        border: 2px solid var(--accent); font-weight: 700; font-size: 8.5pt;
+                        text-decoration: none; padding: 4px 10px; border-radius: 5px;
+                        text-transform: uppercase; letter-spacing: 0.5px;">
+                        Ver CV Web Interactivo
+                    </a>
+                </div>
+            </div>
+            <div class="header-right">
+                <div>Madrid, España</div>
+                <div>daniel.karimi.alvarez@gmail.com</div>
+                <div>+34 654 310 492</div>
+                <div><a href="https://linkedin.com/in/daniel-karimi-alvarez">linkedin.com/in/daniel-karimi-alvarez</a>
+                </div>
+                <div><a href="https://github.com/Dankar44">github.com/Dankar44</a></div>
+            </div>
+        </header>
+
+        <!-- PROFILE -->
+        <section>
+            <div class="section-title">Sobre mí</div>
+            <p class="profile-text">
+                Ingeniero de Sistemas de Telecomunicación (Universidad Politécnica de Madrid) especializado en el
+                diseño, automatización y gestión de <strong>pipelines de ingesta y procesamiento de datos a gran
+                    escala</strong>. Mi formación combina una fuerte base matemática y algorítmica con habilidades
+                prácticas en ingeniería de software, enfocándome en garantizar <strong>estándares estrictos de calidad,
+                    validación y escalabilidad</strong>.
+            </p>
+            <p class="profile-text">
+                A lo largo de mi grado y mi experiencia profesional en el departamento de investigación del
+                <strong>CSIC</strong>, he liderado integralmente el ciclo de vida de datos experimentales complejos. He
+                desarrollado scripts en <strong>Python, procesos Bash automatizados y entornos Dockerizados</strong>
+                para adquirir, limpiar, modelar y certificar volúmenes masivos de información temporal y espacial,
+                asegurando su robustez para análisis críticos.
+            </p>
+            <p class="profile-text">
+                Me motiva aplicar mis conocimientos en ingeniería de datos y automatización para consolidar el núcleo de
+                los productos <strong>GuardianUTM de Indra</strong>. Estoy preparado para diseñar pipelines
+                geoespaciales robustos, colaborar con equipos multidisciplinares y asegurar que la calidad del dato
+                aeronáutico cumpla con las normativas más exigentes del tráfico aéreo automatizado.
+            </p>
+        </section>
+
+        <!-- SKILLS -->
+        <section>
+            <div class="section-title">Habilidades Técnicas</div>
+            <div class="skills-grid">
+                <div class="skill-cat">
+                    <h4>🛠️ DATA PIPELINES & INGESTIÓN</h4>
+                    <ul class="skill-list">
+                        <li>Diseño de ETLs en Python</li>
+                        <li>Automatización de procesos (Cron/Bash)</li>
+                        <li>Extracción y limpieza (Pandas, SciPy)</li>
+                        <li>Sistemas de validación de datos</li>
+                        <li>Arquitecturas de procesamiento paralelo</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>📊 CERTIFICACIÓN & CALIDAD</h4>
+                    <ul class="skill-list">
+                        <li>Validación algorítmica de datasets</li>
+                        <li>Data Governance (Conceptos)</li>
+                        <li>Testing unitario y de integración</li>
+                        <li>Manejo de anomalías en series de datos</li>
+                        <li>Generación de métricas de calidad</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>💻 LENGUAJES & HERRAMIENTAS</h4>
+                    <ul class="skill-list">
+                        <li>Python (Avanzado)</li>
+                        <li>Java & C++</li>
+                        <li>MATLAB / Simulink</li>
+                        <li>SQL & Bases de datos relacionales</li>
+                        <li>Git (Version Control)</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🌐 METODOLOGÍA & DEPLOYMENT</h4>
+                    <ul class="skill-list">
+                        <li>GNU/Linux (Administración)</li>
+                        <li>Docker Containerization</li>
+                        <li>CI/CD Pipelines (Conceptos)</li>
+                        <li>Integración de APIs de terceros</li>
+                        <li>Metodologías Ágiles / Scrum</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🌍 GEOESPACIAL & DOMINIO</h4>
+                    <ul class="skill-list">
+                        <li>Conceptos de procesamiento espacial</li>
+                        <li>Matemáticas aplicadas (Cartografía/Teleco)</li>
+                        <li>Interacción con proveedores de datos</li>
+                        <li>Análisis de señales de navegación</li>
+                        <li>Toma de requisitos técnicos</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🤝 LIDERAZGO TÉCNICO</h4>
+                    <ul class="skill-list">
+                        <li>Gestión de equipos multidisciplinares</li>
+                        <li>Elaboración de documentación técnica</li>
+                        <li>Comunicación con stakeholders</li>
+                        <li>Resolución autónoma de problemas</li>
+                        <li>Tutorización técnica</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section>
+            <div class="section-title">Experiencia Profesional</div>
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-role">Ingeniero de Datos & Investigador (Prácticas)</span>
+                        <span class="exp-company"> | CSIC – Instituto de Tecnologías Físicas y de la Información</span>
+                    </div>
+                    <span class="exp-date">Sep 2025 – Feb 2026</span>
+                </div>
+                <div class="exp-details">
+                    <ul>
+                        <li>Diseñé e implementé <strong>pipelines automáticos de ingesta y procesamiento de
+                                datos</strong> en Python, transformando datos en crudo (experimentos a gran escala) en
+                            datasets estructurados y listos para análisis avanzado y modelos de Deep Learning
+                            (equivalente a un proceso UTM data ingestion).</li>
+                        <li>Definí y apliqué <strong>criterios estrictos de calidad y validación sobre los
+                                datos</strong>, filtrando ruido sistémico y asegurando que la información resultante
+                            fuera certificable para publicaciones científicas de alto impacto.</li>
+                        <li>Automaticé todo el flujo de trabajo mediante el uso de <strong>contenedores Docker y scripts
+                                Bash en entornos Linux</strong>, permitiendo replicabilidad total de los entornos y
+                            despliegues sin fricciones.</li>
+                        <li>Colaboré de forma continua con un equipo multidisciplinar (físicos, ingenieros y biólogos),
+                            adaptando los pipelines de software a los requisitos específicos y cambiantes del proyecto o
+                            de analistas externos.</li>
+                        <li>Actué como <strong>perfil transversal (Lead/Support)</strong> guiando a investigadores
+                            junior y estudiantes en la utilización de las herramientas desarrolladas y en las buenas
+                            prácticas de código.</li>
+                    </ul>
+                </div>
+                <div class="tag-cloud">
+                    <span class="tag">Pipelines de Datos</span><span class="tag">Automatización Python</span><span
+                        class="tag">Validación de Datos</span>
+                    <span class="tag">Docker/Linux</span><span class="tag">Procesos ETL</span><span class="tag">Equipos
+                        Multidisciplinares</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section style="page-break-before: always; padding-top: 20px;">
+            <div class="section-title">Educación</div>
+            <div class="edu-item">
+                <div class="grade-header">
+                    <div>
+                        <span class="edu-degree">Grado en Ingeniería de Sistemas de Telecomunicación</span>
+                        <span class="edu-school"> | Universidad Politécnica de Madrid (ETSIT-UPM)</span>
+                    </div>
+                    <span class="edu-date">Sep 2020 – Jul 2026</span>
+                </div>
+                <div class="edu-details">
+                    <ul style="padding-left: 14px; margin-bottom: 6px;">
+                        <li style="margin-bottom: 3px;"><strong>Procesamiento de Información:</strong> Formación
+                            profunda en señales discretas, filtrado digital, series temporales, álgebra lineal y
+                            probabilidad, base esencial para certificar y auditar calidad en datos complejos como los
+                            geoespaciales y aeronáuticos.</li>
+                        <li style="margin-bottom: 3px;"><strong>Ingeniería de Software e Integración:</strong>
+                            Programación avanzada (Java, C, Python), diseño de bases de datos, redes de computadores,
+                            arquitectura de sistemas paralelos y modelado matemático.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="edu-item">
+                <div class="grade-header">
+                    <div>
+                        <span class="edu-degree">Bachillerato Tecnológico</span>,
+                        <span class="edu-school">IES Isabel la Católica, Madrid</span>
+                    </div>
+                    <span class="edu-date">2018 – 2020</span>
+                </div>
+                <div class="edu-details">Matrícula de Honor en Bachillerato Tecnológico.</div>
+            </div>
+        </section>
+
+        <!-- LANGUAGES (REMOVED) -->
+
+        <!-- PROJECTS -->
+        <section>
+            <div class="section-title">Proyectos Destacados</div>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div class="project-head">
+                        <div>
+                            <span class="project-title">Sistema Escalable de Análisis Temporal</span>
+                            <span class="project-badge">Ingeniería de Datos</span>
+                        </div>
+                        <span class="project-tech">Python • Pandas • Docker • Validaciones</span>
+                    </div>
+                    <div class="project-desc">Proyecto principal desarrollado en la beca del CSIC (Pendiente publicación
+                        científica).</div>
+                    <div class="project-details">
+                        Construcción end-to-end de un motor de análisis que ingiere datos estáticos y temporales de
+                        múltiples experimentos, garantizando limpieza cruzada y validación de atributos. La arquitectura
+                        diseñada guarda una correlación metodológica directa con pipelines geoespaciales que consumen de
+                        APIs de proveedores externos y certifican la coherencia posicional o de entorno.
+                    </div>
+                    <div class="project-features">
+                        <ul>
+                            <li>Garantía de calidad: Aplicación automática de filtros estocásticos para identificar
+                                outliers.</li>
+                            <li>Operatividad autónoma: Optimizado matemáticamente para despliegue automatizado sin
+                                supervisión.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- COMPLEMENTARY EDUCATION -->
+        <section>
+            <div class="section-title">Formación Complementaria & Certificaciones</div>
+            <ul style="padding-left: 14px; font-size: 8.8pt; line-height: 1.7;">
+                <li><strong>Internet of Things (MIT):</strong> Arquitectura de adquisición remota de datos, conectividad
+                    y consolidación back-end temporal que proporciona visibilidad del ciclo de ingesta continua de
+                    fuentes dinámicas aplicable a UTM trackers.</li>
+                <li><strong>Generative AI (MIT):</strong> Pipelines avanzados de inferencia y extracción de información
+                    de valor a partir de volúmenes formidables de datos semiestructurados.</li>
+            </ul>
+        </section>
+
+    </div>
+</body>
+
+</html>

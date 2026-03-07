@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Daniel Karimi - QA Engineer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background: #fff;
+            line-height: 1.4;
+            font-size: 8.5pt;
+        }
+
+        .cv-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #fff;
+            padding: 25px 35px;
+            min-height: 297mm;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .header-left {
+            margin-right: 25px;
+        }
+
+        .profile-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .header-center {
+            flex: 1;
+        }
+
+        .header-center h1 {
+            font-size: 18pt;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .header-center h2 {
+            font-size: 10pt;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 8.5pt;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .header-right a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* SECTIONS */
+        section {
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 10.5pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 8px;
+            padding-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        /* PROFILE */
+        .profile-text {
+            text-align: justify;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        /* SKILLS GRID */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .skill-cat h4 {
+            font-size: 9pt;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .skill-list {
+            list-style: none;
+            font-size: 8.5pt;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        .skill-list li {
+            display: inline-block;
+        }
+
+        .skill-list li:not(:last-child):after {
+            content: " • ";
+            margin: 0 3px;
+            color: var(--accent);
+        }
+
+        /* EXPERIENCE */
+        .exp-item {
+            margin-bottom: 15px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .exp-role {
+            font-weight: 700;
+            font-size: 10pt;
+            color: var(--primary);
+        }
+
+        .exp-company {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 9.5pt;
+        }
+
+        .exp-date {
+            font-size: 7.5pt;
+            color: var(--text-light);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .exp-details ul {
+            padding-left: 14px;
+            margin-top: 6px;
+        }
+
+        .exp-details li {
+            margin-bottom: 4px;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        .tag-cloud {
+            margin-top: 6px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #f1f5f9;
+            color: #475569;
+            padding: 1px 5px;
+            border-radius: 4px;
+            font-size: 7.5pt;
+            font-weight: 600;
+            margin-right: 4px;
+            margin-bottom: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* PROJECTS */
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .project-card {
+            border-left: 3px solid var(--accent);
+            padding-left: 12px;
+        }
+
+        .project-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .project-title {
+            font-weight: 700;
+            font-size: 10pt;
+            color: var(--primary);
+        }
+
+        .project-badge {
+            background: var(--primary);
+            color: white;
+            font-size: 7pt;
+            padding: 1px 5px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .project-tech {
+            font-size: 8pt;
+            color: var(--accent);
+            font-weight: 600;
+            font-family: monospace;
+            text-transform: uppercase;
+        }
+
+        .project-desc {
+            font-size: 9pt;
+            color: #1e293b;
+            font-weight: 500;
+            margin-bottom: 4px;
+            font-style: italic;
+        }
+
+        .project-details {
+            font-size: 8.8pt;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            text-align: justify;
+        }
+
+        .project-features {
+            font-size: 8.8pt;
+            color: var(--text-light);
+        }
+
+        .project-features ul {
+            padding-left: 14px;
+            margin-top: 3px;
+            list-style-type: square;
+        }
+
+        /* EDUCATION & CERTIFICATIONS */
+        .edu-item,
+        .cert-item {
+            margin-bottom: 12px;
+        }
+
+        .grade-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .edu-degree {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 9.5pt;
+        }
+
+        .edu-school {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 9pt;
+        }
+
+        .edu-date {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 7.5pt;
+            white-space: nowrap;
+        }
+
+        .edu-details {
+            font-size: 8.8pt;
+            color: var(--text-main);
+            margin-top: 3px;
+            text-align: justify;
+        }
+
+        /* Responsive Styles for Screen Viewing */
+        @media screen and (max-width: 794px) {
+            .cv-container {
+                width: 100%;
+                padding: 20px;
+                min-height: auto;
+            }
+
+            .header-center h1 {
+                font-size: 16pt;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-left {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .header-right {
+                text-align: center;
+                margin-top: 15px;
+            }
+        }
+
+        @media print {
+            body {
+                margin: 0;
+            }
+
+            .cv-container {
+                box-shadow: none;
+                width: 100%;
+                padding: 30px;
+                margin: 0;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .exp-item,
+            .project-card,
+            .skill-cat,
+            .edu-item {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+
+        <!-- HEADER -->
+        <header>
+            <div class="header-left">
+                <img src="../../cara.jpg" alt="Profile" class="profile-img">
+            </div>
+            <div class="header-center">
+                <h1>Daniel Karimi</h1>
+                <h2 style="font-weight: 900; letter-spacing: 0.5px; font-size: 12pt;">
+                    Systems &amp; QA Engineer · Vision &amp; Biometrics Specialist
+                </h2>
+                <div style="margin-top: 8px;">
+                    <a href="https://cv-daniel-karimi.vercel.app/english" style="
+                        display: inline-block;
+                        background: transparent;
+                        color: var(--accent);
+                        border: 2px solid var(--accent);
+                        font-weight: 700;
+                        font-size: 8.5pt;
+                        text-decoration: none;
+                        padding: 4px 10px;
+                        border-radius: 5px;
+                        text-transform: uppercase;
+                        letter-spacing: 0.5px;
+                    ">
+                        Click to view Interactive Web CV
+                    </a>
+                </div>
+            </div>
+            <div class="header-right">
+                <div>Madrid, Spain</div>
+                <div>daniel.karimi.alvarez@gmail.com</div>
+                <div>+34 654 310 492</div>
+                <div><a href="https://linkedin.com/in/daniel-karimi-alvarez">linkedin.com/in/daniel-karimi-alvarez</a>
+                </div>
+                <div><a href="https://github.com/Dankar44">github.com/Dankar44</a></div>
+            </div>
+        </header>
+
+        <!-- PROFILE -->
+        <section>
+            <div class="section-title">Professional Summary</div>
+            <p class="profile-text">
+                <strong>Telecommunications Systems Engineer (Universidad Politécnica de Madrid)</strong> with practical
+                expertise in
+                Validation and Verification (V&V) processes, automated testing, and isolating complex issues in
+                End-to-End (E2E) architectures.
+            </p>
+            <p class="profile-text">
+                At the Spanish National Research Council (CSIC), I engineered testing environments to validate deep
+                learning models
+                (YOLOv8) handling complex image, sensor, and tracking datasets—a methodology highly analogous to testing
+                and
+                vindicating <strong>multi-factor biometric systems</strong>. I excel at writing automated scripts
+                (Python/Linux) to securely
+                test algorithmic precision and data normalization.
+            </p>
+            <p class="profile-text">
+                I am highly motivated to leverage my rigorous background in systemic troubleshooting and
+                software/hardware
+                integration to bridge the gap between development and final deployment, ensuring resilient digital
+                security solutions.
+            </p>
+        </section>
+
+        <!-- SKILLS -->
+        <section>
+            <div class="section-title">Core Competencies</div>
+            <div class="skills-grid">
+                <div class="skill-cat">
+                    <h4>🧪 QUALITY ASSURANCE (V&V)</h4>
+                    <ul class="skill-list">
+                        <li>E2E Validation & Integration</li>
+                        <li>Test Automation (Python)</li>
+                        <li>Test Environment Config</li>
+                        <li>Isolating & Reproducing Issues</li>
+                        <li>Performance Analytics</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>👁️ BIOMETRICS & VISION</h4>
+                    <ul class="skill-list">
+                        <li>Image Processing (OpenCV)</li>
+                        <li>Target Characterization</li>
+                        <li>Object Detection (YOLO)</li>
+                        <li>Data Normalization</li>
+                        <li>Algorithmic Validation</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>💻 SOFTWARE DEVELOPMENT</h4>
+                    <ul class="skill-list">
+                        <li>Python / C++ / Bash</li>
+                        <li>Version Control (Git)</li>
+                        <li>Test Scripting</li>
+                        <li>Linux / Docker Environments</li>
+                        <li>Agile Methodologies</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>⚙️ SYSTEM INTEGRATION</h4>
+                    <ul class="skill-list">
+                        <li>Hardware & Software Convergence</li>
+                        <li>Backend System Knowledge</li>
+                        <li>Requirements Analysis</li>
+                        <li>Technical Documentation</li>
+                        <li>Troubleshooting</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- LANGUAGES -->
+        <section style="margin-top:-5px;">
+            <div style="font-size:8.5pt; border-top:1px solid #eee; padding-top:8px; color:#555;">
+                <strong>Languages:</strong> Spanish (Native) • English (B2 – Aptis ESOL, British Council) — Fluent in
+                creating testing methodologies and cross-team communication.
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section>
+            <div class="section-title">Professional Experience</div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-role">Systems Integration & Validation Intern (Computer Vision/Sensors)</span>
+                        <span class="exp-company"> | CSIC – Institute of Physical and Information Technologies
+                            (ITEFI)</span>
+                    </div>
+                    <span class="exp-date">Sep 2025 – Feb 2026</span>
+                </div>
+                <div class="exp-details">
+                    <ul>
+                        <li>Developed the validation strategy and automated test cases to evaluate the precision of
+                            YOLOv8 object detection pipelines on complex tracking datasets, analogous to biometric
+                            matching protocols.</li>
+                        <li>Maintained Linux-based validation environments, writing extensive Python scripting to ingest
+                            raw sensor data, normalize it, and isolate predictive anomalies.</li>
+                        <li>Cooperated directly with cross-disciplinary researchers to reproduce, identify, and isolate
+                            algorithmic issues, iteratively improving E2E pipeline accuracy by over 15%.</li>
+                        <li>Authored comprehensive project administration documents, user-guides, and test execution
+                            reports detailing the algorithmic trade-offs based on the product’s core requirements.</li>
+                        <li>Applied stringent Validation and Verification (V&V) practices on data interfaces, simulating
+                            real-world embedded system hardware constraints against software performance metrics.</li>
+                    </ul>
+                </div>
+                <div class="tag-cloud">
+                    <span class="tag">E2E Validation</span><span class="tag">Test Automation</span><span
+                        class="tag">Python/Linux</span><span class="tag">Biometrics Proxy (Vision/YOLO)</span><span
+                        class="tag">Troubleshooting</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section style="page-break-before: always; padding-top: 40px;">
+            <div class="section-title">Education</div>
+            <div class="edu-item">
+                <div class="grade-header" style="margin-bottom: 3px;">
+                    <div>
+                        <span class="edu-degree">Telecommunications Systems Engineering</span>
+                        <span class="edu-school" style="color: var(--accent);"> | Universidad Politécnica de Madrid
+                            (ETSIT-UPM)</span>
+                    </div>
+                    <span class="edu-date">Sep 2020 – Jul 2025</span>
+                </div>
+                <div class="edu-details" style="margin-top: 6px;">
+                    <ul style="padding-left: 14px; margin-bottom: 6px;">
+                        <li style="margin-bottom: 3px;"><strong>Systems Architecture:</strong> Deep understanding of the
+                            convergence between hardware components (sensors, endpoints) and backend processing systems,
+                            TCP/IP, and OSI models.</li>
+                        <li style="margin-bottom: 3px;"><strong>Programming & Integration:</strong> Strong foundations
+                            in OOP (C, C++, Python, Java), enabling rapid understanding of complex system codebases to
+                            develop effective test plans.</li>
+                        <li style="margin-bottom: 3px;"><strong>Systems Engineering & V&V:</strong> Extensive academic
+                            background in Validation and Verification methodologies, ensuring software complies with
+                            stringent telecommunication standards.</li>
+                        <li style="margin-bottom: 3px;"><strong>Digital Signal Processing (DSP):</strong> Practical
+                            usage of filtering and data normalization, crucial for both telecommunications hardware and
+                            biometric image pre-processing.</li>
+                    </ul>
+                </div>
+                <div class="tag-cloud">
+                    <span class="tag">Systems Integration</span><span class="tag">V&V Methodologies</span><span
+                        class="tag">Backend Knowledge</span><span class="tag">Hardware/Software Convergence</span>
+                </div>
+            </div>
+
+            <div class="edu-item">
+                <div class="grade-header">
+                    <div>
+                        <span class="edu-degree">Technology Baccalaureate</span>,
+                        <span class="edu-school">IES Isabel la Católica</span>
+                    </div>
+                    <span class="edu-date">2018 – 2020</span>
+                </div>
+                <div class="edu-details">
+                    Science and Technology track. Honours. Rigorous foundation in mathematics and physics.
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section>
+            <div class="section-title">Highlighted Academic & Engineering Projects</div>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div class="project-head">
+                        <div>
+                            <span class="project-title">Scalable Hardware-Software Validation Pipeline</span>
+                            <span class="project-badge">Automated Testing</span>
+                        </div>
+                        <span class="project-tech">Python • Linux • Algorithm Testing</span>
+                    </div>
+                    <div class="project-desc">Designed a robust architecture to ingest and validate massive unstructured
+                        datasets.</div>
+                    <div class="project-details">
+                        Developed a scalable data-handling pipeline capable of curating and filtering data, passing
+                        cleanly structured metrics to the next subsystem. The core focus was to assert execution
+                        stability over disparate environments.
+                    </div>
+                    <div class="project-features">
+                        <ul>
+                            <li>Wrote Python scripts acting as automated test agents to verify downstream algorithm
+                                accuracy and isolate structural bottlenecks.</li>
+                            <li>Engineered reproducible systems demonstrating the ability to bridge hardware-level
+                                physical constraints with high-level software deployments effectively.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+</body>
+
+</html>

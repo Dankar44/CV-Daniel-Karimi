@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Daniel Karimi - Data Scientist</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background: #fff;
+            line-height: 1.45;
+            font-size: 8.8pt;
+        }
+
+        .cv-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px 40px;
+            min-height: 297mm;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header-left {
+            margin-right: 25px;
+        }
+
+        .profile-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .header-center {
+            flex: 1;
+        }
+
+        .header-center h1 {
+            font-size: 18pt;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .header-center h2 {
+            font-size: 10pt;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 8.5pt;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .header-right a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* SECTIONS */
+        section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 10.5pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 12px;
+            padding-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        /* PROFILE */
+        .profile-text {
+            text-align: justify;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        /* SKILLS GRID */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .skill-cat h4 {
+            font-size: 9pt;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .skill-list {
+            list-style: none;
+            font-size: 8.5pt;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        .skill-list li {
+            display: inline-block;
+        }
+
+        .skill-list li:not(:last-child):after {
+            content: " • ";
+            margin: 0 3px;
+            color: var(--accent);
+        }
+
+        /* EXPERIENCE */
+        .exp-item {
+            margin-bottom: 15px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .exp-role {
+            font-weight: 700;
+            font-size: 10pt;
+            color: var(--primary);
+        }
+
+        .exp-company {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 9.5pt;
+        }
+
+        .exp-date {
+            font-size: 7.5pt;
+            color: var(--text-light);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .exp-details ul {
+            padding-left: 14px;
+            margin-top: 6px;
+        }
+
+        .exp-details li {
+            margin-bottom: 3px;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        .tag-cloud {
+            margin-top: 4px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #f1f5f9;
+            color: #475569;
+            padding: 1px 5px;
+            border-radius: 4px;
+            font-size: 7.5pt;
+            font-weight: 600;
+            margin-right: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* PROJECTS */
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .project-card {
+            border-left: 3px solid var(--accent);
+            padding-left: 12px;
+        }
+
+        .project-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .project-title {
+            font-weight: 700;
+            font-size: 10pt;
+            color: var(--primary);
+        }
+
+        .project-badge {
+            background: var(--primary);
+            color: white;
+            font-size: 7pt;
+            padding: 1px 5px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .project-tech {
+            font-size: 8pt;
+            color: var(--accent);
+            font-weight: 600;
+            font-family: monospace;
+            text-transform: uppercase;
+        }
+
+        .project-desc {
+            font-size: 9pt;
+            color: #1e293b;
+            font-weight: 500;
+            margin-bottom: 4px;
+            font-style: italic;
+        }
+
+        .project-details {
+            font-size: 8.8pt;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            text-align: justify;
+        }
+
+        .project-features {
+            font-size: 8.8pt;
+            color: var(--text-light);
+        }
+
+        .project-features ul {
+            padding-left: 14px;
+            margin-top: 3px;
+            list-style-type: square;
+        }
+
+        /* EDUCATION & CERTIFICATIONS */
+        .edu-item,
+        .cert-item {
+            margin-bottom: 12px;
+        }
+
+        .grade-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .edu-degree {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 9.5pt;
+        }
+
+        .edu-school {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 9pt;
+        }
+
+        .edu-date {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 7.5pt;
+            white-space: nowrap;
+        }
+
+        .edu-details {
+            font-size: 8.8pt;
+            color: var(--text-main);
+            margin-top: 3px;
+            text-align: justify;
+        }
+
+        /* Responsive Styles for Screen Viewing */
+        @media screen and (max-width: 794px) {
+            .cv-container {
+                width: 100%;
+                padding: 20px;
+                min-height: auto;
+            }
+
+            .header-center h1 {
+                font-size: 16pt;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-left {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .header-right {
+                text-align: center;
+                margin-top: 15px;
+            }
+        }
+
+        @media print {
+            body {
+                margin: 0;
+            }
+
+            .cv-container {
+                box-shadow: none;
+                width: 100%;
+                padding: 30px;
+                margin: 0;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .exp-item,
+            .project-card,
+            .skill-cat,
+            .edu-item {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+
+        <!-- HEADER -->
+        <header>
+            <div class="header-left">
+                <img src="../../cara.jpg" alt="Profile" class="profile-img">
+            </div>
+            <div class="header-center">
+                <h1>Daniel Karimi</h1>
+                <h2 style="font-weight: 900; letter-spacing: 0.5px; font-size: 13pt;">Data Scientist (Analytics & ML)
+                </h2>
+                <div style="margin-top: 8px;">
+                    <a href="https://cv-daniel-karimi.vercel.app/english" style="
+                        display: inline-block;
+                        background: transparent;
+                        color: var(--accent);
+                        border: 2px solid var(--accent);
+                        font-weight: 700;
+                        font-size: 8.5pt;
+                        text-decoration: none;
+                        padding: 4px 10px;
+                        border-radius: 5px;
+                        text-transform: uppercase;
+                        letter-spacing: 0.5px;
+                    ">
+                        Click to view Interactive Web CV
+                    </a>
+                </div>
+            </div>
+            <div class="header-right">
+                <div>Madrid, Spain</div>
+                <div>daniel.karimi.alvarez@gmail.com</div>
+                <div>+34 654 310 492</div>
+                <div><a href="https://linkedin.com/in/daniel-karimi-alvarez">linkedin.com/in/daniel-karimi-alvarez</a>
+                </div>
+                <div><a href="https://github.com/Dankar44">github.com/Dankar44</a></div>
+            </div>
+        </header>
+
+        <!-- PROFILE -->
+        <section>
+            <div class="section-title">About Me</div>
+            <p class="profile-text">
+                Highly analytical engineering student at <strong>Universidad Politécnica de Madrid</strong> (expected
+                graduation
+                2025/2026), specializing in turning complex, large-scale datasets into actionable insights.
+                I possess a robust mathematical and statistical foundation, complemented by practical experience
+                architecting scalable data extraction and analysis pipelines to solve real-world analytical bottlenecks.
+            </p>
+            <p class="profile-text">
+                During my tenure as an AI Engineer Intern at CSIC, I conducted rigorous deep-dive analyses
+                and root cause investigations on massive datasets. I am highly proficient in modern Data Science
+                scripting languages and environments,
+                particularly <strong>Python (Pandas, NumPy, Scikit-learn) and MATLAB</strong>, which I have extensively
+                used for statistical modeling,
+                exploratory data analysis, and uncovering hidden data patterns.
+            </p>
+            <p class="profile-text">
+                I am eager to bring my passion for building reproducible analytical models and utilizing <strong>Machine
+                    Learning
+                    and statistical techniques</strong> to the Amazon Books team. My goal is to apply data-driven
+                problem-solving to ensure
+                unmatched catalog quality and improve the book discovery experience for millions of customers.
+            </p>
+        </section>
+
+        <!-- SKILLS -->
+        <section>
+            <div class="section-title">Technical Expertise</div>
+            <div class="skills-grid">
+                <div class="skill-cat">
+                    <h4>📈 DATA SCIENCE & ANALYTICS</h4>
+                    <ul class="skill-list">
+                        <li>Statistical Modeling</li>
+                        <li>Exploratory Data Analysis</li>
+                        <li>Root Cause Analysis</li>
+                        <li>Data Mining</li>
+                        <li>Data Quality Monitoring</li>
+                        <li>Quantitative Reporting</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🛠️ SCRIPTING & TOOLS</h4>
+                    <ul class="skill-list">
+                        <li>Python</li>
+                        <li>MATLAB</li>
+                        <li>R (Familiarity)</li>
+                        <li>SQL Concepts</li>
+                        <li>Pandas / NumPy</li>
+                        <li>Jupyter Notebooks</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🤖 MACHINE LEARNING</h4>
+                    <ul class="skill-list">
+                        <li>Predictive Modeling</li>
+                        <li>Deep Learning Pipelines</li>
+                        <li>PyTorch / TensorFlow</li>
+                        <li>Algorithm Optimization</li>
+                        <li>Model Evaluation Metrics</li>
+                        <li>Agentic Technology</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>💻 SOFTWARE / SYSTEMS</h4>
+                    <ul class="skill-list">
+                        <li>AWS (S3, EC2 Familiarity)</li>
+                        <li>Linux / Unix OS</li>
+                        <li>Git & Version Control</li>
+                        <li>Bash & Automation</li>
+                        <li>Data Pipeline Architecture</li>
+                        <li>Scalable Code Design</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>📊 COMMUNICATION</h4>
+                    <ul class="skill-list">
+                        <li>Data Visualization</li>
+                        <li>Technical Documentation</li>
+                        <li>Stakeholder Presentation</li>
+                        <li>Scientific Reporting</li>
+                        <li>Actionable Insights</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>📡 MATHEMATICAL FOUNDATIONS</h4>
+                    <ul class="skill-list">
+                        <li>Linear Algebra</li>
+                        <li>Advanced Calculus</li>
+                        <li>Probability & Statistics</li>
+                        <li>Signal Processing</li>
+                        <li>Error/Deviation Analysis</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- LANGUAGES -->
+        <section style="margin-top:-10px;">
+            <div style="font-size:8.8pt; border-top:1px solid #eee; padding-top:8px; color:#555;">
+                <strong>Languages:</strong> Spanish (Native) • English (B2 – Aptis ESOL, British Council - capable of
+                communicating complex concepts effectively)
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section>
+            <div class="section-title">Professional Experience</div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-role">Data Scientist & AI Intern</span>
+                        <span class="exp-company"> | CSIC – Institute of Physical and Information Technologies
+                            (ITEFI)</span>
+                    </div>
+                    <span class="exp-date">Sep 2025 – Feb 2026</span>
+                </div>
+                <div class="exp-details">
+                    <ul>
+                        <li>Designed and implemented <strong>scalable data extraction and analysis pipelines</strong>
+                            using Python to process massive datasets, ensuring high-quality, normalized data tracking
+                            over time.</li>
+                        <li>Conducted <strong>deep-dive exploratory data analyses</strong> and deviation analysis to
+                            identify patterns and anomalies within raw scientific data, enabling data-driven
+                            architectural decisions.</li>
+                        <li>Built and evaluated analytical prototypes using Machine Learning (PyTorch) and statistical
+                            modeling to automate data curation, drastically reducing manual analysis time from hours to
+                            minutes.</li>
+                        <li>Performed rigorous root cause analysis of model inaccuracies by diving deep into parameters
+                            affecting ML performance, optimizing predictive outcomes.</li>
+                        <li>Collaborated tightly with cross-functional scientific teams, translating complex analytical
+                            findings and statistical outputs into clear, reproducible documentation and actionable
+                            insights.</li>
+                    </ul>
+                </div>
+                <div class="tag-cloud">
+                    <span class="tag">Python</span><span class="tag">Deep-Dive Analysis</span><span class="tag">Data
+                        Mining</span><span class="tag">Statistical Modeling</span><span class="tag">Machine
+                        Learning</span><span class="tag">Root Cause Analysis</span>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- EDUCATION -->
+        <section style="page-break-before: always; padding-top: 20px;">
+            <div class="section-title">Education</div>
+            <div class="edu-item">
+                <div class="grade-header" style="margin-bottom: 3px;">
+                    <div>
+                        <span class="edu-degree">Telecommunications Systems Engineering</span>
+                        <span class="edu-school" style="color: var(--accent);"> | Universidad Politécnica de Madrid
+                            (ETSIT-UPM)</span>
+                    </div>
+                    <span class="edu-date">Sep 2020 – Jul 2025</span>
+                </div>
+                <div class="edu-details" style="margin-top: 6px;">
+                    <ul style="padding-left: 14px; margin-bottom: 6px;">
+                        <li style="margin-bottom: 3px;"><strong>Mathematical & Statistical Foundation:</strong> Advanced
+                            coursework in Probability, Statistics, Algebra, and error deviation analysis, providing a
+                            rigid framework for complex analytical problem-solving.</li>
+                        <li style="margin-bottom: 3px;"><strong>Data Scripting & Algorithms:</strong> Extensive use of
+                            data scripting languages including <strong>MATLAB</strong> (signal processing, statistical
+                            analysis, matrix operations) and <strong>Python</strong> for algorithm design.</li>
+                        <li style="margin-bottom: 3px;"><strong>Engineering & Architecture:</strong> Scalable systems
+                            design, data structuring, and network architecture, fostering an environment of technical
+                            rigor and operational excellence.</li>
+                    </ul>
+                </div>
+                <div class="tag-cloud">
+                    <span class="tag">MATLAB</span><span class="tag">Python</span><span
+                        class="tag">Statistics</span><span class="tag">Algorithms</span><span class="tag">Mathematical
+                        Modeling</span>
+                </div>
+            </div>
+            <div class="edu-item">
+                <div class="grade-header">
+                    <div>
+                        <span class="edu-degree">Technology Baccalaureate</span>,
+                        <span class="edu-school">IES Isabel la Católica</span>
+                    </div>
+                    <span class="edu-date">2018 – 2020</span>
+                </div>
+                <div class="edu-details">
+                    Science and Technology track. Honours. Strong foundation in mathematics and physics.
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS -->
+        <section>
+            <div class="section-title">Certifications</div>
+            <div class="cert-item">
+                <ul class="skill-list" style="display: block;">
+                    <li style="display: block; margin-bottom: 5px;"><strong>AI and Productivity
+                            (Google):</strong> Efficient use of AI tools to automate data extraction workflows.</li>
+                    <li style="display: block; margin-bottom: 5px;"><strong>Generative AI (MIT):</strong> Implementation
+                        of GenAI solutions and agentic technologies for data synthesis.</li>
+                    <li style="display: block; margin-bottom: 5px;"><strong>Internet of Things (MIT):</strong>
+                        IoT data pipelines, large-scale sensory data collection, and applied statistical models.</li>
+                    <li style="display: block; margin-top: 5px;"><strong>Aptis ESOL B2 (British Council):</strong>
+                        Official English certification. Proficient in effectively communicating complex concepts through
+                        both written and verbal channels.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section>
+            <div class="section-title">Key Projects</div>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div class="project-head">
+                        <div>
+                            <span class="project-title">CellTracker (Analytical Prototype)</span>
+                            <span class="project-badge">Machine Learning Pipeline</span>
+                        </div>
+                        <span class="project-tech">Python • Statistical Modeling • Data Visualization</span>
+                    </div>
+                    <div class="project-desc">Algorithmic tracking framework built for deep data analysis.</div>
+                    <div class="project-details">
+                        Architected an end-to-end Machine Learning pipeline combining custom models with robust
+                        statistical algorithms (Kalman Filters) to process and analyze complex data parameters. Designed
+                        logic to quantify tracking accuracy and build scalable tracking components.
+                    </div>
+                    <div class="project-features">
+                        <ul>
+                            <li>Wrote comprehensive analytical scripts to monitor data deviations and validate
+                                hypotheses.</li>
+                            <li>Generated advanced data visualizations to translate complex performance outputs into
+                                clear, presentation-ready insights.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-head">
+                        <div>
+                            <span class="project-title">MigraCell Accelerator</span>
+                            <span class="project-badge">Data Extraction</span>
+                        </div>
+                        <span class="project-tech">Python • Automation • Deep Analysis</span>
+                    </div>
+                    <div class="project-desc">Automated analysis tool that quantifies previously manual assessments.
+                    </div>
+                    <div class="project-details">
+                        Developed an analytical prototype utilizing Machine Learning for large-scale data segmentation.
+                        Programmed data extraction pipelines that drastically improved monitoring of analytical
+                        variables and tracked operational improvements.
+                    </div>
+                    <div class="project-features">
+                        <ul>
+                            <li>Applied deep learning models in an applied environment to solve real-world problems.
+                            </li>
+                            <li>Engineered reproducible scripts to ensure long-term data quality and analytical
+                                consistency.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+</body>
+
+</html>

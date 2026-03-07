@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Daniel Karimi - SDE Intern</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background: #fff;
+            line-height: 1.45;
+            font-size: 8.8pt;
+        }
+
+        .cv-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px 40px;
+            min-height: 297mm;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header-left {
+            margin-right: 25px;
+        }
+
+        .profile-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .header-center {
+            flex: 1;
+        }
+
+        .header-center h1 {
+            font-size: 18pt;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .header-center h2 {
+            font-size: 10pt;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 8.5pt;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .header-right a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 10.5pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 12px;
+            padding-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .profile-text {
+            text-align: justify;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .skill-cat h4 {
+            font-size: 9pt;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .skill-list {
+            list-style: none;
+            font-size: 8.5pt;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        .skill-list li {
+            display: inline-block;
+        }
+
+        .skill-list li:not(:last-child):after {
+            content: " • ";
+            margin: 0 3px;
+            color: var(--accent);
+        }
+
+        .exp-item {
+            margin-bottom: 15px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .exp-role {
+            font-weight: 700;
+            font-size: 10pt;
+            color: var(--primary);
+        }
+
+        .exp-company {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 9.5pt;
+        }
+
+        .exp-date {
+            font-size: 7.5pt;
+            color: var(--text-light);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .exp-details ul {
+            padding-left: 14px;
+            margin-top: 6px;
+        }
+
+        .exp-details li {
+            margin-bottom: 3px;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        .tag-cloud {
+            margin-top: 4px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #f1f5f9;
+            color: #475569;
+            padding: 1px 5px;
+            border-radius: 4px;
+            font-size: 7.5pt;
+            font-weight: 600;
+            margin-right: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .project-card {
+            border-left: 3px solid var(--accent);
+            padding-left: 12px;
+        }
+
+        .project-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .project-title {
+            font-weight: 700;
+            font-size: 10pt;
+            color: var(--primary);
+        }
+
+        .project-badge {
+            background: var(--primary);
+            color: white;
+            font-size: 7pt;
+            padding: 1px 5px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .project-tech {
+            font-size: 8pt;
+            color: var(--accent);
+            font-weight: 600;
+            font-family: monospace;
+            text-transform: uppercase;
+        }
+
+        .project-desc {
+            font-size: 9pt;
+            color: #1e293b;
+            font-weight: 500;
+            margin-bottom: 4px;
+            font-style: italic;
+        }
+
+        .project-details {
+            font-size: 8.8pt;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            text-align: justify;
+        }
+
+        .project-features {
+            font-size: 8.8pt;
+            color: var(--text-light);
+        }
+
+        .project-features ul {
+            padding-left: 14px;
+            margin-top: 3px;
+            list-style-type: square;
+        }
+
+        .edu-item,
+        .cert-item {
+            margin-bottom: 12px;
+        }
+
+        .grade-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .edu-degree {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 9.5pt;
+        }
+
+        .edu-school {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 9pt;
+        }
+
+        .edu-date {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 7.5pt;
+            white-space: nowrap;
+        }
+
+        .edu-details {
+            font-size: 8.8pt;
+            color: var(--text-main);
+            margin-top: 3px;
+            text-align: justify;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+            }
+
+            .cv-container {
+                box-shadow: none;
+                width: 100%;
+                padding: 30px;
+                margin: 0;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .exp-item,
+            .project-card,
+            .skill-cat,
+            .edu-item {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+
+        <!-- HEADER -->
+        <header>
+            <div class="header-left">
+                <img src="../../cara.jpg" alt="Profile" class="profile-img">
+            </div>
+            <div class="header-center">
+                <h1>Daniel Karimi</h1>
+                <h2 style="font-weight: 900; letter-spacing: 0.5px; font-size: 13pt;">Software Development Engineer
+                    Intern</h2>
+                <div style="margin-top: 8px;">
+                    <a href="https://cv-daniel-karimi.vercel.app/english" style="
+                        display: inline-block; background: transparent; color: var(--accent);
+                        border: 2px solid var(--accent); font-weight: 700; font-size: 8.5pt;
+                        text-decoration: none; padding: 4px 10px; border-radius: 5px;
+                        text-transform: uppercase; letter-spacing: 0.5px;">
+                        Click to view Interactive Web CV
+                    </a>
+                </div>
+            </div>
+            <div class="header-right">
+                <div>Madrid, Spain</div>
+                <div>daniel.karimi.alvarez@gmail.com</div>
+                <div>+34 654 310 492</div>
+                <div><a href="https://linkedin.com/in/daniel-karimi-alvarez">linkedin.com/in/daniel-karimi-alvarez</a>
+                </div>
+                <div><a href="https://github.com/Dankar44">github.com/Dankar44</a></div>
+            </div>
+        </header>
+
+        <!-- PROFILE -->
+        <section>
+            <div class="section-title">About Me</div>
+            <p class="profile-text">
+                Final-year Telecommunications Systems Engineering student at <strong>Universidad Politécnica de
+                    Madrid</strong>
+                (expected graduation 2025/2026), with a strong foundation in software development,
+                <strong>Object-Oriented Design (Java, Python, C++)</strong>, data structures, and algorithms.
+                I have a proven ability to learn, adapt, and thrive in fast-paced, technically demanding environments.
+            </p>
+            <p class="profile-text">
+                During my internship at CSIC, I designed, built, and owned the full lifecycle of scalable Python-based
+                software pipelines,
+                working closely with cross-disciplinary teams and applying <strong>CI/CD principles, version control
+                    (Git),
+                    and operational best practices</strong>. I have hands-on experience integrating
+                <strong>Generative AI and Deep Learning tools</strong> (PyTorch, YOLOv8) to drastically boost
+                development
+                productivity and solve real customer problems — reducing processing times from hours to minutes.
+            </p>
+            <p class="profile-text">
+                I am eager to grow at Amazon as an SDE Intern, bringing my curiosity, ownership mindset,
+                and ability to write clean, maintainable code to build and operate scalable services that directly
+                impact millions of customers worldwide.
+            </p>
+        </section>
+
+        <!-- SKILLS -->
+        <section>
+            <div class="section-title">Technical Stack</div>
+            <div class="skills-grid">
+                <div class="skill-cat">
+                    <h4>💻 SOFTWARE DEVELOPMENT</h4>
+                    <ul class="skill-list">
+                        <li>Java</li>
+                        <li>Python</li>
+                        <li>C / C++</li>
+                        <li>Object-Oriented Design</li>
+                        <li>Data Structures</li>
+                        <li>Algorithms</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>☁️ CLOUD & DISTRIBUTED SYSTEMS</h4>
+                    <ul class="skill-list">
+                        <li>AWS (Familiarity)</li>
+                        <li>Microservices Concepts</li>
+                        <li>RESTful APIs</li>
+                        <li>Cloud-Native Architecture</li>
+                        <li>Docker</li>
+                        <li>Distributed Systems</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🤖 GENAI & ML</h4>
+                    <ul class="skill-list">
+                        <li>Generative AI Tools</li>
+                        <li>PyTorch / TensorFlow</li>
+                        <li>ML Pipeline Design</li>
+                        <li>Deep Learning</li>
+                        <li>Optimization</li>
+                        <li>Automation</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🛠️ DEV PRACTICES</h4>
+                    <ul class="skill-list">
+                        <li>Git & GitHub</li>
+                        <li>CI/CD Workflows</li>
+                        <li>Agile / Scrum</li>
+                        <li>Code Reviews</li>
+                        <li>Unit Testing & QA</li>
+                        <li>Technical Documentation</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🐧 SYSTEMS & OS</h4>
+                    <ul class="skill-list">
+                        <li>Linux / Unix OS</li>
+                        <li>System Architecture</li>
+                        <li>Networking (TCP/IP)</li>
+                        <li>Bash Scripting</li>
+                        <li>Debugging & Troubleshooting</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>📡 ENGINEERING FOUNDATIONS</h4>
+                    <ul class="skill-list">
+                        <li>Problem Solving</li>
+                        <li>Analytical Thinking</li>
+                        <li>Electronics & Embedded</li>
+                        <li>Microprocessors</li>
+                        <li>Signal Processing</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- LANGUAGES -->
+        <section style="margin-top:-10px;">
+            <div style="font-size:8.8pt; border-top:1px solid #eee; padding-top:8px; color:#555;">
+                <strong>Languages:</strong> Spanish (Native) • English (B2 – Aptis ESOL, British Council – excellent
+                written and verbal communication)
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section>
+            <div class="section-title">Professional Experience</div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-role">Software & AI Engineer Intern</span>
+                        <span class="exp-company"> | CSIC – Institute of Physical and Information Technologies
+                            (ITEFI)</span>
+                    </div>
+                    <span class="exp-date">Sep 2025 – Feb 2026</span>
+                </div>
+                <div class="exp-details">
+                    <ul>
+                        <li>Took <strong>full ownership</strong> of the design, development, and deployment of scalable
+                            Python-based software pipelines for large-scale data processing, applying professional
+                            coding standards and design patterns.</li>
+                        <li>Leveraged <strong>Generative AI and Deep Learning tools</strong> (YOLOv8, PyTorch) to
+                            enhance development productivity, automating previously manual analytical workflows and
+                            slashing execution times from hours to minutes.</li>
+                        <li>Participated actively in code planning, written technical documentation, and peer reviews,
+                            maintaining clean, maintainable, and reproducible codebases in a Linux/Unix environment.
+                        </li>
+                        <li>Applied <strong>CI/CD principles and Git version control</strong> to manage source code,
+                            track changes, and ensure operational excellence across all project stages within a
+                            fast-paced research environment.</li>
+                        <li>Collaborated effectively with cross-functional scientists and engineers, translating complex
+                            technical findings into clear written and verbal communication for both technical and
+                            non-technical stakeholders.</li>
+                    </ul>
+                </div>
+                <div class="tag-cloud">
+                    <span class="tag">Python</span><span class="tag">GenAI Tools</span><span class="tag">CI/CD</span>
+                    <span class="tag">Git</span><span class="tag">OOP</span><span class="tag">Linux</span><span
+                        class="tag">Code Reviews</span>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- EDUCATION -->
+        <section style="page-break-before: always; padding-top: 20px;">
+            <div class="section-title">Education</div>
+            <div class="edu-item">
+                <div class="grade-header" style="margin-bottom: 3px;">
+                    <div>
+                        <span class="edu-degree">Telecommunications Systems Engineering (BSc)</span>
+                        <span class="edu-school" style="color: var(--accent);"> | Universidad Politécnica de Madrid
+                            (ETSIT-UPM)</span>
+                    </div>
+                    <span class="edu-date">Sep 2020 – Jul 2025/2026 (expected)</span>
+                </div>
+                <div class="edu-details" style="margin-top: 6px;">
+                    <ul style="padding-left: 14px; margin-bottom: 6px;">
+                        <li style="margin-bottom: 3px;"><strong>Programming & Software Engineering:</strong> Courses in
+                            Data Structures and Algorithms, Object-Oriented Programming (OOP) in <strong>Java and
+                                C++</strong>, software design patterns, and engineering problem-solving methodologies.
+                        </li>
+                        <li style="margin-bottom: 3px;"><strong>Systems & Networking:</strong> TCP/IP architecture,
+                            distributed operating systems, Unix/Linux environments, and scalable system design. Solid
+                            foundation in debugging and fault-tolerant architectures.</li>
+                        <li style="margin-bottom: 3px;"><strong>Electronics & Embedded Systems:</strong>
+                            Microprocessors, digital circuits, hardware-software integration, and low-level programming
+                            — highly relevant to embedded and scalable service development.</li>
+                    </ul>
+                </div>
+                <div class="tag-cloud">
+                    <span class="tag">Java</span><span class="tag">C/C++</span><span class="tag">Python</span>
+                    <span class="tag">Algorithms</span><span class="tag">Linux</span><span
+                        class="tag">Networking</span><span class="tag">Embedded Systems</span>
+                </div>
+            </div>
+            <div class="edu-item">
+                <div class="grade-header">
+                    <div>
+                        <span class="edu-degree">Technology Baccalaureate</span>,
+                        <span class="edu-school">IES Isabel la Católica</span>
+                    </div>
+                    <span class="edu-date">2018 – 2020</span>
+                </div>
+                <div class="edu-details">
+                    Science and Technology track. Honours. Strong mathematical and analytical foundation.
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS -->
+        <section>
+            <div class="section-title">Certifications</div>
+            <div class="cert-item">
+                <ul class="skill-list" style="display: block;">
+                    <li style="display: block; margin-bottom: 5px;"><strong>AI and Productivity (Google):</strong>
+                        Effective use of GenAI tools and automation workflows to maximize development productivity.</li>
+                    <li style="display: block; margin-bottom: 5px;"><strong>Generative AI (MIT):</strong> Building and
+                        deploying GenAI solutions; leveraging agentic AI technology for scalable automation.</li>
+                    <li style="display: block; margin-bottom: 5px;"><strong>Internet of Things (MIT):</strong>
+                        Distributed architectures, sensory data integration, and cloud platform connectivity for
+                        scalable IoT systems.</li>
+                    <li style="display: block; margin-top: 5px;"><strong>Aptis ESOL B2 (British Council):</strong>
+                        Official English certification demonstrating strong professional communication skills for
+                        multi-cultural, cross-functional engineering teams.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section>
+            <div class="section-title">Key Projects</div>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div class="project-head">
+                        <div>
+                            <span class="project-title">CellTracker (End-to-End Software System)</span>
+                            <span class="project-badge">Owned Full Lifecycle</span>
+                        </div>
+                        <span class="project-tech">Python • OOP • GenAI • Algorithms</span>
+                    </div>
+                    <div class="project-desc">Scalable algorithmic tracking framework — pending publication in
+                        scientific journal.</div>
+                    <div class="project-details">
+                        Owned the full development lifecycle of an end-to-end software system integrating GenAI-based
+                        detection models with classical algorithmic tracking (Kalman Filters). Designed using
+                        object-oriented principles for maximum modularity, scalability, and fault tolerance, deployable
+                        across varied research environments.
+                    </div>
+                    <div class="project-features">
+                        <ul>
+                            <li>Applied agile iteration cycles: rapid prototyping, testing, and continuous integration
+                                of feedback from cross-disciplinary team members.</li>
+                            <li>Maintained comprehensive technical documentation for each stage of the project
+                                lifecycle.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-head">
+                        <div>
+                            <span class="project-title">MigraCell Accelerator</span>
+                            <span class="project-badge">Scalable Service</span>
+                        </div>
+                        <span class="project-tech">Python • Deep Learning • Microservice Architecture</span>
+                    </div>
+                    <div class="project-desc">Automated service leveraging deep learning to eliminate manual bottlenecks
+                        in data analysis.</div>
+                    <div class="project-details">
+                        Designed and built a scalable analysis service utilizing Deep Learning (YOLOv8-seg) to automate
+                        complex data extraction processes. Architected a clean, modular codebase ensuring fault
+                        tolerance and long-term maintainability, reducing turnaround from hours to minutes.
+                    </div>
+                    <div class="project-features">
+                        <ul>
+                            <li>Leveraged GenAI tools to enhance development speed and applied best practices for
+                                writing clean, maintainable code.</li>
+                            <li>Validated correctness through automated testing and iterative precision metrics
+                                evaluation.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Daniel Karimi - Iberdrola Transformación Digital</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #0f172a;
+            --accent: #16a34a;
+            /* Iberdrola Green */
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background: #fff;
+            line-height: 1.4;
+            font-size: 8.5pt;
+        }
+
+        .cv-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #fff;
+            padding: 25px 35px;
+            min-height: 297mm;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .header-left {
+            margin-right: 25px;
+        }
+
+        .profile-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .header-center {
+            flex: 1;
+        }
+
+        .header-center h1 {
+            font-size: 18pt;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .header-center h2 {
+            font-size: 10.5pt;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 8.5pt;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .header-right a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* SECTIONS */
+        section {
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 11pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 10px;
+            padding-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        /* PROFILE */
+        .profile-text {
+            text-align: justify;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        /* SKILLS GRID */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .skill-cat h4 {
+            font-size: 9pt;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .skill-list {
+            list-style: none;
+            font-size: 8.5pt;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        .skill-list li {
+            display: inline-block;
+        }
+
+        .skill-list li:not(:last-child):after {
+            content: " • ";
+            margin: 0 3px;
+            color: var(--accent);
+        }
+
+        /* EXPERIENCE */
+        .exp-item {
+            margin-bottom: 15px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .exp-role {
+            font-weight: 700;
+            font-size: 10.5pt;
+            color: var(--primary);
+        }
+
+        .exp-company {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 10pt;
+        }
+
+        .exp-date {
+            font-size: 7.5pt;
+            color: var(--text-light);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .exp-details ul {
+            padding-left: 14px;
+            margin-top: 6px;
+        }
+
+        .exp-details li {
+            margin-bottom: 4px;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        .tag-cloud {
+            margin-top: 6px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #f1f5f9;
+            color: #475569;
+            padding: 1px 5px;
+            border-radius: 4px;
+            font-size: 7.5pt;
+            font-weight: 600;
+            margin-right: 4px;
+            margin-bottom: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* PROJECTS */
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .project-card {
+            border-left: 3px solid var(--accent);
+            padding-left: 12px;
+        }
+
+        .project-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2px;
+        }
+
+        .project-title {
+            font-weight: 700;
+            font-size: 10pt;
+            color: var(--primary);
+        }
+
+        .project-badge {
+            background: var(--primary);
+            color: white;
+            font-size: 7pt;
+            padding: 1px 5px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .project-tech {
+            font-size: 8pt;
+            color: var(--accent);
+            font-weight: 600;
+            font-family: monospace;
+            text-transform: uppercase;
+        }
+
+        .project-desc {
+            font-size: 9pt;
+            color: #1e293b;
+            font-weight: 500;
+            margin-bottom: 3px;
+            font-style: italic;
+        }
+
+        .project-details {
+            font-size: 8.8pt;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        /* EDUCATION */
+        .edu-item {
+            margin-bottom: 12px;
+        }
+
+        .grade-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .edu-degree {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 10pt;
+        }
+
+        .edu-school {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 9.5pt;
+        }
+
+        .edu-date {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 7.5pt;
+            white-space: nowrap;
+        }
+
+        /* Responsive */
+        @media print {
+            .cv-container {
+                width: 100%;
+                padding: 30px;
+                margin: 0;
+            }
+
+            .exp-item,
+            .project-card,
+            .edu-item {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+
+        <!-- HEADER -->
+        <header>
+            <div class="header-left">
+                <img src="../../cara.jpg" alt="Perfil" class="profile-img">
+            </div>
+            <div class="header-center">
+                <h1>Daniel Karimi</h1>
+                <h2 style="font-weight: 900; letter-spacing: 0.5px;">
+                    Ingeniero de Telecomunicación | Especialista en Transformación Digital &amp; IA
+                </h2>
+                <div style="margin-top: 8px;">
+                    <a href="https://cv-daniel-karimi.vercel.app/" style="
+                        display: inline-block;
+                        color: var(--accent);
+                        border: 2px solid var(--accent);
+                        font-weight: 700;
+                        font-size: 8pt;
+                        text-decoration: none;
+                        padding: 3px 10px;
+                        border-radius: 5px;
+                        text-transform: uppercase;
+                    ">
+                        Ver Portfolio Interactivo
+                    </a>
+                </div>
+            </div>
+            <div class="header-right">
+                <div>Madrid, España</div>
+                <div>daniel.karimi.alvarez@gmail.com</div>
+                <div>+34 654 310 492</div>
+                <div><a href="https://linkedin.com/in/daniel-karimi-alvarez">LinkedIn</a> | <a
+                        href="https://github.com/Dankar44">GitHub</a></div>
+            </div>
+        </header>
+
+        <!-- PROFILE -->
+        <section>
+            <div class="section-title">Resumen Profesional e Impulso Digital</div>
+            <p class="profile-text">
+                <strong>Ingeniero de Sistemas de Telecomunicación (UPM)</strong> apasionado por la disrupción
+                tecnológica y la transformación de procesos tradicionales mediante el uso de <strong>IA, Datos y
+                    Automatización</strong>.
+            </p>
+            <p class="profile-text">
+                He liderado la <strong>digitalización</strong> de procesos de análisis biológico complejos en el CSIC,
+                transformando flujos de trabajo manuales de horas de duración en sistemas automatizados de Visión
+                Artificial que operan de forma autónoma en minutos. Mi perfil une el rigor de la ingeniería de redes con
+                la agilidad del desarrollo de modelos LLM y Deep Learning (YOLO), buscando siempre maximizar la
+                eficiencia organizativa.
+            </p>
+            <p class="profile-text">
+                Hablante bilingüe/avanzado de <strong>Inglés (B2 Certificado)</strong>, con una mentalidad orientada a
+                la resolución creativa de problemas y la mejora continua, listo para impulsar la transformación digital
+                de Iberdrola hacia un mundo más inteligente y sostenible.
+            </p>
+        </section>
+
+        <!-- SKILLS / TECHNICAL STACK -->
+        <section>
+            <div class="section-title">Technical Stack & Competencias</div>
+            <div class="skills-grid" style="grid-template-columns: repeat(3, 1fr); row-gap: 20px;">
+                <div class="skill-cat">
+                    <h4>🚀 Transformación Digital</h4>
+                    <ul class="skill-list">
+                        <li>Automatización de Procesos (RPA)</li>
+                        <li>IA Generativa & Predictiva</li>
+                        <li>Digital Disruption</li>
+                        <li>Optimización de Flujos de Trabajo</li>
+                        <li>Innovación en Sistemas</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>📊 Data Analysis & Insights</h4>
+                    <ul class="skill-list">
+                        <li>Data Processing</li>
+                        <li>Pandas & NumPy</li>
+                        <li>Market Analysis</li>
+                        <li>Visualization (PowerBI)</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🗣️ Communication Skills</h4>
+                    <ul class="skill-list">
+                        <li>Fluent Spanish & English (B2)</li>
+                        <li>Active Listening</li>
+                        <li>Stakeholder Alignment</li>
+                        <li>Troubleshooting</li>
+                        <li>Presentations</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>💻 Technical Proficiency</h4>
+                    <ul class="skill-list">
+                        <li>Python • Data Pipelines</li>
+                        <li>Automation Tools</li>
+                        <li>Agile Methodologies</li>
+                        <li>Technical Solutions</li>
+                        <li>Web Development</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🎯 Operational Excellence</h4>
+                    <ul class="skill-list">
+                        <li>Project Delivery</li>
+                        <li>Ambiguity Management</li>
+                        <li>Process Optimization</li>
+                        <li>Problem Solving</li>
+                        <li>Resource Allocation</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🌐 Digital Acumen</h4>
+                    <ul class="skill-list">
+                        <li>Online Media Trends</li>
+                        <li>Tech Troubleshooting</li>
+                        <li>Digital Analytics</li>
+                        <li>SaaS Solutions</li>
+                        <li>User Experience (UX)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section>
+            <div class="section-title">Experiencia en Innovación Tecnológica</div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-role">Ingeniero de Desarrollo e IA (Beca de Innovación)</span>
+                        <span class="exp-company"> | CSIC – Instituto de Tecnologías Físicas (ITEFI)</span>
+                    </div>
+                    <span class="exp-date">Sep 2025 – Feb 2026</span>
+                </div>
+                <div class="exp-details">
+                    <ul>
+                        <li><strong>Disrupción de procesos:</strong> Identifiqué y transformé el cuello de botella en el
+                            análisis de microscopía, sustituyendo el conteo manual por un sistema de IA automatizado,
+                            eliminando el error humano.</li>
+                        <li><strong>Arquitectura de Datos:</strong> Diseñé e implementé pipelines de ingesta y
+                            normalización de datos procedentes de sensores de imagen complejos para su explotación
+                            mediante modelos YOLOv8.</li>
+                        <li><strong>Interlocución Técnica:</strong> Actué como puente entre el equipo de investigación
+                            física y el desarrollo tecnológico, traduciendo requerimientos científicos en
+                            funcionalidades digitales escalables.</li>
+                        <li><strong>Optimización:</strong> Logré una mejora masiva en el rendimiento operativo (ahorro
+                            de >90% en tiempo de procesamiento) mediante algoritmos de tracking multi-objeto y filtros
+                            de Kalman.</li>
+                    </ul>
+                </div>
+                <div class="tag-cloud">
+                    <span class="tag">Transformación Digital</span><span class="tag">Python</span><span
+                        class="tag">YOLOv8</span><span class="tag">Análisis de Datos</span><span
+                        class="tag">Automatización</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section style="page-break-before: always; padding-top: 20px;">
+            <div class="section-title">Formación Académica</div>
+            <div class="edu-item">
+                <div class="grade-header" style="margin-bottom: 3px;">
+                    <div>
+                        <span class="edu-degree">Grado en Ingeniería de Sistemas de Telecomunicación</span>
+                        <span class="edu-school" style="color: var(--accent);"> | Univ. Politécnica de Madrid
+                            (UPM)</span>
+                    </div>
+                    <span class="edu-date">Sep 2020 – Jul 2025</span>
+                </div>
+                <div class="edu-details" style="margin-top: 6px;">
+                    <ul style="padding-left: 14px; margin-bottom: 6px; list-style-type: disc;">
+                        <li style="margin-bottom: 3px;"><strong>Base Analítica:</strong> Formación superior en
+                            resolución de problemas complejos, con alto componente transversal en matemáticas,
+                            estadística discreta y programación orientada a objetos integral (OOP).</li>
+                        <li style="margin-bottom: 3px;"><strong>Integración Tecnológica:</strong> Sólido conocimiento en
+                            la convergencia entre infraestructuras hardware, captura de datos remota (IoT) y sistemas
+                            backend para su posterior minería y análisis.</li>
+                        <li style="margin-bottom: 3px;"><strong>Proyectos de Ingeniería:</strong> Aplicación práctica
+                            constante de conocimientos teóricos mediante desarrollo Ágil bajo los estrictos estándares
+                            de la UPM. Sólida base para entender la infraestructura que soporta la transformación
+                            digital global.</li>
+                    </ul>
+                </div>
+                <div class="tag-cloud">
+                    <span class="tag">Ingeniería Analítica</span><span class="tag">Telecomunicaciones</span><span
+                        class="tag">Sistemas Digitales</span>
+                </div>
+            </div>
+
+            <div class="edu-item" style="margin-top: 5px;">
+                <div class="grade-header">
+                    <div>
+                        <span class="edu-degree">Bachillerato Tecnológico Plurilingüe</span>,
+                        <span class="edu-school">IES Isabel la Católica</span>
+                    </div>
+                    <span class="edu-date">Matrícula de Honor (2018–2020)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section>
+            <div class="section-title">Proyectos de Disrupción Digital</div>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div class="project-head">
+                        <div>
+                            <span class="project-title">MigraCell Analyzer: Digitalización de Bioensayos</span>
+                            <span class="project-badge">Innovación</span>
+                        </div>
+                        <span class="project-tech">Python • YOLOv8-seg • Deep Learning</span>
+                    </div>
+                    <div class="project-desc">Plataforma inteligente para la automatización total de ensayos de
+                        migración celular.</div>
+                    <div class="project-details">
+                        Ejemplo real de transformación digital: sustitución de 8 horas de análisis visual manual por un
+                        sistema de segmentación de instancia pixel-perfect que genera reportes automáticos en menos de 5
+                        minutos con resultados 100% reproducibles.
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-head">
+                        <div>
+                            <span class="project-title">CellTracker: Seguimiento Autónomo</span>
+                            <span class="project-badge">IA + Computer Vision</span>
+                        </div>
+                        <span class="project-tech">PyTorch • Kalman Filters • OpenCV</span>
+                    </div>
+                    <div class="project-details">
+                        Implementación de un sistema de seguimiento autónomo multi-objetivo con IA. Capaz de identificar
+                        y predecir trayectorias de partículas en entornos ruidosos, optimizando la toma de datos
+                        sensoriales.
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+</body>
+
+</html>

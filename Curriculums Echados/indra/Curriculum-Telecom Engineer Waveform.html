@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Daniel Karimi - Telecommunications Engineer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background: #fff;
+            line-height: 1.45;
+            font-size: 8.8pt;
+        }
+
+        .cv-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px 40px;
+            min-height: 297mm;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header-left {
+            margin-right: 25px;
+        }
+
+        .profile-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .header-center {
+            flex: 1;
+        }
+
+        .header-center h1 {
+            font-size: 18pt;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .header-center h2 {
+            font-size: 10pt;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 8.5pt;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .header-right a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 10.5pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 12px;
+            padding-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .profile-text {
+            text-align: justify;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .skill-cat h4 {
+            font-size: 9pt;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .skill-list {
+            list-style: none;
+            font-size: 8.5pt;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        .skill-list li {
+            display: inline-block;
+        }
+
+        .skill-list li:not(:last-child):after {
+            content: " • ";
+            margin: 0 3px;
+            color: var(--accent);
+        }
+
+        .exp-item {
+            margin-bottom: 15px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .exp-role {
+            font-weight: 700;
+            font-size: 10pt;
+            color: var(--primary);
+        }
+
+        .exp-company {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 9.5pt;
+        }
+
+        .exp-date {
+            font-size: 7.5pt;
+            color: var(--text-light);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .exp-details ul {
+            padding-left: 14px;
+            margin-top: 6px;
+        }
+
+        .exp-details li {
+            margin-bottom: 3px;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        .tag-cloud {
+            margin-top: 4px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #f1f5f9;
+            color: #475569;
+            padding: 1px 5px;
+            border-radius: 4px;
+            font-size: 7.5pt;
+            font-weight: 600;
+            margin-right: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .project-card {
+            border-left: 3px solid var(--accent);
+            padding-left: 12px;
+        }
+
+        .project-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .project-title {
+            font-weight: 700;
+            font-size: 10pt;
+            color: var(--primary);
+        }
+
+        .project-badge {
+            background: var(--primary);
+            color: white;
+            font-size: 7pt;
+            padding: 1px 5px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .project-tech {
+            font-size: 8pt;
+            color: var(--accent);
+            font-weight: 600;
+            font-family: monospace;
+            text-transform: uppercase;
+        }
+
+        .project-desc {
+            font-size: 9pt;
+            color: #1e293b;
+            font-weight: 500;
+            margin-bottom: 4px;
+            font-style: italic;
+        }
+
+        .project-details {
+            font-size: 8.8pt;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            text-align: justify;
+        }
+
+        .project-features {
+            font-size: 8.8pt;
+            color: var(--text-light);
+        }
+
+        .project-features ul {
+            padding-left: 14px;
+            margin-top: 3px;
+            list-style-type: square;
+        }
+
+        .edu-item {
+            margin-bottom: 12px;
+        }
+
+        .grade-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .edu-degree {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 9.5pt;
+        }
+
+        .edu-school {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 9pt;
+        }
+
+        .edu-date {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 7.5pt;
+            white-space: nowrap;
+        }
+
+        .edu-details {
+            font-size: 8.8pt;
+            color: var(--text-main);
+            margin-top: 3px;
+            text-align: justify;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+            }
+
+            .cv-container {
+                padding: 30px;
+            }
+
+            .exp-item,
+            .project-card,
+            .skill-cat,
+            .edu-item {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+
+        <!-- HEADER -->
+        <header>
+            <div class="header-left">
+                <img src="../../cara.jpg" alt="Profile" class="profile-img">
+            </div>
+            <div class="header-center">
+                <h1>Daniel Karimi</h1>
+                <h2 style="font-weight: 900; font-size: 12pt;">Telecommunications Engineer · Waveform & Signal
+                    Processing</h2>
+                <div style="margin-top: 8px;">
+                    <a href="https://cv-daniel-karimi.vercel.app/english" style="
+                        display: inline-block; background: transparent; color: var(--accent);
+                        border: 2px solid var(--accent); font-weight: 700; font-size: 8.5pt;
+                        text-decoration: none; padding: 4px 10px; border-radius: 5px;
+                        text-transform: uppercase; letter-spacing: 0.5px;">
+                        View Interactive Web CV
+                    </a>
+                </div>
+            </div>
+            <div class="header-right">
+                <div>Madrid, Spain</div>
+                <div>daniel.karimi.alvarez@gmail.com</div>
+                <div>+34 654 310 492</div>
+                <div><a href="https://linkedin.com/in/daniel-karimi-alvarez">linkedin.com/in/daniel-karimi-alvarez</a>
+                </div>
+                <div><a href="https://github.com/Dankar44">github.com/Dankar44</a></div>
+            </div>
+        </header>
+
+        <!-- PROFILE -->
+        <section>
+            <div class="section-title">About Me</div>
+            <p class="profile-text">
+                Graduate Telecommunications Systems Engineer from the <strong>Universidad Politécnica de Madrid
+                    (ETSIT-UPM)</strong>
+                with a strong academic and applied background in <strong>Digital Signal Processing (DSP), waveform
+                    modelling,
+                    channel coding, and modulation techniques</strong>. My Teleco degree provided intensive training in
+                the exact technical areas this role requires: Layer 1 and Layer 2 communications, synchronization,
+                DSP algorithms, and hardware-software integration on digital platforms (FPGAs, microcontrollers, DSPs).
+            </p>
+            <p class="profile-text">
+                I am proficient in <strong>MATLAB and Simulink</strong> from years of academic use in signal analysis,
+                digital filtering, and system modelling, and have working knowledge of <strong>C/C++ and VHDL</strong>
+                from digital systems and embedded programming coursework. My practical research experience at CSIC
+                (ITEFI)
+                further developed my skills in rigorous <strong>system design, testing, and validation in real
+                    environments</strong>,
+                applying the full engineering lifecycle from architecture definition through to operational deployment.
+            </p>
+            <p class="profile-text">
+                I am particularly motivated by the opportunity to apply my Teleco foundations to contribute to the
+                design
+                of <strong>waveforms and data links for tactical and strategic communication systems</strong> within
+                Indra's Defence and Security division.
+            </p>
+        </section>
+
+        <!-- SKILLS -->
+        <section>
+            <div class="section-title">Technical Stack</div>
+            <div class="skills-grid">
+                <div class="skill-cat">
+                    <h4>📡 SIGNAL PROCESSING (DSP)</h4>
+                    <ul class="skill-list">
+                        <li>Digital modulation (AM, FM, QAM, OFDM)</li>
+                        <li>Channel coding & error correction</li>
+                        <li>Synchronization techniques</li>
+                        <li>Digital filtering (FIR/IIR)</li>
+                        <li>Spectral analysis (FFT, DFT)</li>
+                        <li>Noise & interference modelling</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🔧 TOOLS & LANGUAGES</h4>
+                    <ul class="skill-list">
+                        <li>MATLAB / Simulink</li>
+                        <li>Python (NumPy, SciPy)</li>
+                        <li>C / C++</li>
+                        <li>VHDL (Digital Systems)</li>
+                        <li>Java</li>
+                        <li>Bash / Linux scripting</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>💾 HARDWARE & EMBEDDED</h4>
+                    <ul class="skill-list">
+                        <li>FPGA (architecture concepts)</li>
+                        <li>Microcontrollers (ARM, PIC)</li>
+                        <li>DSP processors</li>
+                        <li>Digital circuits (VHDL logic)</li>
+                        <li>Embedded systems programming</li>
+                        <li>Hardware-software integration</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>📶 COMMUNICATIONS & NETWORKS</h4>
+                    <ul class="skill-list">
+                        <li>OSI Layer 1 (Physical layer)</li>
+                        <li>OSI Layer 2 (Data Link design)</li>
+                        <li>TCP/IP protocols</li>
+                        <li>RF & antenna fundamentals</li>
+                        <li>Wireless channel modelling</li>
+                        <li>Network architecture</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🤖 AI / ML APPLIED</h4>
+                    <ul class="skill-list">
+                        <li>Deep Learning (PyTorch)</li>
+                        <li>Computer Vision (YOLO)</li>
+                        <li>Signal anomaly detection</li>
+                        <li>Data pipeline engineering</li>
+                        <li>Docker / CI/CD deployment</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>📐 ENGINEERING FOUNDATIONS</h4>
+                    <ul class="skill-list">
+                        <li>Linear Algebra & Calculus</li>
+                        <li>Probability & Statistics</li>
+                        <li>Stochastic signals</li>
+                        <li>System modelling & simulation</li>
+                        <li>Technical documentation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- LANGUAGES -->
+        <section style="margin-top:-10px;">
+            <div style="font-size:8.8pt; border-top:1px solid #eee; padding-top:8px; color:#555;">
+                <strong>Languages:</strong> Spanish (Native) • English (B2 – Aptis ESOL, British Council)
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section>
+            <div class="section-title">Professional Experience</div>
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-role">Research & Software Engineer Intern</span>
+                        <span class="exp-company"> | CSIC – Institute of Physical and Information Technologies
+                            (ITEFI)</span>
+                    </div>
+                    <span class="exp-date">Sep 2025 – Feb 2026</span>
+                </div>
+                <div class="exp-details">
+                    <ul>
+                        <li>Designed and implemented <strong>signal processing algorithms</strong> in Python
+                            (SciPy/NumPy) for large-scale temporal data analysis, including filtering, anomaly
+                            detection, and time-series segmentation.</li>
+                        <li>Built and validated system models through <strong>simulation environments</strong>,
+                            analysing performance under varying conditions — directly analogous to MATLAB/Simulink-based
+                            waveform validation workflows.</li>
+                        <li>Developed and tested modular software components for real-time data processing pipelines,
+                            applying <strong>hardware-software co-design principles</strong> and ensuring system
+                            integration correctness.</li>
+                        <li>Contributed to the full system lifecycle from <strong>architecture definition to deployment
+                                and operational validation</strong> in Linux-based environments using Docker and CI/CD
+                            workflows.</li>
+                        <li>Collaborated in cross-disciplinary engineering and science teams, producing rigorous
+                            technical documentation and system validation reports.</li>
+                    </ul>
+                </div>
+                <div class="tag-cloud">
+                    <span class="tag">Signal Processing</span><span class="tag">Python/SciPy</span><span
+                        class="tag">System Modelling</span>
+                    <span class="tag">Hardware Integration</span><span class="tag">Simulation</span><span
+                        class="tag">Technical Documentation</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section style="page-break-before: always; padding-top: 20px;">
+            <div class="section-title">Education</div>
+            <div class="edu-item">
+                <div class="grade-header" style="margin-bottom: 3px;">
+                    <div>
+                        <span class="edu-degree">Telecommunications Systems Engineering (BSc)</span>
+                        <span class="edu-school"> | Universidad Politécnica de Madrid (ETSIT-UPM)</span>
+                    </div>
+                    <span class="edu-date">Sep 2020 – Jul 2025</span>
+                </div>
+                <div class="edu-details" style="margin-top: 6px;">
+                    <ul style="padding-left: 14px; margin-bottom: 6px;">
+                        <li style="margin-bottom: 3px;"><strong>Digital Signal Processing (DSP):</strong> In-depth study
+                            of modulation techniques (AM, FM, QAM, OFDM), channel coding (Hamming, Reed-Solomon,
+                            convolutional codes), synchronization, spectral analysis, FIR/IIR filter design, and noise
+                            modelling — core competencies for waveform design.</li>
+                        <li style="margin-bottom: 3px;"><strong>Communications Systems:</strong> Physical layer (Layer
+                            1) and Data Link layer (Layer 2) design theory, wireless channel models, RF propagation,
+                            link budget analysis, and protocol design — directly aligned with OSI Layer 1/2 waveform
+                            work described in the role.</li>
+                        <li style="margin-bottom: 3px;"><strong>MATLAB/Simulink:</strong> Extensive use throughout the
+                            degree for system simulation, signal analysis, waveform generation, and performance
+                            validation under different channel conditions (AWGN, fading channels).</li>
+                        <li style="margin-bottom: 3px;"><strong>Hardware & Digital Systems:</strong> Digital
+                            electronics, FPGA/VHDL-based design, microprocessors (ARM), embedded programming in C/C++,
+                            hardware-software integration, and real-time signal processing on embedded platforms.</li>
+                    </ul>
+                </div>
+                <div class="tag-cloud">
+                    <span class="tag">DSP</span><span class="tag">MATLAB/Simulink</span><span class="tag">VHDL</span>
+                    <span class="tag">C/C++</span><span class="tag">Layer 1/2</span><span class="tag">FPGA</span><span
+                        class="tag">Modulation</span>
+                </div>
+            </div>
+            <div class="edu-item">
+                <div class="grade-header">
+                    <div>
+                        <span class="edu-degree">Technology Baccalaureate</span>,
+                        <span class="edu-school">IES Isabel la Católica, Madrid</span>
+                    </div>
+                    <span class="edu-date">2018 – 2020</span>
+                </div>
+                <div class="edu-details">Science & Technology. Honours. Strong mathematical and physics foundations.
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS -->
+        <section>
+            <div class="section-title">Certifications</div>
+            <ul style="padding-left: 14px; font-size: 8.8pt; line-height: 1.7;">
+                <li><strong>Internet of Things (MIT):</strong> Distributed sensor architectures, real-time signal
+                    acquisition, and hardware-cloud integration — deeply complementary to embedded communication system
+                    design.</li>
+                <li><strong>Generative AI (MIT):</strong> Applied AI system design and scalable data pipeline
+                    engineering.</li>
+                <li><strong>Aptis ESOL B2 (British Council):</strong> Certified advanced English proficiency — essential
+                    for international Defence project environments and technical documentation.</li>
+            </ul>
+        </section>
+
+        <!-- PROJECTS -->
+        <section>
+            <div class="section-title">Key Projects</div>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div class="project-head">
+                        <div>
+                            <span class="project-title">CellTracker (Real-Time Signal Analysis System)</span>
+                            <span class="project-badge">System Design</span>
+                        </div>
+                        <span class="project-tech">Python • Signal Processing • Algorithm Design • Simulation</span>
+                    </div>
+                    <div class="project-desc">Pending publication in a peer-reviewed scientific journal.</div>
+                    <div class="project-details">
+                        Designed and implemented an end-to-end system for real-time temporal signal analysis and
+                        state-space tracking, validating algorithmic performance through custom simulation environments
+                        under varied noise conditions. The architecture mirrors the design-simulation-validate pipeline
+                        used in waveform engineering projects.
+                    </div>
+                    <div class="project-features">
+                        <ul>
+                            <li>Implemented predictive filtering algorithms (Kalman Filters) equivalent to
+                                synchronization and tracking algorithms used in digital communications systems.</li>
+                            <li>Validated system performance under adverse conditions through simulation — directly
+                                analogous to waveform validation in MATLAB/Simulink.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-head">
+                        <div>
+                            <span class="project-title">DSP Laboratory Projects (UPM)</span>
+                            <span class="project-badge">Academic</span>
+                        </div>
+                        <span class="project-tech">MATLAB • Simulink • VHDL • C/C++</span>
+                    </div>
+                    <div class="project-desc">Multiple lab projects in modulation, channel coding, and digital hardware
+                        design.</div>
+                    <div class="project-details">
+                        Designed and simulated digital communication systems in MATLAB/Simulink including QAM
+                        modulation, channel encoding (convolutional/turbo codes), OFDM waveforms, and BER performance
+                        analysis under AWGN and fading channels. Implemented digital logic and FSMs in VHDL for
+                        FPGA-based systems in the Digital Systems lab.
+                    </div>
+                    <div class="project-features">
+                        <ul>
+                            <li>Waveform design and simulation directly equivalent to Layer 1 physical layer
+                                implementation tasks described in this role.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+</body>
+
+</html>

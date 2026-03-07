@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Daniel Karimi - Científico de Datos</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #0f172a;
+            --accent: #1d4ed8;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background: #fff;
+            line-height: 1.45;
+            font-size: 8.8pt;
+        }
+
+        .cv-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px 40px;
+            min-height: 297mm;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .header-left {
+            margin-right: 25px;
+        }
+
+        .profile-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .header-center {
+            flex: 1;
+        }
+
+        .header-center h1 {
+            font-size: 18pt;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .header-center h2 {
+            font-size: 10pt;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 8.5pt;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .header-right a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 10.5pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 12px;
+            padding-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .profile-text {
+            text-align: justify;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .skill-cat h4 {
+            font-size: 9pt;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .skill-list {
+            list-style: none;
+            font-size: 8.5pt;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        .skill-list li {
+            display: inline-block;
+        }
+
+        .skill-list li:not(:last-child):after {
+            content: " • ";
+            margin: 0 3px;
+            color: var(--accent);
+        }
+
+        .exp-item {
+            margin-bottom: 15px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .exp-role {
+            font-weight: 700;
+            font-size: 10pt;
+            color: var(--primary);
+        }
+
+        .exp-company {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 9.5pt;
+        }
+
+        .exp-date {
+            font-size: 7.5pt;
+            color: var(--text-light);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .exp-details ul {
+            padding-left: 14px;
+            margin-top: 6px;
+        }
+
+        .exp-details li {
+            margin-bottom: 3px;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        .tag-cloud {
+            margin-top: 4px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #f1f5f9;
+            color: #475569;
+            padding: 1px 5px;
+            border-radius: 4px;
+            font-size: 7.5pt;
+            font-weight: 600;
+            margin-right: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .project-card {
+            border-left: 3px solid var(--accent);
+            padding-left: 12px;
+        }
+
+        .project-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .project-title {
+            font-weight: 700;
+            font-size: 10pt;
+            color: var(--primary);
+        }
+
+        .project-badge {
+            background: var(--primary);
+            color: white;
+            font-size: 7pt;
+            padding: 1px 5px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .project-tech {
+            font-size: 8pt;
+            color: var(--accent);
+            font-weight: 600;
+            font-family: monospace;
+            text-transform: uppercase;
+        }
+
+        .project-desc {
+            font-size: 9pt;
+            color: #1e293b;
+            font-weight: 500;
+            margin-bottom: 4px;
+            font-style: italic;
+        }
+
+        .project-details {
+            font-size: 8.8pt;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            text-align: justify;
+        }
+
+        .project-features {
+            font-size: 8.8pt;
+            color: var(--text-light);
+        }
+
+        .project-features ul {
+            padding-left: 14px;
+            margin-top: 3px;
+            list-style-type: square;
+        }
+
+        .edu-item,
+        .cert-item {
+            margin-bottom: 12px;
+        }
+
+        .grade-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .edu-degree {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 9.5pt;
+        }
+
+        .edu-school {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 9pt;
+        }
+
+        .edu-date {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 7.5pt;
+            white-space: nowrap;
+        }
+
+        .edu-details {
+            font-size: 8.8pt;
+            color: var(--text-main);
+            margin-top: 3px;
+            text-align: justify;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+            }
+
+            .cv-container {
+                box-shadow: none;
+                width: 100%;
+                padding: 30px;
+                margin: 0;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .exp-item,
+            .project-card,
+            .skill-cat,
+            .edu-item {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+
+        <!-- HEADER -->
+        <header>
+            <div class="header-left">
+                <img src="../../cara.jpg" alt="Profile" class="profile-img">
+            </div>
+            <div class="header-center">
+                <h1>Daniel Karimi</h1>
+                <h2 style="font-weight: 900; letter-spacing: 0.5px; font-size: 13pt;">Científico de Datos · Aprendizaje
+                    Automático & RL</h2>
+                <div style="margin-top: 8px;">
+                    <a href="https://cv-daniel-karimi.vercel.app/english" style="
+                        display: inline-block; background: transparent; color: var(--accent);
+                        border: 2px solid var(--accent); font-weight: 700; font-size: 8.5pt;
+                        text-decoration: none; padding: 4px 10px; border-radius: 5px;
+                        text-transform: uppercase; letter-spacing: 0.5px;">
+                        Ver CV Web Interactivo
+                    </a>
+                </div>
+            </div>
+            <div class="header-right">
+                <div>Madrid, España</div>
+                <div>daniel.karimi.alvarez@gmail.com</div>
+                <div>+34 654 310 492</div>
+                <div><a href="https://linkedin.com/in/daniel-karimi-alvarez">linkedin.com/in/daniel-karimi-alvarez</a>
+                </div>
+                <div><a href="https://github.com/Dankar44">github.com/Dankar44</a></div>
+            </div>
+        </header>
+
+        <!-- PROFILE -->
+        <section>
+            <div class="section-title">Sobre Mí</div>
+            <p class="profile-text">
+                Estudiante de Ingeniería de Sistemas de Telecomunicación en la <strong>Universidad Politécnica de
+                    Madrid</strong>
+                (graduación prevista 2025/2026), con especialización profunda en <strong>Machine Learning, Deep Learning
+                    y
+                    Computer Vision aplicados a entornos de investigación real</strong>.
+                Poseo un dominio avanzado de Python y las principales librerías científicas (NumPy, Pandas,
+                scikit-learn, PyTorch, TensorFlow),
+                fundamentado en una sólida formación matemática y estadística.
+            </p>
+            <p class="profile-text">
+                Durante mi etapa como investigador en el <strong>CSIC (ITEFI)</strong>, diseñé y desarrollé modelos de
+                Deep Learning
+                y pipelines de datos a gran escala para resolver problemas complejos en entornos de investigación
+                tecnológica avanzada.
+                Mi trabajo incluyó el diseño de <strong>sistemas de decisión algorítmica</strong> (predicción, tracking
+                y optimización),
+                la validación rigurosa de modelos, y el despliegue en entornos Linux mediante Docker y flujos CI/CD —
+                habilidades directamente aplicables a la implementación de modelos de <strong>Aprendizaje por Refuerzo
+                    (RL)</strong>
+                en sistemas críticos como la Gestión del Tráfico Aéreo (ATM).
+            </p>
+            <p class="profile-text">
+                Me apasionan los proyectos donde el Machine Learning tiene un <strong>impacto real y medible</strong>.
+                La posibilidad de aplicar RL y MARL a la seguridad y eficiencia del espacio aéreo europeo
+                me parece un reto técnico extraordinariamente motivador.
+            </p>
+        </section>
+
+        <!-- SKILLS -->
+        <section>
+            <div class="section-title">Competencias Técnicas</div>
+            <div class="skills-grid">
+                <div class="skill-cat">
+                    <h4>🤖 APRENDIZAJE AUTOMÁTICO & RL</h4>
+                    <ul class="skill-list">
+                        <li>Deep Learning (PyTorch / TF)</li>
+                        <li>Aprendizaje por Refuerzo (RL)</li>
+                        <li>Q-Learning / Policy Gradient</li>
+                        <li>Diseño de entornos (Gymnasium)</li>
+                        <li>Stable-Baselines3</li>
+                        <li>Optimización de modelos</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>📊 CIENCIA DE DATOS</h4>
+                    <ul class="skill-list">
+                        <li>Python avanzado</li>
+                        <li>NumPy / Pandas</li>
+                        <li>Scikit-learn</li>
+                        <li>Modelado estadístico</li>
+                        <li>Pipelines de datos</li>
+                        <li>Visualización de datos</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🧠 APRENDIZAJE PROFUNDO</h4>
+                    <ul class="skill-list">
+                        <li>Computer Vision (YOLO)</li>
+                        <li>Redes Neuronales Profundas</li>
+                        <li>Segmentación semántica</li>
+                        <li>Transfer Learning</li>
+                        <li>Hugging Face / LLMs</li>
+                        <li>Fine-tuning de modelos</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🚀 DESPLIEGUE & OPERACIONES ML</h4>
+                    <ul class="skill-list">
+                        <li>Docker / Kubernetes</li>
+                        <li>CI/CD (integración continua)</li>
+                        <li>Git & GitHub</li>
+                        <li>Linux / Bash</li>
+                        <li>Jupyter Notebooks</li>
+                        <li>Automatización</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>📡 INGENIERÍA & SISTEMAS</h4>
+                    <ul class="skill-list">
+                        <li>Procesado de señales (DSP)</li>
+                        <li>Sistemas distribuidos</li>
+                        <li>Redes y protocolos TCP/IP</li>
+                        <li>Microcontroladores</li>
+                        <li>Arquitectura de sistemas</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🔬 INVESTIGACIÓN</h4>
+                    <ul class="skill-list">
+                        <li>Diseño experimental</li>
+                        <li>Análisis cuantitativo</li>
+                        <li>Documentación científica</li>
+                        <li>Revisión bibliográfica</li>
+                        <li>Publicación académica</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- LANGUAGES -->
+        <section style="margin-top:-10px;">
+            <div style="font-size:8.8pt; border-top:1px solid #eee; padding-top:8px; color:#555;">
+                <strong>Idiomas:</strong> Español (Nativo) • Inglés (B2 – Aptis ESOL, British Council – nivel avanzado
+                escrito y hablado)
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section>
+            <div class="section-title">Experiencia Profesional</div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-role">Ingeniero de IA e Investigación</span>
+                        <span class="exp-company"> | CSIC – Instituto de Tecnologías Físicas y de la Información
+                            (ITEFI)</span>
+                    </div>
+                    <span class="exp-date">Sep 2025 – Feb 2026</span>
+                </div>
+                <div class="exp-details">
+                    <ul>
+                        <li>Diseñé y desarrollé <strong>modelos de Deep Learning avanzados</strong> (arquitecturas
+                            YOLOv8 personalizadas) aplicados a la detección y seguimiento de objetos en entornos
+                            complejos, utilizando PyTorch y técnicas de optimización de hiperparámetros.</li>
+                        <li>Implementé sistemas de <strong>toma de decisiones algorítmica</strong> (Filtros de Kalman y
+                            tracking predictivo) que constituyen la base conceptual del Aprendizaje por Refuerzo —
+                            optimizando comportamientos paso a paso bajo condiciones de incertidumbre.</li>
+                        <li>Creé, parametricé y validé <strong>entornos de simulación y evaluación</strong> a medida
+                            para testear el rendimiento de los modelos bajo diversas condiciones adversas, garantizando
+                            la robustez del sistema.</li>
+                        <li>Diseñé sistemas de <strong>métricas y recompensas cuantitativas</strong> para evaluar y
+                            optimizar el comportamiento predictivo de los modelos, directamente análogo al diseño de
+                            funciones de reward en RL.</li>
+                        <li>Desplegué y mantuve modelos en producción mediante <strong>Docker y flujos CI/CD</strong> en
+                            entornos Linux, garantizando la reproducibilidad y estabilidad operacional del sistema.</li>
+                        <li>Contribuí con resultados a un trabajo de investigación de metodología novedosa, actualmente
+                            <strong>pendiente de publicación en revista científica revisada por pares</strong>.
+                        </li>
+                    </ul>
+                </div>
+                <div class="tag-cloud">
+                    <span class="tag">PyTorch</span><span class="tag">Deep Learning</span><span class="tag">Algoritmos
+                        predictivos</span>
+                    <span class="tag">Docker</span><span class="tag">Python</span><span class="tag">Investigación
+                        científica</span>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- EDUCATION -->
+        <section style="page-break-before: always; padding-top: 20px;">
+            <div class="section-title">Formación Académica</div>
+            <div class="edu-item">
+                <div class="grade-header" style="margin-bottom: 3px;">
+                    <div>
+                        <span class="edu-degree">Grado en Ingeniería de Sistemas de Telecomunicación</span>
+                        <span class="edu-school" style="color: var(--accent);"> | Universidad Politécnica de Madrid
+                            (ETSIT-UPM)</span>
+                    </div>
+                    <span class="edu-date">Sep 2020 – Jul 2025</span>
+                </div>
+                <div class="edu-details" style="margin-top: 6px;">
+                    <ul style="padding-left: 14px; margin-bottom: 6px;">
+                        <li style="margin-bottom: 3px;"><strong>Fundamentos matemáticos y estadísticos:</strong> Álgebra
+                            Lineal, Cálculo, Probabilidad y Estadística — base imprescindible para el diseño e
+                            implementación de algoritmos de Machine Learning y Reinforcement Learning.</li>
+                        <li style="margin-bottom: 3px;"><strong>Procesado de Señales (DSP):</strong> Análisis espectral,
+                            filtrado digital y procesado de señal en tiempo real — altamente aplicable a la
+                            interpretación de datos de sensores en sistemas ATM.</li>
+                        <li style="margin-bottom: 3px;"><strong>Programación y Algoritmos:</strong> Estructuras de
+                            datos, diseño de algoritmos y OOP en Python, Java y C++. Capacidad demostrada para
+                            implementar soluciones eficientes y escalables.</li>
+                        <li style="margin-bottom: 3px;"><strong>Sistemas y Redes:</strong> Arquitecturas distribuidas,
+                            protocolos TCP/IP y sistemas operativos Linux — conocimientos críticos para el despliegue de
+                            modelos en entornos de producción complejos.</li>
+                    </ul>
+                </div>
+                <div class="tag-cloud">
+                    <span class="tag">Python</span><span class="tag">MATLAB</span><span class="tag">C/C++</span>
+                    <span class="tag">DSP</span><span class="tag">Estadística</span><span class="tag">Redes</span>
+                </div>
+            </div>
+            <div class="edu-item">
+                <div class="grade-header">
+                    <div>
+                        <span class="edu-degree">Bachillerato Tecnológico</span>,
+                        <span class="edu-school">IES Isabel la Católica, Madrid</span>
+                    </div>
+                    <span class="edu-date">2018 – 2020</span>
+                </div>
+                <div class="edu-details">
+                    Rama de Ciencias y Tecnología con Matrícula de Honor. Sólida base en matemáticas y física.
+                </div>
+            </div>
+        </section>
+
+        <!-- CERTIFICATIONS -->
+        <section>
+            <div class="section-title">Certificaciones</div>
+            <div class="cert-item">
+                <ul class="skill-list" style="display: block;">
+                    <li style="display: block; margin-bottom: 5px;"><strong>Inteligencia Artificial y Productividad
+                            (Google):</strong> Uso eficiente de herramientas de IA, automatización de flujos de trabajo
+                        y optimización de procesos de desarrollo.</li>
+                    <li style="display: block; margin-bottom: 5px;"><strong>IA Generativa (MIT):</strong> Implementación
+                        de soluciones GenAI, modelos fundacionales y tecnologías LLM (Hugging Face). Aplicación de IA
+                        generativa a síntesis y análisis de datos.</li>
+                    <li style="display: block; margin-bottom: 5px;"><strong>Internet of Things (MIT):</strong> Sistemas
+                        distribuidos de sensores, integración de flujos de datos en tiempo real y arquitecturas
+                        escalables — muy relevante para sistemas ATM.</li>
+                    <li style="display: block; margin-top: 5px;"><strong>Aptis ESOL B2 (British Council):</strong>
+                        Certificación oficial de inglés con nivel avanzado en comprensión lectora, escritura técnica,
+                        listening y expresión oral — capacidad demostrada para trabajar en proyectos europeos en inglés.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section>
+            <div class="section-title">Proyectos Clave</div>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div class="project-head">
+                        <div>
+                            <span class="project-title">CellTracker (Sistema de Decisión Algorítmica)</span>
+                            <span class="project-badge">Investigación Aplicada</span>
+                        </div>
+                        <span class="project-tech">PyTorch • Kalman Filter • Python • Optimización</span>
+                    </div>
+                    <div class="project-desc">Framework de seguimiento predictivo. Pendiente de publicación en revista
+                        científica.</div>
+                    <div class="project-details">
+                        Desarrollé un sistema completo de toma de decisiones secuencial basado en modelos de Deep
+                        Learning y tracking algorítmico (Filtros de Kalman). El sistema optimiza continuamente sus
+                        predicciones a partir de observaciones sucesivas del entorno — principio análogo al bucle
+                        agente-entorno en Reinforcement Learning.
+                    </div>
+                    <div class="project-features">
+                        <ul>
+                            <li>Diseñé funciones cuantitativas de evaluación del comportamiento del modelo, equivalentes
+                                a funciones de recompensa en RL.</li>
+                            <li>Implementé entornos de simulación personalizados para validar el rendimiento bajo
+                                distintas condiciones y parámetros.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-head">
+                        <div>
+                            <span class="project-title">MigraCell Accelerator</span>
+                            <span class="project-badge">Computer Vision</span>
+                        </div>
+                        <span class="project-tech">Python • YOLOv8-seg • Scikit-learn • Docker</span>
+                    </div>
+                    <div class="project-desc">Solución de análisis automatizado que reduce el tiempo de procesamiento de
+                        horas a minutos.</div>
+                    <div class="project-details">
+                        Desarrollé una herramienta de análisis de imágenes a gran escala utilizando YOLOv8 para
+                        segmentación semántica pixel-perfect. Diseñé pipelines de datos reproducibles y desplegué el
+                        sistema en un entorno Linux mediante Docker para asegurar su estabilidad operacional a largo
+                        plazo.
+                    </div>
+                    <div class="project-features">
+                        <ul>
+                            <li>Aplicación directa de principios de Deep Learning para resolver un problema real de alta
+                                complejidad analítica.</li>
+                            <li>Generación automática de informes cuantitativos y métricas de rendimiento listos para
+                                publicación científica.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+</body>
+
+</html>

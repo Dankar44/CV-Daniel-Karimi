@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Daniel Karimi - Iberia Data & IA Product Owner</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #212121;
+            --accent: #D7192D;
+            /* Iberia Red */
+            --bg-accent: #fdf2f2;
+            --text-main: #374151;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --border: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background: #fff;
+            line-height: 1.4;
+            font-size: 8.5pt;
+        }
+
+        .cv-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #fff;
+            padding: 25px 35px;
+            min-height: 297mm;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            align-items: center;
+            border-bottom: 3px solid var(--accent);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .header-left {
+            margin-right: 25px;
+        }
+
+        .profile-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2.5px solid var(--accent);
+        }
+
+        .header-center {
+            flex: 1;
+        }
+
+        .header-center h1 {
+            font-size: 19pt;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .header-center h2 {
+            font-size: 10.5pt;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 8.5pt;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .header-right a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* SECTIONS */
+        section {
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 11.5pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--primary);
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 10px;
+            padding-bottom: 4px;
+            letter-spacing: 0.5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title span {
+            color: var(--accent);
+        }
+
+        /* PROFILE */
+        .profile-text {
+            text-align: justify;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        /* SKILLS GRID */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .skill-cat {
+            background: var(--bg-light);
+            padding: 10px;
+            border-radius: 6px;
+            border-top: 2px solid var(--accent);
+        }
+
+        .skill-cat h4 {
+            font-size: 9pt;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .skill-list {
+            list-style: none;
+            font-size: 8.5pt;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        .skill-list li {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .skill-list li:before {
+            content: "•";
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* EXPERIENCE */
+        .exp-item {
+            margin-bottom: 15px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .exp-role {
+            font-weight: 800;
+            font-size: 11pt;
+            color: var(--primary);
+        }
+
+        .exp-company {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 10pt;
+        }
+
+        .exp-date {
+            font-size: 8pt;
+            color: var(--text-light);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .exp-details ul {
+            padding-left: 15px;
+            margin-top: 6px;
+        }
+
+        .exp-details li {
+            margin-bottom: 4px;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        .tag-cloud {
+            margin-top: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--bg-accent);
+            color: var(--accent);
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 7.5pt;
+            font-weight: 700;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            border: 1px solid rgba(215, 25, 45, 0.1);
+        }
+
+        /* PROJECTS */
+        .project-card {
+            border-left: 4px solid var(--accent);
+            padding-left: 15px;
+            margin-bottom: 12px;
+            background: var(--bg-light);
+            padding: 10px 15px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .project-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .project-title {
+            font-weight: 800;
+            font-size: 10.5pt;
+            color: var(--primary);
+        }
+
+        .project-tech {
+            font-size: 8pt;
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .project-details {
+            font-size: 9pt;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        /* EDUCATION */
+        .edu-item {
+            margin-bottom: 12px;
+        }
+
+        .grade-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .edu-degree {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 10.5pt;
+        }
+
+        .edu-school {
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 10pt;
+        }
+
+        .edu-date {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 8pt;
+            white-space: nowrap;
+        }
+
+        /* Responsive */
+        @media print {
+            .cv-container {
+                width: 100%;
+                padding: 25px;
+                margin: 0;
+            }
+
+            .exp-item,
+            .project-card,
+            .edu-item {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+
+        <!-- HEADER -->
+        <header>
+            <div class="header-left">
+                <img src="../../cara.jpg" alt="Perfil" class="profile-img">
+            </div>
+            <div class="header-center">
+                <h1>Daniel Karimi</h1>
+                <h2>Data &amp; IA Product Owner | Ingeniero de Estrategia de Datos</h2>
+                <div style="margin-top: 8px;">
+                    <a href="https://cv-daniel-karimi.vercel.app/" style="
+                        display: inline-block;
+                        color: #fff;
+                        background: var(--accent);
+                        font-weight: 700;
+                        font-size: 8.5pt;
+                        text-decoration: none;
+                        padding: 4px 12px;
+                        border-radius: 4px;
+                        text-transform: uppercase;
+                    ">
+                        Portfolio Interactivo
+                    </a>
+                </div>
+            </div>
+            <div class="header-right">
+                <div>Madrid, España</div>
+                <div>daniel.karimi.alvarez@gmail.com</div>
+                <div>+34 654 310 492</div>
+                <div><a href="https://linkedin.com/in/daniel-karimi-alvarez">LinkedIn</a> | <a
+                        href="https://github.com/Dankar44">GitHub</a></div>
+            </div>
+        </header>
+
+        <!-- PROFILE -->
+        <section>
+            <div class="section-title">Perfil Estratégico &amp; Visión de Producto <span>/ 01</span></div>
+            <p class="profile-text">
+                <strong>Ingeniero de Sistemas de Telecomunicación (UPM)</strong> con una mentalidad orientada a producto
+                y resultados de negocio. Especializado en actuar como <strong>puente entre equipos técnicos y áreas de
+                    dirección</strong>, traduciendo requerimientos complejos en soluciones escalables de IA y Datos.
+            </p>
+            <p class="profile-text">
+                Experto en el ciclo de vida completo del producto de datos: desde la identificación de la oportunidad de
+                negocio y el diseño analítico hasta el despliegue en producción. En mi trayectoria en el CSIC, lideré el
+                desarrollo de plataformas de análisis inteligente logrando una <strong>mejora en la eficiencia operativa
+                    superior al 90%</strong> (reducción de procesos de 8h a 5min), demostrando capacidad para priorizar
+                roadmaps basados en ROI y valor real.
+            </p>
+            <p class="profile-text">
+                Apasionado por la <strong>IA Generativa y el Machine Learning</strong> aplicado a la optimización de
+                procesos y la toma de decisiones financieras y operativas. Idiomas: <strong>Español (Nativo) e Inglés
+                    (B2+ Certificado)</strong>.
+            </p>
+        </section>
+
+        <!-- SKILLS / TECHNICAL STACK -->
+        <section>
+            <div class="section-title">Technical Stack & Competencias Senior <span>/ 01</span></div>
+            <div class="skills-grid" style="grid-template-columns: repeat(3, 1fr); row-gap: 20px;">
+                <div class="skill-cat">
+                    <h4>🎯 Product & Strategy</h4>
+                    <ul class="skill-list">
+                        <li>Roadmap & Priorización</li>
+                        <li>Stakeholder Management</li>
+                        <li>Gestión End-to-End</li>
+                        <li>Metodologías Ágiles</li>
+                        <li>ROI & Business Value</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>📊 Data Analysis & Insights</h4>
+                    <ul class="skill-list">
+                        <li>Data Processing (Pandas/NumPy)</li>
+                        <li>Market Analytics</li>
+                        <li>Visualization (Power BI)</li>
+                        <li>KPI Tracking</li>
+                        <li>SQL & Data Modeling</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🗣️ Comunicación & Liderazgo</h4>
+                    <ul class="skill-list">
+                        <li>Inglés Fluido (B2/C1)</li>
+                        <li>Interlocución Técnica</li>
+                        <li>Alineamiento Estratégico</li>
+                        <li>Gestión de Conflictos</li>
+                        <li>Presentaciones Ejecutivas</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>💻 Technical Proficiency</h4>
+                    <ul class="skill-list">
+                        <li>Python (Experto)</li>
+                        <li>Data Pipelines</li>
+                        <li>Agile & Scrum</li>
+                        <li>Cloud (Azure/AWS/GCP)</li>
+                        <li>Git & CI/CD</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🧠 IA & Deep Learning</h4>
+                    <ul class="skill-list">
+                        <li>IA Generativa & Prompting</li>
+                        <li>Computer Vision (YOLOv8)</li>
+                        <li>Machine Learning Supervisado</li>
+                        <li>PyTorch & OpenCV</li>
+                        <li>Model Deployment</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🌐 Digital Acumen</h4>
+                    <ul class="skill-list">
+                        <li>Online Media Trends</li>
+                        <li>Tech Troubleshooting</li>
+                        <li>Digital Analytics</li>
+                        <li>SaaS Solutions</li>
+                        <li>User Experience (UX)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section>
+            <div class="section-title">Experiencia en Liderazgo de Datos <span>/ 02</span></div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-role">Data &amp; IA Product Owner (Project Lead)</span>
+                        <span class="exp-company"> | CSIC – Instituto de Tecnologías Físicas (ITEFI)</span>
+                    </div>
+                    <span class="exp-date">Sep 2025 – Feb 2026</span>
+                </div>
+                <div class="exp-details">
+                    <ul>
+                        <li><strong>Liderazgo de Producto:</strong> Dirigí el diseño y evolución de una plataforma
+                            inteligente de análisis de datos, actuando como interlocutor único entre científicos y
+                            desarrolladores para alinear expectativas.</li>
+                        <li><strong>Impacto en Eficiencia:</strong> Identifiqué y eliminé cuellos de botella mediante
+                            IA, logrando que tareas críticas de análisis manual (8 horas) se conviertan en procesos
+                            automatizados de 5 minutos, con un ahorro masivo de costes operativos.</li>
+                        <li><strong>Gestión End-to-End:</strong> Supervisé todas las fases del ciclo de vida:
+                            descubrimiento del caso de uso, selección de modelos (Deep Learning), desarrollo de
+                            pipelines y validación final para despliegue en entorno productivo.</li>
+                        <li><strong>Reporting Avanzado:</strong> Creación de dashboards e indicadores de rendimiento que
+                            permiten a la dirección monitorizar la precisión y la reproducción de experimentos en tiempo
+                            real.</li>
+                    </ul>
+                </div>
+                <div class="tag-cloud">
+                    <span class="tag">Estrategia de Datos</span><span class="tag">Machine Learning</span><span
+                        class="tag">Optimización de Procesos</span><span class="tag">Python</span><span
+                        class="tag">Power BI</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section style="page-break-before: always; padding-top: 25px;">
+            <div class="section-title">Formación Académica <span>/ 03</span></div>
+            <div class="edu-item">
+                <div class="grade-header" style="margin-bottom: 3px;">
+                    <div>
+                        <span class="edu-degree">Grado en Ingeniería de Sistemas de Telecomunicación</span>
+                        <span class="edu-school" style="color: var(--accent);"> | Univ. Politécnica de Madrid
+                            (UPM)</span>
+                    </div>
+                    <span class="edu-date">Sep 2020 – Jul 2025</span>
+                </div>
+                <div class="edu-details" style="margin-top: 6px;">
+                    <ul style="padding-left: 15px; margin-bottom: 6px; list-style-type: disc;">
+                        <li><strong>Base Analítica:</strong> Formación intensiva en resolución de problemas complejos,
+                            matemáticas aplicadas y modelado estadístico para la toma de decisiones.</li>
+                        <li><strong>Proyectos de Ingeniería:</strong> Aplicación de metodologías rigurosas de desarrollo
+                            y prueba en sistemas de datos e infraestructuras críticas.</li>
+                        <li><strong>Sistemas Digitales:</strong> Diseño y depuración de arquitecturas lógicas y
+                            microprocesadores, optimizando el rendimiento a bajo nivel.</li>
+                        <li><strong>Tratamiento de Señal:</strong> Procesamiento avanzado de información digital para
+                            extracción de patrones y filtrado de ruido en entornos ruidosos.</li>
+                        <li><strong>Redes y Servicios:</strong> Configuración y gestión de infraestructuras de red,
+                            protocolos de comunicación y seguridad en la transmisión de datos.</li>
+                        <li><strong>Formación Transversal:</strong> Sólida base en programación orientada a objetos
+                            integral (OOP) y convergencia entre hardware/software.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="edu-item" style="margin-top: 5px;">
+                <div class="grade-header">
+                    <div>
+                        <span class="edu-degree">Bachillerato Tecnológico Plurilingüe</span>,
+                        <span class="edu-school">IES Isabel la Católica</span>
+                    </div>
+                    <span class="edu-date">Matrícula de Honor (2018–2020)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section>
+            <div class="section-title">Proyectos de Innovación IA <span>/ 04</span></div>
+            <div class="projects-grid">
+
+                <div class="project-card" style="border-left: 5px solid var(--accent); background: transparent;">
+                    <div class="project-head">
+                        <div>
+                            <span class="project-title" style="font-size: 11pt;">MigraCell Analyzer: Transformación
+                                mediante Computer Vision</span>
+                        </div>
+                        <span class="project-tech">Python • YOLOv8-seg • Deep Learning</span>
+                    </div>
+                    <div class="project-desc">Liderazgo en el desarrollo de un producto de IA para la automatización
+                        total de bioensayos.</div>
+                    <div class="project-details" style="font-size: 9.2pt;">
+                        Diseñé el roadmap de este producto para sustituir 8 horas de análisis visual manual por un
+                        sistema de segmentación de instancia <strong>pixel-perfect</strong>. Actué como puente entre los
+                        requisitos de laboratorio y el desarrollo técnico, logrando reportes automáticos en 5 minutos
+                        con un ahorro inmediato en tiempo y precisión de datos.
+                    </div>
+                </div>
+
+                <div class="project-card" style="border-left: 5px solid var(--accent); background: transparent;">
+                    <div class="project-head">
+                        <div>
+                            <span class="project-title">CellTracker: IA Vision Forecasting & Tracking</span>
+                        </div>
+                        <span class="project-tech">PyTorch • Multi-Object Tracking • Kalman Filters</span>
+                    </div>
+                    <div class="project-details">
+                        Implementación de un sistema de seguimiento autónomo con IA. Capaz de identificar y predecir
+                        trayectorias en entornos ruidosos, optimizando la toma de datos sensoriales. Enfoque en la
+                        robustez del modelo para despliegue en entornos críticos de investigación.
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+</body>
+
+</html>
+```

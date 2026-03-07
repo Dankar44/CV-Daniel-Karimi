@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Daniel Karimi - eSIM Technical Consultant</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background: #fff;
+            line-height: 1.4;
+            font-size: 8.5pt;
+        }
+
+        .cv-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: #fff;
+            padding: 25px 35px;
+            min-height: 297mm;
+        }
+
+        /* HEADER */
+        header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .header-left {
+            margin-right: 25px;
+        }
+
+        .profile-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .header-center {
+            flex: 1;
+        }
+
+        .header-center h1 {
+            font-size: 18pt;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 4px;
+        }
+
+        .header-center h2 {
+            font-size: 10pt;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 8.5pt;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .header-right a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* SECTIONS */
+        section {
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 10.5pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--primary);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 8px;
+            padding-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        /* PROFILE */
+        .profile-text {
+            text-align: justify;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        /* SKILLS GRID */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .skill-cat h4 {
+            font-size: 9pt;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .skill-list {
+            list-style: none;
+            font-size: 8.5pt;
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        .skill-list li {
+            display: inline-block;
+        }
+
+        .skill-list li:not(:last-child):after {
+            content: " • ";
+            margin: 0 3px;
+            color: var(--accent);
+        }
+
+        /* EXPERIENCE */
+        .exp-item {
+            margin-bottom: 15px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .exp-role {
+            font-weight: 700;
+            font-size: 10pt;
+            color: var(--primary);
+        }
+
+        .exp-company {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 9.5pt;
+        }
+
+        .exp-date {
+            font-size: 7.5pt;
+            color: var(--text-light);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .exp-details ul {
+            padding-left: 14px;
+            margin-top: 6px;
+        }
+
+        .exp-details li {
+            margin-bottom: 4px;
+            color: var(--text-main);
+            text-align: justify;
+        }
+
+        .tag-cloud {
+            margin-top: 6px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #f1f5f9;
+            color: #475569;
+            padding: 1px 5px;
+            border-radius: 4px;
+            font-size: 7.5pt;
+            font-weight: 600;
+            margin-right: 4px;
+            margin-bottom: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* PROJECTS */
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .project-card {
+            border-left: 3px solid var(--accent);
+            padding-left: 12px;
+        }
+
+        .project-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 3px;
+        }
+
+        .project-title {
+            font-weight: 700;
+            font-size: 10pt;
+            color: var(--primary);
+        }
+
+        .project-badge {
+            background: var(--primary);
+            color: white;
+            font-size: 7pt;
+            padding: 1px 5px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        .project-tech {
+            font-size: 8pt;
+            color: var(--accent);
+            font-weight: 600;
+            font-family: monospace;
+            text-transform: uppercase;
+        }
+
+        .project-desc {
+            font-size: 9pt;
+            color: #1e293b;
+            font-weight: 500;
+            margin-bottom: 4px;
+            font-style: italic;
+        }
+
+        .project-details {
+            font-size: 8.8pt;
+            color: var(--text-main);
+            margin-bottom: 6px;
+            text-align: justify;
+        }
+
+        .project-features {
+            font-size: 8.8pt;
+            color: var(--text-light);
+        }
+
+        .project-features ul {
+            padding-left: 14px;
+            margin-top: 3px;
+            list-style-type: square;
+        }
+
+        /* EDUCATION & CERTIFICATIONS */
+        .edu-item,
+        .cert-item {
+            margin-bottom: 12px;
+        }
+
+        .grade-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .edu-degree {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 9.5pt;
+        }
+
+        .edu-school {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 9pt;
+        }
+
+        .edu-date {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 7.5pt;
+            white-space: nowrap;
+        }
+
+        .edu-details {
+            font-size: 8.8pt;
+            color: var(--text-main);
+            margin-top: 3px;
+            text-align: justify;
+        }
+
+        /* Responsive Styles for Screen Viewing */
+        @media screen and (max-width: 794px) {
+            .cv-container {
+                width: 100%;
+                padding: 20px;
+                min-height: auto;
+            }
+
+            .header-center h1 {
+                font-size: 16pt;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-left {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .header-right {
+                text-align: center;
+                margin-top: 15px;
+            }
+        }
+
+        @media print {
+            body {
+                margin: 0;
+            }
+
+            .cv-container {
+                box-shadow: none;
+                width: 100%;
+                padding: 30px;
+                margin: 0;
+            }
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .exp-item,
+            .project-card,
+            .skill-cat,
+            .edu-item {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cv-container">
+
+        <!-- HEADER -->
+        <header>
+            <div class="header-left">
+                <img src="../../cara.jpg" alt="Profile" class="profile-img">
+            </div>
+            <div class="header-center">
+                <h1>Daniel Karimi</h1>
+                <h2 style="font-weight: 900; letter-spacing: 0.5px; font-size: 12pt;">
+                    Telecommunications Systems Engineer &amp; Tech Consultant
+                </h2>
+                <div style="margin-top: 8px;">
+                    <a href="https://cv-daniel-karimi.vercel.app/english" style="
+                        display: inline-block;
+                        background: transparent;
+                        color: var(--accent);
+                        border: 2px solid var(--accent);
+                        font-weight: 700;
+                        font-size: 8.5pt;
+                        text-decoration: none;
+                        padding: 4px 10px;
+                        border-radius: 5px;
+                        text-transform: uppercase;
+                        letter-spacing: 0.5px;
+                    ">
+                        Click to view Interactive Web CV
+                    </a>
+                </div>
+            </div>
+            <div class="header-right">
+                <div>Madrid, Spain</div>
+                <div>daniel.karimi.alvarez@gmail.com</div>
+                <div>+34 654 310 492</div>
+                <div><a href="https://linkedin.com/in/daniel-karimi-alvarez">linkedin.com/in/daniel-karimi-alvarez</a>
+                </div>
+                <div><a href="https://github.com/Dankar44">github.com/Dankar44</a></div>
+            </div>
+        </header>
+
+        <!-- PROFILE -->
+        <section>
+            <div class="section-title">Professional Summary</div>
+            <p class="profile-text">
+                <strong>Telecommunications Systems Engineer (Universidad Politécnica de Madrid)</strong> with deep
+                academic
+                foundations in mobile network architectures, 3GPP standards, and protocols. I bridge the gap between
+                low-level system complexities and high-level client solutions.
+            </p>
+            <p class="profile-text">
+                At the Spanish National Research Council (CSIC), I gained hands-on experience acting as the interface
+                between
+                complex technical software systems and researchers, analyzing their specific requirements and delivering
+                robust, documented data processing pipelines in Python/C++.
+            </p>
+            <p class="profile-text">
+                I am highly motivated to leverage my rigorous background in telecommunications (GSM/LTE/5G) and my
+                ability
+                to translate complex technical specifications into actionable solutions within the <strong>eSIM/SIM
+                    technical
+                    consulting</strong> space. I thrive in dynamic, client-facing environments where precise
+                communication is paramount.
+            </p>
+        </section>
+
+        <!-- SKILLS -->
+        <section>
+            <div class="section-title">Core Competencies</div>
+            <div class="skills-grid">
+                <div class="skill-cat">
+                    <h4>📡 TELECOM NETWORKS</h4>
+                    <ul class="skill-list">
+                        <li>3GPP / GSMA Concepts</li>
+                        <li>Mobile Access (GSM/LTE/5G)</li>
+                        <li>TCP/IP & Network Protocols</li>
+                        <li>Embedded Systems</li>
+                        <li>System Architecture</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>🤝 TECHNICAL CONSULTING</h4>
+                    <ul class="skill-list">
+                        <li>Requirements Analysis</li>
+                        <li>Technical Documentation</li>
+                        <li>Cross-functional Support</li>
+                        <li>Client & Team Intimacy</li>
+                        <li>Problem Solving</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>💻 SOFTWARE & SCRIPTING</h4>
+                    <ul class="skill-list">
+                        <li>Python / Bash / C++</li>
+                        <li>Linux Environments</li>
+                        <li>Data Pipelines</li>
+                        <li>Version Control (Git)</li>
+                        <li>Algorithm Optimization</li>
+                    </ul>
+                </div>
+                <div class="skill-cat">
+                    <h4>⚙️ SYSTEM INTEGRATION</h4>
+                    <ul class="skill-list">
+                        <li>Validation & Verification</li>
+                        <li>API & Interface Analysis</li>
+                        <li>Microprocessors</li>
+                        <li>Data Normalization</li>
+                        <li>Agile Concepts</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- LANGUAGES -->
+        <section style="margin-top:-5px;">
+            <div style="font-size:8.5pt; border-top:1px solid #eee; padding-top:8px; color:#555;">
+                <strong>Languages:</strong> Spanish (Native) • English (B2 – Aptis ESOL, British Council) — Fluent for
+                technical communication and multicultural environments.
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section>
+            <div class="section-title">Professional Experience</div>
+
+            <div class="exp-item">
+                <div class="exp-header">
+                    <div>
+                        <span class="exp-role">Systems Engineer Intern (Data & Algorithm Integration)</span>
+                        <span class="exp-company"> | CSIC – Institute of Physical and Information Technologies
+                            (ITEFI)</span>
+                    </div>
+                    <span class="exp-date">Sep 2025 – Feb 2026</span>
+                </div>
+                <div class="exp-details">
+                    <ul>
+                        <li>Acted as a crucial technical liaison, gathering complex algorithmic requirements from
+                            cross-disciplinary researchers (biology/physics) and translating them into functional
+                            software architecture (Python/C++).</li>
+                        <li>Engineered end-to-end data processing pipelines to handle unstructured inputs, writing
+                            extensive technical documentation to ensure system features were clearly communicated and
+                            understood by end-users.</li>
+                        <li>Performed post-implementation technical analysis and troubleshooting, iteratively improving
+                            pipeline accuracy by 15% based on direct stakeholder feedback.</li>
+                        <li>Mastered the ability to adapt quickly to new technical requirements in an agile environment,
+                            demonstrating strong autonomy, analytical problem solving, and customer (researcher)
+                            intimacy.</li>
+                        <li>Operated seamlessly in Linux environments, utilizing extensive scripting to automate
+                            integrations and reduce manual bottlenecks.</li>
+                    </ul>
+                </div>
+                <div class="tag-cloud">
+                    <span class="tag">Requirements Analysis</span><span class="tag">Technical Specifications</span><span
+                        class="tag">Python/Linux</span><span class="tag">Troubleshooting</span><span
+                        class="tag">Cross-functional Collaboration</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section style="page-break-before: always; padding-top: 40px;">
+            <div class="section-title">Education</div>
+            <div class="edu-item">
+                <div class="grade-header" style="margin-bottom: 3px;">
+                    <div>
+                        <span class="edu-degree">Telecommunications Systems Engineering</span>
+                        <span class="edu-school" style="color: var(--accent);"> | Universidad Politécnica de Madrid
+                            (ETSIT-UPM)</span>
+                    </div>
+                    <span class="edu-date">Sep 2020 – Jul 2025</span>
+                </div>
+                <div class="edu-details" style="margin-top: 6px;">
+                    <ul style="padding-left: 14px; margin-bottom: 6px;">
+                        <li style="margin-bottom: 3px;"><strong>Mobile Networks & Standards:</strong> Rigorous academic
+                            focus on modern telecommunications infrastructure, understanding the physical and link
+                            layers of GSM, UMTS, LTE, and structural paradigms of 5G access networks.</li>
+                        <li style="margin-bottom: 3px;"><strong>Protocols & System Architecture:</strong> Deep
+                            understanding of TCP/IP, OSI models, embedded systems, and the underlying logic that drives
+                            standard bodies (like 3GPP and GSMA) for interconnected devices.</li>
+                        <li style="margin-bottom: 3px;"><strong>Programming & Integration:</strong> Strong foundations
+                            in OOP (C, C++, Python, Java), enabling rapid understanding and manipulation of complex
+                            software/hardware integration systems.</li>
+                        <li style="margin-bottom: 3px;"><strong>Systems Engineering:</strong> V&V (Validation and
+                            Verification) methodologies, digital signal processing (DSP), and complex algebraic problem
+                            solving under strict deadlines.</li>
+                    </ul>
+                </div>
+                <div class="tag-cloud">
+                    <span class="tag">Mobile Comms (GSM/LTE/5G)</span><span class="tag">3GPP / GSMA Concepts</span><span
+                        class="tag">Systems Architecture</span><span class="tag">Protocols</span>
+                </div>
+            </div>
+
+            <div class="edu-item">
+                <div class="grade-header">
+                    <div>
+                        <span class="edu-degree">Technology Baccalaureate</span>,
+                        <span class="edu-school">IES Isabel la Católica</span>
+                    </div>
+                    <span class="edu-date">2018 – 2020</span>
+                </div>
+                <div class="edu-details">
+                    Science and Technology track. Honours. Rigorous foundation in mathematics and physics.
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section>
+            <div class="section-title">Highlighted Academic & Engineering Projects</div>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <div class="project-head">
+                        <div>
+                            <span class="project-title">Scalable Hardware-Software Processing Pipeline</span>
+                            <span class="project-badge">Systems Integration</span>
+                        </div>
+                        <span class="project-tech">Python • Linux • Architecture</span>
+                    </div>
+                    <div class="project-desc">Designed an architecture resolving bottlenecks in data ingestion and
+                        execution environments.</div>
+                    <div class="project-details">
+                        Developed a scalable data-handling pipeline that ingested complex unstructured data, normalized
+                        interfaces, and passed cleanly curated metrics across subsystems.
+                    </div>
+                    <div class="project-features">
+                        <ul>
+                            <li>Applied strict validation practices on data interfaces ensuring downstream algorithm
+                                accuracy, simulating real-world embedded system constraints.</li>
+                            <li>Engineered reproducible systems demonstrating the ability to bridge hardware-level
+                                constraints with high-level software functionalities.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+</body>
+
+</html>

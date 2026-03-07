@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Presentación - Daniel Karimi - Indra Data Scientist</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #334155;
+            background: #fff;
+            font-size: 9.5pt;
+            line-height: 1.55;
+        }
+
+        .page {
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            padding: 28px 45px;
+            background: white;
+        }
+
+        /* Header with name and contact */
+        .letter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 2px solid #0f172a;
+        }
+
+        .sender-info h1 {
+            font-size: 16pt;
+            font-weight: 800;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        .sender-info .title {
+            font-size: 9pt;
+            font-weight: 600;
+            color: #2563eb;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .contact-info {
+            text-align: right;
+            font-size: 9pt;
+            color: #64748b;
+            line-height: 1.7;
+        }
+
+        .contact-info a {
+            color: #334155;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Date and addressee */
+        .letter-meta {
+            margin-bottom: 14px;
+        }
+
+        .letter-date {
+            color: #64748b;
+            font-size: 9pt;
+            margin-bottom: 8px;
+        }
+
+        .addressee {
+            font-size: 10pt;
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        .addressee span {
+            display: block;
+            font-weight: 400;
+            color: #334155;
+        }
+
+        /* Subject line */
+        .subject {
+            background: #f1f5f9;
+            border-left: 4px solid #2563eb;
+            padding: 7px 12px;
+            margin-bottom: 16px;
+            font-size: 9.5pt;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        /* Body */
+        .letter-body p {
+            margin-bottom: 10px;
+            text-align: justify;
+            color: #334155;
+            page-break-inside: avoid;
+        }
+
+        /* Highlight boxes */
+        .highlight-block {
+            background: #f8fafc;
+            border-left: 3px solid #2563eb;
+            padding: 6px 12px;
+            margin: 10px 0;
+            font-size: 9.3pt;
+            color: #1e293b;
+            page-break-inside: avoid;
+        }
+
+        .highlight-block strong {
+            color: #0f172a;
+        }
+
+        /* Closing */
+        .letter-closing {
+            margin-top: 18px;
+        }
+
+        .letter-closing .salutation {
+            margin-bottom: 25px;
+        }
+
+        .signature-name {
+            font-size: 11pt;
+            font-weight: 800;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: -0.3px;
+        }
+
+        .signature-title {
+            font-size: 9pt;
+            color: #2563eb;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+            }
+
+            .page {
+                box-shadow: none;
+                padding: 35px 45px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <!-- HEADER -->
+        <div class="letter-header">
+            <div class="sender-info">
+                <h1>Daniel Karimi</h1>
+                <div class="title">Data Scientist · Machine Learning & Investigación</div>
+            </div>
+            <div class="contact-info">
+                <div>Madrid, España</div>
+                <div>daniel.karimi.alvarez@gmail.com</div>
+                <div>+34 654 310 492</div>
+                <div><a href="https://linkedin.com/in/daniel-karimi-alvarez">linkedin.com/in/daniel-karimi-alvarez</a>
+                </div>
+                <div><a href="https://github.com/Dankar44">github.com/Dankar44</a></div>
+            </div>
+        </div>
+
+        <!-- DATE & ADDRESSEE -->
+        <div class="letter-meta">
+            <div class="letter-date">Madrid, 4 de marzo de 2026</div>
+            <div class="addressee">
+                Equipo de Selección – Indra Group
+                <span>Departamento: Inteligencia Artificial / Unidad ATM</span>
+                <span>San Fernando de Henares, Madrid</span>
+            </div>
+        </div>
+
+        <!-- SUBJECT -->
+        <div class="subject">
+            RE: Candidatura a Data Scientist · Unidad ATM (Air Traffic Management) · Ref. Indra Group
+        </div>
+
+        <!-- BODY -->
+        <div class="letter-body">
+
+            <p>Estimado equipo de selección de Indra Group,</p>
+
+            <p>
+                Me dirijo a ustedes para expresar mi firme interés en la vacante de <strong>Data Scientist</strong> en
+                la
+                unidad de Air Traffic Management (ATM). Soy graduado en <strong>Ingeniería de Sistemas de
+                    Telecomunicación
+                    por la Universidad Politécnica de Madrid</strong> (ETSIT-UPM) y cuento con experiencia práctica real
+                en el diseño e implementación de modelos avanzados de Machine Learning y Deep Learning en entornos
+                de investigación tecnológica de alto nivel.
+            </p>
+
+            <p>
+                Durante mi período como investigador en el <strong>CSIC – Instituto de Tecnologías Físicas y de la
+                    Información (ITEFI)</strong>, lideré el desarrollo de sistemas de decisión algorítmica secuencial
+                basados en modelos YOLOv8 y Filtros de Kalman — entornos en los que el agente aprende a <em>predecir
+                    y optimizar</em> el estado futuro del sistema a partir de observaciones sucesivas. Este paradigma
+                es directamente análogo al bucle <strong>agente-entorno-recompensa</strong> que fundamenta el
+                Aprendizaje por Refuerzo (RL). Mi trabajo incluyó el diseño de métricas cuantitativas de evaluación,
+                la creación de entornos de simulación personalizados para validar el comportamiento de los modelos,
+                y el despliegue en producción mediante Docker en entornos Linux.
+            </p>
+
+            <div class="highlight-block">
+                <strong>Logros destacados en el CSIC:</strong><br>
+                · Reducción del tiempo de procesamiento de experimentos de horas a minutos mediante pipelines ML
+                escalables.<br>
+                · Diseño e implementación de un framework de tracking predictivo pendiente de publicación en revista
+                científica revisada por pares.<br>
+                · Despliegue operacional de modelos de Deep Learning en entornos Linux con Docker y CI/CD.
+            </div>
+
+            <p>
+                Domino con nivel avanzado las herramientas clave que describe la oferta: <strong>Python, NumPy, Pandas,
+                    scikit-learn, PyTorch y TensorFlow</strong>. Además, tengo conocimientos en tecnologías de IA
+                generativa
+                y LLMs (Hugging Face) adquiridos a través de certificaciones del MIT. Mi formación en Telecomunicaciones
+                me proporcionó una base matemática sólida (Álgebra Lineal, Probabilidad, Estadística, Procesado Digital
+                de Señal) que considero imprescindible para el diseño riguroso de algoritmos de RL como PPO, Q-Learning
+                o DQN.
+            </p>
+
+            <p>
+                La posibilidad de trabajar en la <strong>optimización del tráfico aéreo europeo mediante RL y
+                    MARL</strong>
+                me parece uno de los retos más fascinantes y de mayor impacto real que puede ofrecer el sector
+                tecnológico
+                en España actualmente. Estoy convencido de que mi perfil técnico, mi experiencia en investigación
+                aplicada
+                y mi motivación por este tipo de problemas me hacen un candidato con gran potencial de crecimiento
+                dentro
+                de la unidad ATM de Indra.
+            </p>
+
+            <p>
+                Adjunto mi currículum vitae y una carta de recomendación emitida por mis supervisores en el CSIC,
+                donde certifican mi trabajo y capacidades técnicas en proyectos de Machine Learning aplicado.
+                Quedo a su disposición para ampliar cualquier información en una entrevista.
+            </p>
+
+        </div>
+
+        <!-- CLOSING -->
+        <div class="letter-closing">
+            <p class="salutation">Atentamente, reciba un cordial saludo,</p>
+            <div class="signature-name">Daniel Karimi Álvarez</div>
+            <div class="signature-title">Graduado en Ing. de Sistemas de Telecomunicación · UPM</div>
+        </div>
+
+    </div>
+</body>
+
+</html>
