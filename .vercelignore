@@ -1,0 +1,9 @@
+# Archivos personales que no forman parte del sitio web
+Curriculums Echados/
+Certificaciones/
+Proyectos/
+*.docx
+*.pdf
+*.py
+diff.txt
+cv_diff.txt
